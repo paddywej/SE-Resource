@@ -83,7 +83,7 @@ img {
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
-  max-width: 1120px;
+  max-width: 1650px;
   margin-inline: 25px;
 }
 
@@ -133,6 +133,8 @@ img {
 /*=============== HEADER & NAV ===============*/
 .header {
   position: fixed;
+  margin-left: 20;
+  margin-right: 20;
   top: 0;
   left: 0;
   width: 100%;
@@ -187,6 +189,7 @@ img {
   flex-direction: column;
   row-gap: 2.5rem;
   text-align: center;
+  column-gap: 20rem;
 }
 
 .nav__link {
