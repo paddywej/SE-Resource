@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import "./homepage.css";
 import seLogo from "../../assets/se_logo.png";
+import close_symbol from "../../assets/close_symbol.png";
 
 const HomePage = () => {
   /*=============== LOGIN ===============*/
   const [showLogin, setShowLogin] = useState(false);
 
   const handleLoginClick = () => {
-    console.log("Log In button clicked"); 
-    setShowLogin(true); 
+    console.log("Log In button clicked");
+    setShowLogin(true);
   };
 
   const handleLoginClose = () => {
-    console.log("Log In button close"); 
-    setShowLogin(false); 
+    console.log("Log In close button clicked");
+    setShowLogin(false);
   };
 
   return (
@@ -21,15 +22,18 @@ const HomePage = () => {
       {/*==================== HEADER ====================*/}
       <header className="header" id="header">
         <nav className="nav container">
-          <a href="#">
-            <img src={seLogo} alt="seLogo" className="seLogoHome" />
-          </a>
+          <ul>
+            <li>
+              <a href="#">
+                <img src={seLogo} alt="seLogo" className="seLogoHome" />
+              </a>
+            </li>
+            <li>Software Engineering</li>
+          </ul>
 
           <div id="nav-menu">
             <ul className="nav__list">
-              <li className="nav__item">
-                  Software Engineering
-              </li>
+              <li className="nav__item"></li>
               <li className="nav__item">
                 <a href="#" className="nav__link">
                   About Us
@@ -66,8 +70,8 @@ const HomePage = () => {
                   href="#"
                   className="nav__link"
                   id="login-btn"
-                  onClick={handleLoginClick}
-                >Log In</a>
+                  onClick={handleLoginClick}>
+                  Log In</a>
               </li>
             </ul>
           </div>
@@ -76,7 +80,7 @@ const HomePage = () => {
 
       {/*==================== LOGIN ====================*/}
       {showLogin && (
-        <div className="login" id="login">
+        <div className= 'login show-login' id="login">
           <form action="" className="login__form">
             <h2 className="login__title">Log In</h2>
 
@@ -89,8 +93,7 @@ const HomePage = () => {
                   type="email"
                   placeholder="Write your email"
                   id="email"
-                  className="login__input"
-                />
+                  className="login__input"/>
               </div>
 
               <div>
@@ -101,18 +104,17 @@ const HomePage = () => {
                   type="password"
                   placeholder="Enter your password"
                   id="password"
-                  className="login__input"
-                />
+                  className="login__input"/>
               </div>
             </div>
 
             <div>
               <p className="login__signup">
-                You do not have an account? <a href="#">Sign up</a>
+                <a href="#">Sign up</a>
               </p>
 
               <a href="#" className="login__forgot">
-                You forgot your password
+                Forgot password?
               </a>
 
               <button type="submit" className="login__button">
@@ -120,12 +122,12 @@ const HomePage = () => {
               </button>
             </div>
           </form>
-
+          
           <i
-            className="ri-close-line login__close"
+            className="login__close" 
             id="login-close"
             onClick={handleLoginClose}
-          ></i>
+          ><img className="close_button" src={close_symbol}/></i>
         </div>
       )}
     </>
