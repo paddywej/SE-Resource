@@ -1,5 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+<<<<<<< Updated upstream
+=======
+import HomePage from './pages/HomePage/homepage';
+>>>>>>> Stashed changes
 
 function App() {
   return (
