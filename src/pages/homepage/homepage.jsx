@@ -1,11 +1,8 @@
-<<<<<<< Updated upstream
-=======
 import React from "react";
 import "./homepage.css";
 import seLogo from "../../assets/se_logo.png";
 
 const HomePage = () => {
-
     return (
       <>
       {/*==================== HEADER ====================*/}
@@ -126,4 +123,3 @@ const HomePage = () => {
     );
 };
 export default HomePage;
->>>>>>> Stashed changes
