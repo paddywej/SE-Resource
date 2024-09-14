@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./homepage.css";
 import seLogo from "../../assets/se_logo.png";
+import homepagePic1 from "../../assets/homepage-pic1.png";
 import close_symbol from "../../assets/close_symbol.png";
 
 const HomePage = () => {
@@ -77,6 +78,16 @@ const HomePage = () => {
           </div>
         </nav>
       </header>
+      
+      <br></br>
+      <br></br>
+      <br></br>
+
+      <div>
+      <a href="#">
+                <img src={homepagePic1} alt="homepagePic1" className="homePagePic" />
+              </a>
+      </div>
 
       {/*==================== LOGIN ====================*/}
       {showLogin && (

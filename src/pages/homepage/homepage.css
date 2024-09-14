@@ -312,6 +312,12 @@ img {
     margin-right: auto;
 }
 
+.homePagePic {
+  width: 10000px;
+  height: 24%;
+  margin-left: auto;
+  margin-right: auto;
+}
 /*=============== BREAKPOINTS ===============*/
 /* For medium devices */
 @media screen and (min-width: 576px) {
