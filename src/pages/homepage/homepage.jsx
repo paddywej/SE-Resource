@@ -10,6 +10,10 @@ import homepagePic4 from "../../assets/homepage-pic4.png";
 import button_left from "../../assets/button left.png";
 import button_right from "../../assets/button right.png";
 
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+const position = [13.7265341, 100.7748818];
+
 const HomePage = () => {
   /*=============== LOGIN ===============*/
   const [showLogin, setShowLogin] = useState(false);
@@ -89,7 +93,23 @@ const HomePage = () => {
       
        {/*==================== CONTRACT ====================*/}
        <div className="container3">
-            <p>CONTRACT</p>
+            <p>CONTACT</p>
+            <br></br>
+            
+
+
+        <MapContainer center={position} zoom={13} style={{ height: '400px', width: '100%' }}>
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
+          <Marker position={position}>
+            <Popup>
+              A pretty popup. <br /> Easily customizable.
+            </Popup>
+          </Marker>
+        </MapContainer>
+  
        </div>
 
     </>
