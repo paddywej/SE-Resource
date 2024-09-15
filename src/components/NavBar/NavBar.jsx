@@ -39,3 +39,4 @@ const Navbar = ({ handleLoginClick }) => {
 };
 
 export default Navbar;
+

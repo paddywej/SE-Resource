@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./homepage.css";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
+import HomepageMenu from "../../components/HomepageMenu/HomepageMenu";
 import homepagePic1 from "../../assets/homepage-pic1.png";
 import homepagePic2 from "../../assets/homepage-pic2.png";
 import homepagePic3 from "../../assets/homepage-pic3.png";
@@ -64,9 +65,9 @@ const HomePage = () => {
       
       {/*==================== SLIDER ====================*/}
       <div className="slider_wrapper">
-        <button className="slider_button left" onClick={handlePrevClick}>
+        <i className="slider_button left" onClick={handlePrevClick}>
         <img src={button_left} alt="button_left" className="buttonPic" />
-        </button>
+        </i>
 
         <div className="slider" ref={sliderRef}>
           {clonedImages.map((image, index) => (
@@ -79,18 +80,27 @@ const HomePage = () => {
           ))}
         </div>
 
-        <button className="slider_button right" onClick={handleNextClick}>
+        <i className="slider_button right" onClick={handleNextClick}>
         <img src={button_right} alt="button_right" className="buttonPic" />
-        </button>
+        </i>
       </div>
 
-      {/*==================== HOMEPAGE MENU ====================*/}
+      <HomepageMenu/>
+      
+       {/*==================== CONTRACT ====================*/}
+       <div className="container3">
+            <p>CONTRACT</p>
+       </div>
 
-      <div className="homepage_manu">
-
-      </div>
     </>
   );
 };
 
 export default HomePage;
+
+/*
+Remaining tasks to fix:
+  - Adjust position of the navbar menu for different screen sizes (convert to dropdown)
+  - fix Responsive typography
+*/
+

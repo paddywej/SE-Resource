@@ -1,0 +1,19 @@
+.container2 {
+    margin: 10rem;
+    width: 1150px;
+    height: 500px;
+    background-color: bisque;
+    /* overflow:; */
+}
+
+.list_menu {
+    padding-top: 5rem;
+    padding-left: 8rem;
+    display: flex;
+    flex-direction: row;
+    row-gap: 2.5rem;
+    text-align: center;
+    column-gap: 20rem;
+}
+
+
