@@ -17,16 +17,24 @@ const HomepageMenu = () => {
             </Link>
           </li>
           <li>
-            <img className="button_img" src={admission} alt="Admission" />
+            <Link to="/admission">
+                <img className="button_img" src={admission} alt="Admission" />
+            </Link>
           </li>
           <li>
-            <img className="button_img" src={news} alt="News" />
+            <Link to="/news">
+                <img className="button_img" src={news} alt="News" />
+            </Link>
           </li>
           <li>
-            <img className="button_img" src={program} alt="Program" />
+            <Link to="program">
+                <img className="button_img" src={program} alt="Program" />
+            </Link>
           </li>
           <li>
-            <img className="button_img" src={event} alt="Event" />
+            <Link to="event">
+                <img className="button_img" src={event} alt="Event" />
+            </Link>
           </li>
         </ul>
       </div>
