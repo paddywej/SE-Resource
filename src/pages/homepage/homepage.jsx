@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import "./homepage.css";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
-import seLogo from "../../assets/se_logo.png";
 import homepagePic1 from "../../assets/homepage-pic1.png";
 import homepagePic2 from "../../assets/homepage-pic2.png";
 import homepagePic3 from "../../assets/homepage-pic3.png";

@@ -14,6 +14,7 @@ const Navbar = ({ handleLoginClick }) => {
           </li>
           <li>Software Engineering</li>
         </ul>
+
         <div id="nav-menu">
           <ul className="nav__list">
             <li><a href="#" className="nav__link">About Us</a></li>
@@ -23,8 +24,9 @@ const Navbar = ({ handleLoginClick }) => {
             <li><a href="#" className="nav__link">Events</a></li>
           </ul>
         </div>
-        <div>
-          <ul className="nav__list2">
+
+        <div className="nav__right">
+          <ul>
             <li>For students</li>
             <li>
               <a href="#" className="nav__link" onClick={handleLoginClick}>Log In</a>
