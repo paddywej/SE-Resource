@@ -9,10 +9,26 @@ import homepagePic3 from "../../assets/homepage-pic3.png";
 import homepagePic4 from "../../assets/homepage-pic4.png";
 import button_left from "../../assets/button left.png";
 import button_right from "../../assets/button right.png";
+import phone from "../../assets/phone.PNG";
+import mail from "../../assets/mail.PNG";
+import location from "../../assets/location.PNG";
+import facebook from "../../assets/facebook.PNG";
+import L from 'leaflet';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 const position = [13.7265341, 100.7748818];
+
+const customMarker = new L.Icon({
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+  iconSize: [25, 41], // size of the icon
+  iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+  popupAnchor: [1, -34], // point from which the popup should open relative to the iconAnchor
+  shadowSize: [41, 41] // size of the shadow
+});
 
 const HomePage = () => {
   /*=============== LOGIN ===============*/
@@ -92,26 +108,64 @@ const HomePage = () => {
       <HomepageMenu/>
       
        {/*==================== CONTACT ====================*/}
-       <div className="container3">
-            <p>CONTACT US</p>
-            <br></br>
-            
+       <div class="container3">
+        <div class="child-container left-container">
+          <br></br>
+          <p class="contact-font">CONTACT US</p>
+          <br></br>
 
+          <MapContainer
+            center={position}
+            zoom={13}
+            style={{ 
+              height: '300px', 
+              width: '100%', 
+              borderRadius: '15px'
+            }}
+          >
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+            <Marker position={position} icon={customMarker}>
+              <Popup>
+                <strong>KMITL</strong> <br /> King Mongkut's Institute of Technology Ladkrabang
+              </Popup>
+            </Marker>
+          </MapContainer>
+          
+          <br></br>
+          <div className="icon-text">
+              <img src={location} alt="Location Icon" className="icon" />
+              <p>1 Chalong Krung 1 Alley, Lat Krabang, Khet Lat Krabang, Krung Thep Maha Nakhon 10520</p>
+            </div>
+        </div>
 
-        <MapContainer center={position} zoom={13} style={{ height: '400px', width: '100%' }}>
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          />
-          <Marker position={position}>
-            <Popup>
-              A pretty popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
-        </MapContainer>
-  
-       </div>
-
+        <div class="child-container right-container">
+          <div className="contact-info">
+            <div className="icon-text">
+              <img src={phone} alt="Phone Icon" className="icon" />
+              <p>02-329-8000</p>
+            </div>
+            <div className="icon-text">
+              <img src={phone} alt="Phone Icon2" className="icon" />
+              <p>02-329-8321</p>
+            </div>
+            <div className="icon-text">
+              <img src={mail} alt="Mail Icon" className="icon" />
+              <p>siie@kmitl.ac.th</p>
+            </div>
+            <div className="icon-text">
+              <img src={mail} alt="Mail Icon2" className="icon" />
+              <p>wiboon.pr@kmitl.ac.th</p>
+            </div>
+            <div className="icon-text">
+              <img src={facebook} alt="Facebook Icon" className="icon" />
+              <p>Software Engineering KMITL</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

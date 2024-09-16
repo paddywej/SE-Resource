@@ -87,12 +87,6 @@ img {
   margin-inline: 25px;
 }
 
-.container3 {
-  margin-top: 10rem;
-  height: 300px;
-  background-color: rgb(230, 171, 99);
-}
-
 .main {
   position: relative;
   height: 100vh;
@@ -322,3 +316,64 @@ img {
     padding: 3rem 2rem 3.5rem;
   }
 }
+
+/*design for contact*/
+.container3 {
+  margin-top: 10rem;
+  height: 550px;
+  padding-left: 40px;
+  background: linear-gradient(to bottom, #d58442, #a95c35);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.child-container {
+  width: 48%;
+  height: 100%;
+  background: linear-gradient(to bottom, #d58442, #a95c35);
+  padding: 20px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 70%;
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+.left-container {
+  width: 60%;
+  font-size: 18px;
+  font-family: "Geneva", Verdana, sans-serif;
+  color: white;
+}
+
+.right-container {
+  width: 35%;
+  font-size: 18px;
+  font-family: "Geneva", Verdana, sans-serif;
+  color: white;
+  padding-top: 105px;
+}
+
+
+.contact-font {
+  font-family: "Mitr";
+  font-weight: 500;
+  font-size: 25px;
+  color: white;
+}
+
