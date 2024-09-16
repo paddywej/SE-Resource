@@ -17,11 +17,11 @@ const Navbar = ({ handleLoginClick }) => {
 
         <div id="nav-menu">
           <ul className="nav__list">
-            <li><a href="#" className="nav__link">About Us</a></li>
-            <li><a href="#" className="nav__link">Program</a></li>
-            <li><a href="#" className="nav__link">Admission</a></li>
-            <li><a href="#" className="nav__link">News</a></li>
-            <li><a href="#" className="nav__link">Events</a></li>
+            <li><a href="/about" className="nav__link">About Us</a></li>
+            <li><a href="/program" className="nav__link">Program</a></li>
+            <li><a href="/admission" className="nav__link">Admission</a></li>
+            <li><a href="/news" className="nav__link">News</a></li>
+            <li><a href="/events" className="nav__link">Events</a></li>
           </ul>
         </div>
 

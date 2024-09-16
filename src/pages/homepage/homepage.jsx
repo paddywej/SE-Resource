@@ -91,9 +91,9 @@ const HomePage = () => {
 
       <HomepageMenu/>
       
-       {/*==================== CONTRACT ====================*/}
+       {/*==================== CONTACT ====================*/}
        <div className="container3">
-            <p>CONTACT</p>
+            <p>CONTACT US</p>
             <br></br>
             
 
