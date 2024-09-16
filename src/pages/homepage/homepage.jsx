@@ -112,6 +112,7 @@ const HomePage = () => {
         <div class="child-container left-container">
           <br></br>
           <p class="contact-font">CONTACT US</p>
+          <hr className="custom-separator" />
           <br></br>
 
           <MapContainer

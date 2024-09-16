@@ -345,7 +345,7 @@ img {
 .icon-text {
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
 .icon {
@@ -366,7 +366,7 @@ img {
   font-size: 18px;
   font-family: Verdana, sans-serif;
   color: white;
-  padding-top: 105px;
+  padding-top: 128px;
 }
 
 
@@ -376,4 +376,13 @@ img {
   font-size: 25px;
   color: white;
 }
+
+.custom-separator {
+  width: 50%; 
+  height: 2px; 
+  background-color: white; 
+  border: none; 
+  margin: 10px 0; 
+}
+
 
