@@ -357,14 +357,14 @@ img {
 .left-container {
   width: 60%;
   font-size: 18px;
-  font-family: "Geneva", Verdana, sans-serif;
+  font-family: Verdana, sans-serif;
   color: white;
 }
 
 .right-container {
   width: 35%;
   font-size: 18px;
-  font-family: "Geneva", Verdana, sans-serif;
+  font-family: Verdana, sans-serif;
   color: white;
   padding-top: 105px;
 }
@@ -372,7 +372,7 @@ img {
 
 .contact-font {
   font-family: "Mitr";
-  font-weight: 500;
+  font-weight: 420;
   font-size: 25px;
   color: white;
 }
