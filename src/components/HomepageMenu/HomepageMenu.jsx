@@ -27,12 +27,12 @@ const HomepageMenu = () => {
             </Link>
           </li>
           <li>
-            <Link to="program">
+            <Link to="/program">
                 <img className="button_img" src={program} alt="Program" />
             </Link>
           </li>
           <li>
-            <Link to="event">
+            <Link to="/event">
                 <img className="button_img" src={event} alt="Event" />
             </Link>
           </li>

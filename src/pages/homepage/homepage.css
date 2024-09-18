@@ -385,4 +385,12 @@ img {
   margin: 10px 0; 
 }
 
+.contact-links {
+  text-decoration: none;
+  color:white;
+  display: flex;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
 

@@ -161,8 +161,10 @@ const HomePage = () => {
               <p>wiboon.pr@kmitl.ac.th</p>
             </div>
             <div className="icon-text">
-              <img src={facebook} alt="Facebook Icon" className="icon" />
-              <p>Software Engineering KMITL</p>
+              <a href="https://www.facebook.com/sekmitl/?locale=th_TH" target="_blank" class="contact-links" >
+                <img src={facebook} alt="Facebook Icon" className="icon" />
+                <p>Software Engineering KMITL</p>
+              </a> 
             </div>
           </div>
         </div>
