@@ -385,4 +385,19 @@ img {
   margin: 10px 0; 
 }
 
+.contact-links {
+  text-decoration: none;
+  color:white;
+  display: flex;
+  align-items: center;
+}
 
+.copy-button {
+  cursor: pointer;
+}
+
+
+.hover-link:hover {
+  color: rgb(59, 59, 59);
+  transition: color 0.3s ease;
+}
