@@ -323,7 +323,7 @@ img {
   height: 550px;
   padding-left: 40px;
   background: linear-gradient(to bottom, #d58442, #a95c35);
-  display: flex;
+  display:flex;
   justify-content: space-between;
   align-items: flex-start;
 }

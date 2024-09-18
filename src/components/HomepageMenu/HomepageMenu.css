@@ -1,27 +1,53 @@
 .container2 {
-    margin: 10rem;
-    width: 1150px;
-    height: 500px;
-    background-color: bisque;
-    overflow: hidden; /* Added overflow to prevent content spill */
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    margin-top: 13rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
 }
 
 .list_menu {
-    padding-top: 5rem;
-    padding-left: 8rem;
+    list-style: none;
     display: flex;
-    flex-direction: row;
-    row-gap: 2.5rem;
-    text-align: center;
-    column-gap: 5rem; /* Reduced gap for better spacing */
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    width: 100%; 
+}
+
+.list_menu li {
+    margin: 1rem;
+    flex: 1 1 calc(33.33% - 2rem); 
+    display: flex;
+    justify-content: center;
 }
 
 .button_img {
-    width: 300px; /* Adjusted to a reasonable size */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 2rem;
+    width: 100%;
+    max-width: 300px;
+    min-width: 80px;
+    height: auto;
+    border-radius: 1.5rem;
+    transition: box-shadow 0.3s ease; 
 }
 
 .button_img:hover {
     box-shadow: 0 8px 32px hsla(230, 75%, 15%, 0.2);
+}
+
+
+@media screen and (max-width: 600px) {
+    .container2 {
+        flex-direction: column;
+    }
+
+    .list_menu li {
+        flex: 1 1 100%; 
+        margin: 1.5rem;
+    }
+
+    .button_img {
+        max-width: 100px; 
+    }
 }
