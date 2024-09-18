@@ -78,6 +78,16 @@ const HomePage = () => {
     }
   }, []);
 
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        alert(`${text} copied to clipboard!`);
+      })
+      .catch(() => {
+        alert('Failed to copy to clipboard.');
+      });
+  };
+
   return (
     <>
       <Navbar handleLoginClick={handleLoginClick} />
@@ -136,29 +146,33 @@ const HomePage = () => {
           </MapContainer>
           
           <br></br>
-          <div className="icon-text">
-              <img src={location} alt="Location Icon" className="icon" />
+          <div className="icon-text copy-button" onClick={() => copyToClipboard('1 Chalong Krung 1 Alley, Lat Krabang, Khet Lat Krabang, Krung Thep Maha Nakhon 10520')} >
+              <img src={location} alt="Location Icon" className="icon"/>
               <p>1 Chalong Krung 1 Alley, Lat Krabang, Khet Lat Krabang, Krung Thep Maha Nakhon 10520</p>
             </div>
         </div>
 
         <div class="child-container right-container">
           <div className="contact-info">
-            <div className="icon-text">
+            <div className="icon-text copy-button" onClick={() => copyToClipboard('02-329-8000')}>
               <img src={phone} alt="Phone Icon" className="icon" />
               <p>02-329-8000</p>
             </div>
-            <div className="icon-text">
+            <div className="icon-text copy-button" onClick={() => copyToClipboard('02-329-8321')}>
               <img src={phone} alt="Phone Icon2" className="icon" />
               <p>02-329-8321</p>
             </div>
             <div className="icon-text">
-              <img src={mail} alt="Mail Icon" className="icon" />
-              <p>siie@kmitl.ac.th</p>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=siie@kmitl.ac.th&su=Subject%20Here&body=Message%20body" target="_blank" class="contact-links" >
+                <img src={mail} alt="Mail Icon" className="icon" />
+                <p>siie@kmitl.ac.th</p>
+              </a>
             </div>
             <div className="icon-text">
-              <img src={mail} alt="Mail Icon2" className="icon" />
-              <p>wiboon.pr@kmitl.ac.th</p>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wiboon.pr@kmitl.ac.th&su=Subject%20Here&body=Message%20body" target="_blank" class="contact-links" >
+                <img src={mail} alt="Mail Icon2" className="icon" />
+                <p>wiboon.pr@kmitl.ac.th</p>
+              </a>
             </div>
             <div className="icon-text">
               <a href="https://www.facebook.com/sekmitl/?locale=th_TH" target="_blank" class="contact-links" >
