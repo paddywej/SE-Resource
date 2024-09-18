@@ -397,3 +397,7 @@ img {
 }
 
 
+.hover-link:hover {
+  color: rgb(59, 59, 59);
+  transition: color 0.3s ease;
+}
