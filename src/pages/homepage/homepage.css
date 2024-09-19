@@ -359,6 +359,7 @@ img {
   font-size: 18px;
   font-family: Verdana, sans-serif;
   color: white;
+  padding-top: 0px;
 }
 
 .right-container {
@@ -366,7 +367,7 @@ img {
   font-size: 18px;
   font-family: Verdana, sans-serif;
   color: white;
-  padding-top: 128px;
+  padding-top: 100px;
 }
 
 
