@@ -8,7 +8,7 @@ const Navbar = ({ handleLoginClick }) => {
       <nav className="nav container">
         <ul>
           <li>
-            <a href="#">
+            <a href="/">
               <img src={seLogo} alt="seLogo" className="seLogoHome" />
             </a>
           </li>

@@ -32,10 +32,10 @@ const Login = ({ showLogin, handleLoginClose }) => {
             </div>
           </div>
           <div>
+            <p>Don't have an account yet?</p>
             <p className="login__signup">
-              <a href="#">Sign up</a>
+              <a href="/register">Register Now</a>
             </p>
-            <a href="#" className="login__forgot">Forgot password?</a>
             <button type="submit" className="login__button">Log In</button>
           </div>
         </form>
