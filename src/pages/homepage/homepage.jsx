@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./homepage.css";
+import "./HomePage.css";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
 import HomepageMenu from "../../components/HomepageMenu/HomepageMenu";
