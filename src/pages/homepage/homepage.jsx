@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./HomePage.css";
+import "./Homepage.css";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
 import HomepageMenu from "../../components/HomepageMenu/HomepageMenu";
@@ -16,9 +16,9 @@ import facebook from "../../assets/facebook.PNG";
 import L from 'leaflet';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-
 import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+
 const position = [13.7265341, 100.7748818];
 
 const customMarker = new L.Icon({
@@ -31,11 +31,10 @@ const customMarker = new L.Icon({
 });
 
 const HomePage = () => {
-  /*=============== LOGIN ===============*/
   const [showLogin, setShowLogin] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null); 
-  const images = [homepagePic1, homepagePic2, homepagePic3, homepagePic4];
+  const images = [homepagePic3, homepagePic2, homepagePic4, homepagePic1];
   const clonedImages = [images[images.length - 1], ...images, images[0]];
 
   const handleLoginClick = () => setShowLogin(true);
@@ -78,6 +77,16 @@ const HomePage = () => {
     }
   }, []);
 
+  // Function to handle auto sliding
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      handleNextClick(); // Automatically moves to the next slide
+    }, 7500); // Adjust the interval as needed
+
+    // Clear the interval on component unmount or when the slider is interacted with
+    return () => clearInterval(slideInterval);
+  }, [currentIndex]);
+
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text)
       .then(() => {
@@ -118,12 +127,12 @@ const HomePage = () => {
       <HomepageMenu/>
       
        {/*==================== CONTACT ====================*/}
-       <div class="container3">
-        <div class="child-container left-container">
-          <br></br>
-          <p class="contact-font">CONTACT US</p>
+       <div className="container3">
+        <div className="child-container left-container">
+          <br />
+          <p className="contact-font">CONTACT US</p>
           <hr className="custom-separator" />
-          <br></br>
+          <br />
 
           <MapContainer
             center={position}
@@ -145,14 +154,14 @@ const HomePage = () => {
             </Marker>
           </MapContainer>
           
-          <br></br>
+          <br />
           <div className={'hover-link icon-text copy-button'} onClick={() => copyToClipboard('1 Chalong Krung 1 Alley, Lat Krabang, Khet Lat Krabang, Krung Thep Maha Nakhon 10520')} >
               <img src={location} alt="Location Icon" className="icon"/>
               <p>1 Chalong Krung 1 Alley, Lat Krabang, Khet Lat Krabang, Krung Thep Maha Nakhon 10520</p>
             </div>
         </div>
 
-        <div class="child-container right-container">
+        <div className="child-container right-container">
           <div className="contact-info">
             <div className={'hover-link icon-text copy-button'} onClick={() => copyToClipboard('02-329-8000')}>
               <img src={phone} alt="Phone Icon" className="icon" />
@@ -188,10 +197,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-/*
-Remaining tasks to fix:
-  - Adjust position of the navbar menu for different screen sizes (convert to dropdown)
-  - fix Responsive typography
-*/
 
