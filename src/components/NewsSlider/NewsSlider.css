@@ -1,0 +1,211 @@
+/* Container for the slider */
+.slider-container2 {
+    width: 90%; /* Adjust the overall width of the container */
+    max-width: 65rem; /* Limit maximum width */
+    margin-left: auto;
+    margin-right: auto; /* Center the container horizontally */
+    padding: 40px 0; /* Add some padding to prevent disappearing on small screens */
+}
+
+/* Individual slide */
+.news-slide {
+    background-color: white;
+    height: 450px;
+    color: black;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px; /* Add spacing between the slides */
+    transform: scale(0.9); /* Scale down the slide */
+    transition: transform 0.3s ease; /* Add a smooth transition */
+}
+
+.news-slide:hover {
+    transform: scale(1); /* Scale back to normal on hover */
+}
+
+/* Header section with image */
+.slide-header {
+    height: 224px;
+    background-color: rgb(222, 134, 27);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.slide-image {
+    height: 176px;
+    width: 176px;
+    border-radius: 50%;
+}
+
+/* Slide content section */
+.slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+}
+
+.slide-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.slide-review {
+    text-align: center;
+}
+
+.slide-button {
+    background-color: rgb(222, 134, 27);
+    color: white;
+    font-size: 1.125rem;
+    padding: 8px 24px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    display: block; /* Ensure the button is a block element */
+    width: auto; /* Default for larger screens */
+}
+
+
+/* Slick dots */
+.slick-dots li.slick-active button:before {
+    color: rgb(222, 134, 27) !important;
+}
+
+/* Base styles for arrows */
+.slider-container2 .slick-prev,
+.slider-container2 .slick-next {
+    color: rgb(222, 134, 27);
+    font-size: 2rem;
+    z-index: 1;
+    width: 35px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Position the arrows for slider-container2 */
+.slider-container2 .slick-prev {
+    left: -12px !important; /* Move the left arrow further left */
+}
+
+.slider-container2 .slick-next {
+    right: -33px !important; /* Move the right arrow further right */
+}
+
+/* For small devices (mobile) */
+@media screen and (max-width: 639px) {
+    .slider-container2 {
+        width: 88%; /* Full width on mobile */
+    }
+
+    .slide-header {
+        height: 150px; /* Adjust header height */
+    }
+
+    .slide-image {
+        height: 100px; /* Smaller image size */
+        width: 100px; /* Smaller image size */
+    }
+
+    .slide-title {
+        font-size: 1rem; /* Smaller title font size */
+    }
+
+    .slide-review {
+        font-size: 0.875rem; /* Smaller review font size */
+    }
+
+    .slide-button {
+        font-size: 1rem; /* Smaller button font size */
+        padding: 6px 16px; /* Adjust padding */
+    }
+}
+
+/* For medium devices */
+@media screen and (min-width: 640px) and (max-width: 1023px) {
+    .slider-container2 {
+        width: 90%; /* Slightly reduce width */
+    }
+
+    .news-slide {
+        height: 350px; /* Adjust height for medium screens */
+    }
+
+    .slide-header {
+        height: 180px; /* Adjust header height */
+    }
+
+    .slide-image {
+        height: 130px; /* Medium image size */
+        width: 130px; /* Medium image size */
+    }
+
+    .slide-title {
+        font-size: 1.125rem; /* Medium title font size */
+    }
+
+    .slide-review {
+        font-size: 1rem; /* Medium review font size */
+    }
+
+    .slide-button {
+        font-size: 1.125rem; /* Medium button font size */
+        padding: 8px 20px; /* Adjust padding */
+    }
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+    .nav {
+        height: calc(var(--header-height) + 2rem);
+        column-gap: 3rem;
+    }
+
+    .nav__close,
+    .nav__toggle {
+        display: none;
+    }
+
+    .nav__menu {
+        margin-left: auto;
+    }
+
+    .nav__list {
+        flex-direction: row;
+        column-gap: 3rem;
+    }
+
+    .nav__list2 {
+        flex-direction: row;
+        column-gap: 1rem;
+    }
+
+    .login__form {
+        padding: 3rem 2rem 3.5rem;
+    }
+
+    hr {
+        width: 65rem; /* Keep width at 65rem for large screens */
+        border-width: 3px; /* Default hr size */
+    }
+
+    .quote h1 {
+        font-size: 1.5rem; /* Default font size for large screens */
+        line-height: 2rem;
+    }
+
+    .quote h2 {
+        font-size: 1.25rem; /* Default font size for large screens */
+        line-height: 1.75rem; /* Default line height for large screens */
+    }
+}

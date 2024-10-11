@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import seLogo from "../../assets/se_logo.png";
+import menu_icon from "../../assets/menu_icon.png"
+import close_icon from "../../assets/close_symbol.png"
 import "./NavBar.css";
 
 const Navbar = ({ handleLoginClick }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -21,26 +23,25 @@ const Navbar = ({ handleLoginClick }) => {
           <li>Software Engineering</li>
         </ul>
 
-        <div id="nav-menu">
-          <ul className="nav__list">
-            <li><a href="/about" className="nav__link">About Us</a></li>
-            <li className="dropdown">
-              <a
-                href="#"
-                className="nav__link"
-                onClick={toggleDropdown}
-              >
-                Program ▼
-              </a>
-              {isDropdownOpen && (
-                <ul className="dropdown-menu">
-                  <li><a href="/program" className="dropdown-link">Software Engineering 2024</a></li>
-                  <li><a href="/glasgow" className="dropdown-link">KMITL-Glasgow</a></li>
-                  <li><a href="/queensland" className="dropdown-link">KMITL-Queensland</a></li>
-                  <li><a href="/exchange" className="dropdown-link">Exchange-Study-Abroad</a></li>
+        {/* Toggle button for small screens */}
+        <div className="nav__toggle" onClick={toggleMenu}>
+          {isMenuOpen ? <img src={close_icon} alt="close" className="close_button" /> : <img src={menu_icon} alt="menu" className="menu_button" />}
+        </div>
 
-                </ul>
-              )}
+        {/* Mobile Dropdown Menu */}
+        <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
+          <ul className="nav__list">
+            <li>
+              <a href="/about" className="nav__link">About Us</a>
+            </li>
+            <li className="dropdown">
+              <a href="#" className="nav__link">Program ▼</a>
+              <ul className="dropdown-menu">
+                <li><a href="/program" className="dropdown-link">Software Engineering 2024</a></li>
+                <li><a href="/glasgow" className="dropdown-link">KMITL-Glasgow</a></li>
+                <li><a href="/queensland" className="dropdown-link">KMITL-Queensland</a></li>
+                <li><a href="/exchange" className="dropdown-link">Exchange-Study-Abroad</a></li>
+              </ul>
             </li>
             <li><a href="/admission" className="nav__link">Admission</a></li>
             <li><a href="/news" className="nav__link">News</a></li>
@@ -50,7 +51,8 @@ const Navbar = ({ handleLoginClick }) => {
 
         <div className="nav__right">
           <ul>
-            <li>For students</li>
+            <li>
+              <div className="forS">For students</div></li>
             <li>
               <a href="#" className="nav__link" onClick={handleLoginClick}>Log In</a>
             </li>
