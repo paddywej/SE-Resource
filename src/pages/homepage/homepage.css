@@ -506,13 +506,13 @@ hr {
   }
   .quote p {
     font-size: 1.3rem;  /* Default font size for large screens */
-    line-height: 2rem;
+    line-height: 2.5rem;
     font-family: "Lexend Deca";
   }
 
   .quote strong {
     font-size: 1.5rem;  /* Default font size for large screens */
-    line-height: 2.5rem;
+    line-height: 3rem;
     font-weight: 2rem;
     font-family: "Lexend Deca";
     color: #5b65a4;
