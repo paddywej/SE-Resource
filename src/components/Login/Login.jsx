@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import close_symbol from "../../assets/close_symbol.png"; // Assuming this is your close icon path
+import React, { useState, close_symbol, useNavigate } from "react";
 
-const Login = ({ showLogin, handleLoginClose, setLoggedIn, setUsername }) => {
+const Login = ({ showLogin, handleLoginClose, setLoggedIn, setUsername, setShowArchive }) => {  // Added setShowArchive prop
   const [studentId, setStudentId] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -11,7 +9,7 @@ const Login = ({ showLogin, handleLoginClose, setLoggedIn, setUsername }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage(""); // Clear any previous errors
+    setErrorMessage("");
   
     try {
       const response = await fetch("http://127.0.0.1:8000/login/", {
@@ -26,15 +24,17 @@ const Login = ({ showLogin, handleLoginClose, setLoggedIn, setUsername }) => {
       });
   
       const data = await response.json();
-      console.log("Response data:", data); // Log the JSON data
+      console.log("Response data:", data);
   
       if (response.status === 200) {
         console.log("Login successful");
-        setLoggedIn(true); // Set logged-in status in parent component
-        setUsername(data.username); // Set username from the response
-        localStorage.setItem("username", data.username); // Store username for persistence
-        handleLoginClose(); // Close the login modal
-        navigate("/"); // Redirect to homepage
+        setLoggedIn(true);
+        setUsername(data.username);
+        setShowArchive(data.showArchive); // Set archive permission from backend
+        localStorage.setItem("username", data.username);
+        localStorage.setItem("showArchive", data.showArchive); // Store archive permission
+        handleLoginClose();
+        navigate("/");
       } else {
         setErrorMessage(data.detail || "An error occurred.");
       }
@@ -43,7 +43,6 @@ const Login = ({ showLogin, handleLoginClose, setLoggedIn, setUsername }) => {
       setErrorMessage("Error during login. Please try again later.");
     }
   };
-
   return (
     showLogin && (
       <div className="login show-login" id="login">

@@ -6,11 +6,36 @@ import "./NavBar.css";
 
 const Navbar = ({ loggedIn, username, handleLoginClick, handleLogout }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showArchive, setShowArchive] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // this handle login response
+  const handleLogin = async (credentials) => {
+    try {
+      const response = await fetch('http://localhost:8000/login/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(credentials)
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setShowArchive(data.showArchive);
+        // Call the parent's handleLoginClick with the user data
+        handleLoginClick(data);
+      } else {
+        const error = await response.json();
+        console.error('Login failed:', error.detail);
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+    }
+  };
   return (
     <header className="header" id="header">
       <nav className="nav container">
@@ -56,7 +81,7 @@ const Navbar = ({ loggedIn, username, handleLoginClick, handleLogout }) => {
             </li>
             <li><a href="/news" className="nav__link">News</a></li>
             <li><a href="/events" className="nav__link">Events</a></li>
-            <li><a href="/file" className="nav__link">Archive</a></li>
+            {showArchive && <li><a href="/file" className="nav__link">Archive</a></li>}
           </ul>
         </div>
 
