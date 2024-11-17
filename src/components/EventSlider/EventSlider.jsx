@@ -3,12 +3,12 @@ import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import new1 from '../../assets/news-2.PNG';
+import event1 from '../../assets/events-2.PNG';
 import leftArrow from '../../assets/button left.png';
 import rightArrow from '../../assets/button right.png';
-import "./NewsSlider.css"; 
+import "./EventSlider.css"; 
 
-const NewsSlider = () => {
+const EventSlider = () => {
   const navigate = useNavigate();
 
   const settings2 = {
@@ -24,34 +24,34 @@ const NewsSlider = () => {
 
   const data = [
     {
-      name: 'News1',
-      img: new1,
+      name: 'Event1',
+      img: event1,
       review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      nav : "/news"
+      nav : "/events"
     },
     {
-      name: 'News2',
-      img: new1,
+      name: 'Event2',
+      img: event1,
       review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      nav : "/news"
+      nav : "/events"
     },
     {
-      name: 'News3',
-      img: new1,
+      name: 'Event3',
+      img: event1,
       review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      nav : "/news"
+      nav : "/events"
     },
     {
-      name: 'News4',
-      img: new1,
+      name: 'Event4',
+      img: event1,
       review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      nav : "/news"
+      nav : "/events"
     },
     {
-      name: 'News5',
-      img: new1,
+      name: 'Event5',
+      img: event1,
       review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      nav : "/news"
+      nav : "/events"
     },
   ];
 
@@ -82,4 +82,4 @@ const NewsSlider = () => {
   );
 }
 
-export default NewsSlider;
+export default EventSlider;

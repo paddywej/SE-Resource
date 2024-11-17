@@ -6,6 +6,7 @@ import "./HomePage.css";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
 import NewsSlider from "../../components/NewsSlider/NewsSlider";
+import EventSlider from "../../components/EventSlider/EventSlider";
 import HomepageMenu from "../../components/HomepageMenu/HomepageMenu";
 import homepagePic1 from "../../assets/homepage-pic1.png";
 import homepagePic2 from "../../assets/homepage-pic2.png";
@@ -120,15 +121,22 @@ const HomePage = ({
       
       <div className="quote">
         <hr></hr>
-        <h1>Now it's moblie revolution , and the next will be AI revolution</h1>
-        <h2>These two revolutions are shaping the feture of software development <br></br>and research and this is the direction of our</h2>
-        <h1>" SOFTWARE ENGINEERING PROGRAM "</h1>
-        <h2>is taking and move forward</h2>
+        <p>Now it's moblie revolution , and the next will be AI revolution</p>
+        <br></br>
+        <p>These two revolutions are shaping the feture of software development <br></br>and research and this is the direction of our</p>
+        <br></br>
+        <strong> SOFTWARE ENGINEERING PROGRAM </strong>
+        <br></br>
+        <p>is taking and move forward</p>
         <hr></hr>
       </div>
       <HomepageMenu/>
       <hr></hr>
       <NewsSlider/>
+      <hr></hr>
+      <EventSlider/>
+      <hr></hr>
+
       
        {/*==================== CONTACT ====================*/}
        <div className="container3">
