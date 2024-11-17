@@ -5,7 +5,9 @@ import Program from "./pages/Program/Program";
 import Event from "./pages/Event/Event";
 import News from "./pages/News/News";
 import Admission from "./pages/Admission/Admission";
-import Register from "./components/Register/Register"
+import Admission2 from "./pages/Admission/Admission2";
+import Register from "./components/Register/Register";
+import File from "./pages/FileManagement/FileManagement";
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
         <Route path="/event" element={<Event />} />
         <Route path="/news" element={<News />} />
         <Route path="/admission" element={<Admission />} />
+        <Route path="/admission2" element={<Admission2 />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/file" element={<File />} />
       </Routes>
     </Router>
   );

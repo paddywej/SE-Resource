@@ -46,13 +46,13 @@ const Navbar = ({ handleLoginClick }) => {
             <li className="dropdown">
               <a href="#" className="nav__link"> Admission ▼</a>
               <ul className="dropdown-menu">
-                  <li><a href="/admission" className="dropdown-link">Direct Admission 1-1 (First round)</a></li>
-                  <li><a href="/admission2" className="dropdown-link">Direct Admission 1-2 (First round) for International Students</a></li>
+                  <li><a href="/admission" className="dropdown-link">Direct Admission 1-1 (Early round) for Thai Students</a></li>
+                  <li><a href="/admission2" className="dropdown-link">Direct Admission 1-1 (Early round) for International Students</a></li>
               </ul>
             </li>
-            <li><a href="/admission" className="nav__link">Admission</a></li>
             <li><a href="/news" className="nav__link">News</a></li>
             <li><a href="/events" className="nav__link">Events</a></li>
+            <li><a href="/file" className="nav__link">Archive</a></li>
           </ul>
         </div>
 
