@@ -1,23 +1,42 @@
 from fastapi import FastAPI, Depends, HTTPException
-from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from passlib.context import CryptContext
-from backend.database import SessionLocal  # Adjust import based on your structure
-from backend.models import User  # Adjust import based on your structure
-from fastapi.staticfiles import StaticFiles
-from typing import List, Dict
+from .database import SessionLocal
+from .models import User
+from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+# CORS setup
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Adjust as necessary
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods
+    allow_headers=["*"],  # Allow all headers
+)
 
 # Password hashing setup
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-# Pydantic model for user creation
-class UserCreate(BaseModel):
-    username: str
+# Utility to hash passwords
+def get_password_hash(password):
+    return pwd_context.hash(password)
+
+# Utility to verify passwords
+def verify_password(plain_password, hashed_password):
+    return pwd_context.verify(plain_password, hashed_password)
+
+class PasswordCreate(BaseModel):
+    id: str  # Student ID (Integer)
     password: str
 
-# Dependency to get a SQLAlchemy session
+class LoginRequest(BaseModel):
+    id: str  # Student ID
+    password: str
+
+# Dependency to get SQLAlchemy session
 def get_db():
     db = SessionLocal()
     try:
@@ -25,40 +44,36 @@ def get_db():
     finally:
         db.close()
 
-# Root route
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to the FastAPI application!"}
-
-@app.get("/UserCreate/all", response_model=List[UserCreate])
-async def get_all_students():
-    return list(UserCreate.values())
-
+# Register endpoint (same as before)
 @app.post("/register/")
-def create_user(user: UserCreate, db: Session = Depends(get_db)):
-    hashed_password = pwd_context.hash(user.password)
-    db_user = User(username=user.username, hashed_password=hashed_password)
-    db.add(db_user)
-    db.commit()
-    db.refresh(db_user)
-    return {"username": db_user.username}
+def register_user(request: PasswordCreate, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.id == request.id).first()
 
+    if not user:
+        raise HTTPException(status_code=400, detail="User does not exist.")
+    if user.password_hash is not None:
+        raise HTTPException(status_code=400, detail="User already has a password.")
+
+    # Update password
+    user.password_hash = get_password_hash(request.password)
+    db.commit()
+    return {"message": "Registration successful"}
+
+# Login endpoint
 @app.post("/login/")
-def login(user: UserCreate, db: Session = Depends(get_db)):
-    db_user = db.query(User).filter(User.username == user.username).first()
-    if not db_user:
-        raise HTTPException(status_code=400, detail="Incorrect username or password")
-    if not pwd_context.verify(user.password, db_user.hashed_password):
-        raise HTTPException(status_code=400, detail="Incorrect username or password")
+def login_user(request: LoginRequest, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.id == request.id).first()
+
+    if not user:
+        raise HTTPException(status_code=400, detail="User does not exist.")
+
+    # Check if the password is correct
+    if not verify_password(request.password, user.password_hash):
+        raise HTTPException(status_code=400, detail="Incorrect password.")
+
     return {"message": "Login successful"}
 
-# Optional: Serve a favicon if you have one
-app.mount("/static", StaticFiles(directory="."), name="static")
-
-@app.get("/favicon.ico")
-async def favicon():
-    return StaticFiles(directory=".", path="favicon.ico")
-
+# ------------------- MAIN ------------------------
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("backend.main:app", host="127.0.0.1", port=8000, reload=True)

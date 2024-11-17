@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Program.css";
-import "../../pages/HomePage/Homepage.css";
+import "../../pages/HomePage/HomePage.css";
 import seLogo from "../../assets/se-logo.png";
 import overviewPic from "../../assets/program-overview-pic.png";
 import Navbar from "../../components/NavBar/NavBar";

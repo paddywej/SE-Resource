@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Exchange.css";
-import "../../pages/HomePage/Homepage.css";
+import "../../pages/HomePage/HomePage.css";
 import seLogo from "../../assets/se-logo.png";
 import frankfurtLogo from "../../assets/frankfurt-logo.png";
 import Navbar from "../../components/NavBar/NavBar";

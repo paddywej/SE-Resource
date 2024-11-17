@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Queensland.css";
-import "../../pages/HomePage/Homepage.css";
+import "../../pages/HomePage/HomePage.css";
 import seLogo from "../../assets/se-logo.png";
 import queenslandLogo from "../../assets/queensland-logo.png";
 import Navbar from "../../components/NavBar/NavBar";

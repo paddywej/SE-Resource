@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import seLogo from "../../assets/se_logo.png";
-import menu_icon from "../../assets/menu_icon.png"
-import close_icon from "../../assets/close_symbol.png"
+import menu_icon from "../../assets/menu_icon.png";
+import close_icon from "../../assets/close_symbol.png";
 import "./NavBar.css";
 
-const Navbar = ({ handleLoginClick }) => {
+const Navbar = ({ loggedIn, username, handleLoginClick, handleLogout }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -25,7 +25,11 @@ const Navbar = ({ handleLoginClick }) => {
 
         {/* Toggle button for small screens */}
         <div className="nav__toggle" onClick={toggleMenu}>
-          {isMenuOpen ? <img src={close_icon} alt="close" className="close_button" /> : <img src={menu_icon} alt="menu" className="menu_button" />}
+          {isMenuOpen ? (
+            <img src={close_icon} alt="close" className="close_button" />
+          ) : (
+            <img src={menu_icon} alt="menu" className="menu_button" />
+          )}
         </div>
 
         {/* Mobile Dropdown Menu */}
@@ -58,11 +62,26 @@ const Navbar = ({ handleLoginClick }) => {
 
         <div className="nav__right">
           <ul>
-            <li>
-              <div className="forS">For students</div></li>
-            <li>
-              <a href="#" className="nav__link" onClick={handleLoginClick}>Log In</a>
-            </li>
+            
+            {loggedIn ? (
+              <>
+                <li>
+                  <div className="forS">{username}</div> {/* Display username */}
+                </li>
+                <li>
+                  <a href="#" className="nav__link" onClick={handleLogout}>Log Out</a>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <div className="forS">For students</div>
+                </li>
+                <li>
+                  <a href="#" className="nav__link" onClick={handleLoginClick}>Log In</a>
+                </li>
+            </>
+            )}
           </ul>
         </div>
       </nav>
