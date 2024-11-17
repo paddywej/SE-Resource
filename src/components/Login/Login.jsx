@@ -1,10 +1,11 @@
-import React, { useState, close_symbol, useNavigate } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import close_symbol from "../../assets/close_symbol.png";
 
-const Login = ({ showLogin, handleLoginClose, setLoggedIn, setUsername, setShowArchive }) => {  // Added setShowArchive prop
+const Login = ({ showLogin, handleLoginClose, setLoggedIn, setUsername, setShowArchive }) => {
   const [studentId, setStudentId] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -30,11 +31,11 @@ const Login = ({ showLogin, handleLoginClose, setLoggedIn, setUsername, setShowA
         console.log("Login successful");
         setLoggedIn(true);
         setUsername(data.username);
-        setShowArchive(data.showArchive); // Set archive permission from backend
+        setShowArchive(data.showArchive);
         localStorage.setItem("username", data.username);
-        localStorage.setItem("showArchive", data.showArchive); // Store archive permission
+        localStorage.setItem("showArchive", data.showArchive);
         handleLoginClose();
-        navigate("/");
+        window.location.href = '/'; // Changed from navigate to window.location
       } else {
         setErrorMessage(data.detail || "An error occurred.");
       }
@@ -43,49 +44,50 @@ const Login = ({ showLogin, handleLoginClose, setLoggedIn, setUsername, setShowA
       setErrorMessage("Error during login. Please try again later.");
     }
   };
+
+  if (!showLogin) return null;
+
   return (
-    showLogin && (
-      <div className="login show-login" id="login">
-        <form className="login__form" onSubmit={handleSubmit}>
-          <i className="login__close" onClick={handleLoginClose}>
-            <img className="close_button" src={close_symbol} alt="Close" />
-          </i>
-          <h2 className="login__title">Log In</h2>
-          <div className="login__group">
-            <div>
-              <label htmlFor="studentId" className="login__label">Student ID</label>
-              <input
-                type="text"
-                placeholder="Enter your student ID"
-                id="studentId"
-                className="login__input"
-                value={studentId}
-                onChange={(e) => setStudentId(e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="password" className="login__label">Password</label>
-              <input
-                type="password"
-                placeholder="Enter your password"
-                id="password"
-                className="login__input"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
+    <div className="login show-login" id="login">
+      <form className="login__form" onSubmit={handleSubmit}>
+        <i className="login__close" onClick={handleLoginClose}>
+          <img className="close_button" src={close_symbol} alt="Close" />
+        </i>
+        <h2 className="login__title">Log In</h2>
+        <div className="login__group">
+          <div>
+            <label htmlFor="studentId" className="login__label">Student ID</label>
+            <input
+              type="text"
+              placeholder="Enter your student ID"
+              id="studentId"
+              className="login__input"
+              value={studentId}
+              onChange={(e) => setStudentId(e.target.value)}
+            />
           </div>
           <div>
-            <p>Don't have an account yet?</p>
-            <p className="login__signup">
-              <a href="/register">Register Now</a>
-            </p>
-            <button type="submit" className="login__button">Log In</button>
+            <label htmlFor="password" className="login__label">Password</label>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              id="password"
+              className="login__input"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
-        </form>
-      </div>
-    )
+        </div>
+        <div>
+          <p>Don't have an account yet?</p>
+          <p className="login__signup">
+            <a href="/register">Register Now</a>
+          </p>
+          <button type="submit" className="login__button">Log In</button>
+        </div>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+      </form>
+    </div>
   );
 };
 

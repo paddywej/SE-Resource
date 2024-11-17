@@ -1,5 +1,5 @@
-import React, { useState } from "react"; // Import useState from React
-import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
+import React, { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import About from "./pages/About/About"; 
 import HomePage from './pages/HomePage/HomePage';
 import Program from "./pages/Program/Program";
@@ -9,42 +9,41 @@ import Admission from "./pages/Admission/Admission";
 import Admission2 from "./pages/Admission/Admission2";
 import Register from "./components/Register/Register";
 import File from "./pages/FileManagement/FileManagement";
-import Login from "./components/Login/Login"; // Make sure to import Login
+import Login from "./components/Login/Login";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false); // Define loggedIn and setLoggedIn here
-  const [username, setUsername] = useState(""); // Define username and setUsername here
-  const [showLogin, setShowLogin] = useState(false); // Handle login modal visibility
-  const navigate = useNavigate(); // Initialize navigate for programmatic navigation
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+  const [showLogin, setShowLogin] = useState(false);
+  const [showArchive, setShowArchive] = useState(false);
 
-  const handleLoginClose = () => setShowLogin(false); // Close login modal
+  const handleLoginClose = () => setShowLogin(false);
+
+  // Pass these props to HomePage and other components that need them
+  const loginProps = {
+    loggedIn,
+    setLoggedIn,
+    username,
+    setUsername,
+    showLogin,
+    setShowLogin,
+    showArchive,
+    setShowArchive,
+    handleLoginClose
+  };
 
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/login"
-          element={
-            <Login
-              showLogin={showLogin}
-              handleLoginClose={handleLoginClose}
-              setLoggedIn={setLoggedIn}
-              setUsername={setUsername}
-              navigate={navigate} // Pass navigate as a prop to Login component
-            />
-          }
-        />
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/program" element={<Program />} />
-        <Route path="/event" element={<Event />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/admission" element={<Admission />} />
-        <Route path="/admission2" element={<Admission2 />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/file" element={<File />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<HomePage {...loginProps} />} />
+      <Route path="/about" element={<About {...loginProps} />} />
+      <Route path="/program" element={<Program {...loginProps} />} />
+      <Route path="/event" element={<Event {...loginProps} />} />
+      <Route path="/news" element={<News {...loginProps} />} />
+      <Route path="/admission" element={<Admission {...loginProps} />} />
+      <Route path="/admission2" element={<Admission2 {...loginProps} />} />
+      <Route path="/register" element={<Register {...loginProps} />} />
+      <Route path="/file" element={<File {...loginProps} />} />
+    </Routes>
   );
 }
 

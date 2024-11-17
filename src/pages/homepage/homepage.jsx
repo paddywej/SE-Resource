@@ -34,18 +34,23 @@ const customMarker = new L.Icon({
   shadowSize: [41, 41] // size of the shadow
 });
 
-const HomePage = () => {
-  const [showLogin, setShowLogin] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [username, setUsername] = useState('');
-  const [showArchive, setShowArchive] = useState(false);
+const HomePage = ({
+  loggedIn,
+  setLoggedIn,
+  username,
+  setUsername,
+  showLogin,
+  setShowLogin,
+  showArchive,
+  setShowArchive,
+  handleLoginClose
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null); 
   const images = [homepagePic1, homepagePic2, homepagePic3, homepagePic4];
   const clonedImages = [images[images.length - 1], ...images, images[0]];
 
   const handleLoginClick = () => setShowLogin(true);
-  const handleLoginClose = () => setShowLogin(false);
   const sliderSettings = {
     dots: true, // Enables dots for navigation
     infinite: true, // Infinite scrolling
