@@ -13,10 +13,10 @@
   height: var(--header-height);
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Ensure items are spaced correctly */
 }
 
 .nav__login, 
-.nav__toggle, 
 .nav__close {
   font-size: 1.25rem;
   color: var(--title-color);
@@ -24,36 +24,21 @@
   transition: color .4s;
 }
 
-:is(.nav__logo, .nav__login, .nav__toggle, .nav__link):hover {
-  color: var(--first-color);
+.nav__toggle {
+  font-size: 1.25rem;
+  color: var(--title-color);
+  cursor: pointer;
+  display: none; /* Hide by default */
+  transition: color .4s;
 }
 
-@media screen and (max-width: 1091px) {
-  .header {
-    padding-top: 1.4rem;
-    height: calc(var(--header-height) + 2.5rem);
-  }
-  .nav {
-    justify-content: space-between;
-  }
-  .nav__menu {
-    position: fixed;
-    left: 0;
-    background-color: var(--body-color);
-    box-shadow: 0 8px 16px hsla(230, 75%, 32%, .15);
-    width: 100%;
-    padding-block: 4.5rem 4rem;
-    transition: top .4s;
-    text-align: start;
-  }
+:is(.nav__logo, .nav__login, .nav__link):hover {
+  color: var(--first-color);
 }
 
 .nav__list {
   display: flex;
-  flex-direction: column;
-  row-gap: 2.5rem;
-  text-align: center;
-  column-gap: 20rem;
+  flex-direction: row; /* Default to row for larger screens */
 }
 
 .nav__link {
@@ -70,24 +55,6 @@
 
 .show-menu {
   top: 0;
-}
-
-@media screen and (min-width: 1092px) {
-  .nav {
-    height: calc(var(--header-height) + 2rem);
-    column-gap: 3rem;
-  }
-  .nav__close, 
-  .nav__toggle {
-    display: none;
-  }
-  .nav__menu {
-    margin-left: auto;
-  }
-  .nav__list {
-    flex-direction: row;
-    column-gap: 3rem;
-  }
 }
 
 /* For students and login section */
@@ -137,4 +104,188 @@
 
 .nav__right ul li a {
   padding-right: 8px;
+}
+
+.close_button{
+  width: 20px;
+}
+.menu_button {
+  width: 50px;
+}
+
+/* For mobile screens (max-width: 639px) */
+@media screen and (max-width: 639px) {
+  .header {
+    padding-top: 1.4rem;
+    /* height: calc(var(--header-height) + 2.5rem); */
+    height: 100px !important;
+  }
+
+  .forS {
+    padding-top: 17px !important;
+  }
+  /* Show toggle button on mobile */
+  .nav__toggle {
+    display: block; /* Show toggle for mobile */
+    padding: 1rem;
+    cursor: pointer;
+  }
+
+  .forS {
+    padding: 17px;
+  }
+
+  /* Hide the menu by default */
+  .nav-menu {
+    display: none; /* Hide menu by default */
+    position: absolute; /* Position the dropdown menu */
+    top: 100%;
+    left: 0;
+    width: 100%; /* Full width on tablet */
+    background-color: var(--body-color); /* Same background as body */
+    padding: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Dropdown shadow */
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+  
+  .nav__right {
+    margin-left: 0 !important;
+  }
+  
+  /* Center-align navbar items on mobile */
+  .nav {
+    justify-content: center;
+  }
+
+  /* Menu becomes visible when active */
+  .nav-menu.active {
+    display: block; /* Show the menu when active */
+  }
+
+  /* Stack navigation list items vertically on mobile */
+  .nav__list {
+    flex-direction: column; /* Vertical stacking */
+    row-gap: 2.5rem; /* Space between links */
+    text-align: center;
+  }
+
+  /* Display the nav list when the menu is active */
+  .nav-menu.active .nav__list {
+    display: flex; /* Show nav list when active */
+    flex-direction: column; /* Stack vertically */
+  }
+
+  /* Block-level links for larger touch targets */
+  .nav__link {
+    display: block; /* Block for better touch targets */
+    padding: 1rem; /* Padding for comfortable touch areas */
+  }
+
+  /* Dropdown menu hidden by default */
+  .dropdown-menu {
+    display: none; /* Hide dropdown by default */
+    position: relative;
+    top: 100%; /* Below the dropdown link */
+    left: 0;
+    background-color: var(--body-color);
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  /* Show dropdown menu on hover or when active */
+  .dropdown:hover .dropdown-menu,
+  .dropdown-menu.active {
+    display: block;
+  }
+
+}
+
+/* For tablet screens (min-width: 640px and max-width: 1023px) */
+@media screen and (min-width: 640px) and (max-width: 1023px) {
+  .header {
+    padding-top: 1.4rem;
+    height: calc(var(--header-height) + 2rem);
+  }
+
+  .nav__right {
+    margin-left: 0 !important;
+  }
+
+  /* Show the toggle button */
+  .nav__toggle {
+    display: block; /* Show on tablets */
+    padding: 1rem;
+  }
+
+  .nav {
+    justify-content: space-between; /* Space items on tablet */
+  }
+
+  /* Adjust the nav-menu dropdown for tablets */
+  .nav-menu {
+    display: none; /* Hide menu by default */
+    position: absolute; /* Position the dropdown menu */
+    top: 100%;
+    left: 0;
+    width: 100%; /* Full width on tablet */
+    background-color: var(--body-color); /* Same background as body */
+    padding: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Dropdown shadow */
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  /* Show menu when active */
+  .nav-menu.active {
+    display: block; /* Show menu on toggle */
+  }
+
+  /* Show the nav list when the menu is active */
+  .nav-menu.active .nav__list {
+    display: flex; /* Show list */
+    flex-direction: column; /* Stack items vertically on tablets */
+    row-gap: 2rem;
+  }
+
+  .nav__list {
+    display: flex;
+    flex-direction: row; /* Default row layout for larger screens */
+    column-gap: 3rem;
+  }
+
+  .dropdown-menu {
+    display: none; /* Hide dropdown by default */
+    position: relative;
+    top: 100%; /* Below the dropdown link */
+    left: 0;
+    background-color: var(--body-color);
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+}
+
+
+/* For desktop screens (min-width: 1024px) */
+@media screen and (min-width: 1024px) {
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+    column-gap: 3rem; /* Adjust space between elements */
+  }
+
+  .nav__close, 
+  .nav__toggle {
+    display: none; /* Hide toggle buttons on desktop */
+  }
+
+  .nav__menu {
+    margin-left: auto; /* Align menu to the right */
+  }
+
+  .nav__list {
+    flex-direction: row; /* Ensure items are in a row */
+    column-gap: 3rem; /* Space between items */
+  }
 }

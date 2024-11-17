@@ -8,7 +8,7 @@
     background-color: hsla(230, 75%, 15%, .1);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    padding: 8rem 1.5rem 0;
+    padding: 8rem 1.5rem 5rem;
     opacity: 0;
     pointer-events: none;
     transition: opacity .4s;
@@ -33,6 +33,7 @@
     text-align: center;
     transform: translateY(-1rem);
     transition: transform .4s;
+    margin-bottom: 3rem;
   }
   
   .login__title {

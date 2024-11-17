@@ -3,9 +3,9 @@ import "./HomepageMenu.css";
 import { Link } from "react-router-dom";
 import about from "../../assets/about.png";
 import admission from "../../assets/admission.png";
-import news from "../../assets/news.png";
 import program from "../../assets/program.png";
 import event from "../../assets/events.png";
+import news from "../../assets/news.png";
 
 const HomepageMenu = () => {
     return (

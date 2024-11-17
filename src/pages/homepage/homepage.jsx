@@ -1,7 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./Homepage.css";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./HomePage.css";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
+import NewsSlider from "../../components/NewsSlider/NewsSlider";
 import HomepageMenu from "../../components/HomepageMenu/HomepageMenu";
 import homepagePic1 from "../../assets/homepage-pic1.png";
 import homepagePic2 from "../../assets/homepage-pic2.png";
@@ -34,58 +38,22 @@ const HomePage = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null); 
-  const images = [homepagePic3, homepagePic2, homepagePic4, homepagePic1];
+  const images = [homepagePic1, homepagePic2, homepagePic3, homepagePic4];
   const clonedImages = [images[images.length - 1], ...images, images[0]];
 
   const handleLoginClick = () => setShowLogin(true);
   const handleLoginClose = () => setShowLogin(false);
-
-  const handlePrevClick = () => {
-    if (sliderRef.current) {
-      if (currentIndex === 0) {
-        sliderRef.current.scrollLeft =
-          sliderRef.current.scrollWidth - sliderRef.current.clientWidth * 2;
-        setCurrentIndex(images.length - 1);
-      } else {
-        sliderRef.current.scrollBy({
-          left: -sliderRef.current.clientWidth,
-          behavior: "smooth",
-        });
-        setCurrentIndex(currentIndex - 1);
-      }
-    }
+  const sliderSettings = {
+    dots: true, // Enables dots for navigation
+    infinite: true, // Infinite scrolling
+    speed: 500, // Transition speed
+    slidesToShow: 1, // Number of slides to show at once
+    slidesToScroll: 1, // Number of slides to scroll
+    autoplay: true, // Auto-slide
+    autoplaySpeed: 5000, // Time between slides (in ms)
+    prevArrow: <img src={button_left} alt="Previous" className="buttonPic" />, // Custom left arrow
+    nextArrow: <img src={button_right} alt="Next" className="buttonPic" />, // Custom right arrow
   };
-
-  const handleNextClick = () => {
-    if (sliderRef.current) {
-      if (currentIndex === images.length - 1) {
-        sliderRef.current.scrollLeft = sliderRef.current.clientWidth;
-        setCurrentIndex(0);
-      } else {
-        sliderRef.current.scrollBy({
-          left: sliderRef.current.clientWidth,
-          behavior: "smooth",
-        });
-        setCurrentIndex(currentIndex + 1);
-      }
-    }
-  };
-
-  useEffect(() => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollLeft = sliderRef.current.clientWidth;
-    }
-  }, []);
-
-  // Function to handle auto sliding
-  useEffect(() => {
-    const slideInterval = setInterval(() => {
-      handleNextClick(); // Automatically moves to the next slide
-    }, 7500); // Adjust the interval as needed
-
-    // Clear the interval on component unmount or when the slider is interacted with
-    return () => clearInterval(slideInterval);
-  }, [currentIndex]);
 
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text)
@@ -103,28 +71,27 @@ const HomePage = () => {
       <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
       
       {/*==================== SLIDER ====================*/}
-      <div className="slider_wrapper">
-        <i className="slider_button left" onClick={handlePrevClick}>
-        <img src={button_left} alt="button_left" className="buttonPic" />
-        </i>
-
-        <div className="slider" ref={sliderRef}>
-          {clonedImages.map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={`Slide ${index + 1}`}
-              className="slider_img"
-            />
+      <div className="slider_container">
+        <Slider {...sliderSettings}>
+          {images.map((image, index) => (
+            <div key={index}>
+              <img src={image} alt={`Slide ${index + 1}`} className="slider_img" />
+            </div>
           ))}
-        </div>
-
-        <i className="slider_button right" onClick={handleNextClick}>
-        <img src={button_right} alt="button_right" className="buttonPic" />
-        </i>
+        </Slider>
       </div>
-
+      
+      <div className="quote">
+        <hr></hr>
+        <h1>Now it's moblie revolution , and the next will be AI revolution</h1>
+        <h2>These two revolutions are shaping the feture of software development <br></br>and research and this is the direction of our</h2>
+        <h1>" SOFTWARE ENGINEERING PROGRAM "</h1>
+        <h2>is taking and move forward</h2>
+        <hr></hr>
+      </div>
       <HomepageMenu/>
+      <hr></hr>
+      <NewsSlider/>
       
        {/*==================== CONTACT ====================*/}
        <div className="container3">
@@ -133,7 +100,8 @@ const HomePage = () => {
           <p className="contact-font">CONTACT US</p>
           <hr className="custom-separator" />
           <br />
-
+          
+          <div className="map-container">
           <MapContainer
             center={position}
             zoom={13}
@@ -153,6 +121,7 @@ const HomePage = () => {
               </Popup>
             </Marker>
           </MapContainer>
+          </div>
           
           <br />
           <div className={'hover-link icon-text copy-button'} onClick={() => copyToClipboard('1 Chalong Krung 1 Alley, Lat Krabang, Khet Lat Krabang, Krung Thep Maha Nakhon 10520')} >

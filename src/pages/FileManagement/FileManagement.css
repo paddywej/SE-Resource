@@ -1,0 +1,121 @@
+.file-management {
+  max-width: 600px;
+  margin: 9rem auto;
+  padding: 2rem;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.file-upload {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.file-inputs {
+  position: relative;
+  display: inline-block;
+}
+
+.file-inputs input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.file-inputs button {
+  padding: 10px 20px;
+  background-color: #d58442;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.file-inputs button:hover {
+  background-color: #45a049;
+}
+
+.info-text {
+  margin-top: 0.5rem;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.file-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f9f9f9;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.file-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.file-icon {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-right: 10px;
+}
+
+.file-name {
+  flex: 1;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.file-name:hover {
+  color: #007bff;
+}
+
+.file-actions {
+  display: flex;
+  align-items: center;
+}
+
+.spinner-icon {
+  color: #ffc107;
+  font-size: 1.2rem;
+}
+
+.trash-icon {
+  color: #dc3545;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.trash-icon:hover {
+  color: #bd2130;
+}
+
+.empty-message {
+  text-align: center;
+  color: #6c757d;
+  font-size: 1rem;
+  margin-top: 2rem;
+}

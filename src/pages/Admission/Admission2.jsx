@@ -5,7 +5,7 @@ import Login from "../../components/Login/Login";
 import kmitlLogo from "../../assets/kmitl-logo.png";
 
 
-const Admission = () => {
+const Admission2 = () => {
     const [showLogin, setShowLogin] = useState(false);
     const handleLoginClick = () => setShowLogin(true);
     const handleLoginClose = () => setShowLogin(false);
@@ -154,4 +154,4 @@ const Admission = () => {
     )
 }
 
-export default Admission;
+export default Admission2;
