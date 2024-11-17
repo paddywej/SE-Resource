@@ -9,40 +9,56 @@ const Login = ({ showLogin, handleLoginClose, setLoggedIn, setUsername, setShowA
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setErrorMessage("");
-  
-    try {
-      const response = await fetch("http://127.0.0.1:8000/login/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          id: studentId,
-          password: password,
-        }),
-      });
-  
-      const data = await response.json();
-      console.log("Response data:", data);
-  
-      if (response.status === 200) {
-        console.log("Login successful");
-        setLoggedIn(true);
-        setUsername(data.username);
-        setShowArchive(data.showArchive);
-        localStorage.setItem("username", data.username);
-        localStorage.setItem("showArchive", data.showArchive);
-        handleLoginClose();
-        window.location.href = '/'; // Changed from navigate to window.location
-      } else {
-        setErrorMessage(data.detail || "An error occurred.");
+      e.preventDefault();
+      setErrorMessage("");
+    
+      try {
+        const response = await fetch("http://127.0.0.1:8000/login/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id: studentId,
+            password: password,
+          }),
+        });
+    
+        // Log the entire response for debugging
+        console.log("Full response:", response);
+        console.log("Response status:", response.status);
+        
+        const data = await response.json();
+        console.log("Response data:", data);
+    
+        if (response.ok) {  // Changed from response.status === 200
+          console.log("Login successful");
+          setLoggedIn(true);
+          setUsername(data.username);
+          setShowArchive(data.showArchive);
+          localStorage.setItem("username", data.username);
+          localStorage.setItem("showArchive", data.showArchive);
+          handleLoginClose();
+          window.location.href = '/';
+        } else {
+          // More detailed error message
+          setErrorMessage(`Error: ${data.detail || response.statusText || "Unknown error occurred"}`);
+          console.error("Login failed:", {
+            status: response.status,
+            statusText: response.statusText,
+            data: data
+          });
+        }
+      } catch (error) {
+        // More detailed error logging
+        console.error("Error during login:", error);
+        console.error("Error details:", {
+          name: error.name,
+          message: error.message,
+          stack: error.stack
+        });
+        setErrorMessage(`Login error: ${error.message}`);
       }
-    } catch (error) {
-      console.error("Error during login:", error);
-      setErrorMessage("Error during login. Please try again later.");
-    }
   };
 
   if (!showLogin) return null;
