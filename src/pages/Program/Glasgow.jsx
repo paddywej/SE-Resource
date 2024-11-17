@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./Program.css";
+import "./Glasgow.css";
 import "../../pages/HomePage/Homepage.css";
 import seLogo from "../../assets/se-logo.png";
-import overviewPic from "../../assets/program-overview-pic.png";
+import glasgowLogo from "../../assets/glasgow-logo.png";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
 import phone from "../../assets/phone.PNG";
@@ -26,7 +26,7 @@ const customMarker = new L.Icon({
   shadowSize: [41, 41] // size of the shadow
 });
 
-const Program = () => {
+const Glasgow = () => {
     const [showLogin, setShowLogin] = useState(false);
     const handleLoginClick = () => setShowLogin(true);
     const handleLoginClose = () => setShowLogin(false);
@@ -47,50 +47,53 @@ const Program = () => {
         <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
 
         <div className={"container-program-head"}>
-            <h1>B.Eng. in Software Engineering Program</h1>
+            <h1>KMITL-Glasgow Double-Degree Program in Software Engineering</h1>
             <div className={"container-program-body"}>
-                <p>The B.Eng. in Software Engineering Program is a 4-year undergraduate program aiming at producing graduates who are capable of working confidently in the international software industry as well as pursuing postgraduate study and research in leading universities worldwide. The curriculum of the program is designed in accordance with the recent ACM/IEEE guideline for undergraduate curriculum in software engineering.</p>
+                <p>The B.Eng. in Software Engineering Program is a 4-year undergraduate program aiming at producing graduates who are capable of working confidently in the international software industry as well as pursuing postgraduate study and research in leading universities worldwide. The curriculum of the program is designed in accordance with the recent ACM/IEEE guideline for undergraduate curriculum in software engineering. The KMITL-Glasgow Double-Degree Program in Software Engineering is a collaboration between KMITL and the University of Glasgow, UK. The program enables qualified students who have completed Year 2 in the SE program at the International College to enter Years 3 and 4 of the Software Engineering program at the University of Glasgow's School of Computing Science. At Glasgow, the student will have an opportunity to study with world-renowned academics, as well as working on team projects with multi-national talents. This is an excellent opportunity for the students who wish to gain studying and living experience in the UK.</p>
             </div>
 
             <div>
-                <h2>Curriculum Overview - Study Plans</h2>
-                <div className={"container-table-pic"}>
-                    <img src={overviewPic} alt="Curriculum Overview"></img>
+                <h2>About University of Glasgow</h2>
+                <div className={"container-program-body"}>
+                    <p>Founded in 1451, the University of Glasgow (Glasgow, United Kingdom) is one of the oldest universities in the world, and has been ranked asone of the world's top 100 universities. With its long history in advanced research, the University of Glasgow has been home to six Nobel-prize winners. The University's School of Computing Science has consistently been ranked in the UK's top 10 in computing. Glasgow's Software Engineering program is one of the first programs in the world that specialize in software engineering and is highly respected by software industry.</p>
                 </div>
+
+                <div className={"container-logo-pic"}>
+                    <img src={glasgowLogo} alt="Glasgow logo"></img>
+                </div>
+                
             </div>
             <br></br>
             <div className={"small-header"}>
-                <h2>Year 1 and 2</h2>
+                <h2>Admission</h2>
                 <div className={"container-program-body"}>
-                    <p>In the first two years, the students will study basic courses in mathematics, computer science, and software engineering and develop their programming skills using various programming languages (including Python, C, C++, Java, etc.). Also, the students will be trained to communicate correctly and effectively. At the end of Year 2, every student is required to undertake an internship in a software company for 8 - 10 weeks. All the courses in the first two years will be held at the International College in the Bangkok Campus of KMITL.</p>
+                    <p>Requirements for the students who wish to join this double-degree program:
+                        <li>Completed Year 2 of the B.Eng. in Software Engineering program with GPA of 3.0 or more</li>
+                        <li>IELTS score of 6.5 or more, with no subtest below 6.0</li>
+                    </p>
                 </div>
             </div>
 
             <div className={"small-header"}>
-                <h2>Year 3 and 4 (KMITL)</h2>
+                <h2>Degrees</h2>
                 <div className={"container-program-body"}>
-                    <p>In Year 3 and Year 4, the students will learn advanced topics in software engineering and important software development methodologies that are used in practice. The students will have opportunities to the apply the knowledge and skills they have acquired to conduct a team software project in Year 3 and a one-year research project in Year 4. Students entering Year 3 are required to take one of the following specializations:
-                    <br></br>1. Metaverse Software Engineering - Specializing in large and complex software for enterprises and digital transformation.
-                    <br></br>2. Industrial Internet of Things - Specializing in the Internet of Things, including embedded and mobile systems.
-                    <br></br>3. Artificial Intelligence - Specializing in applications of artificial intelligence and data science, including machine learning and Big Data.
-                    <br></br>The study plans for these three specializations differ in some required courses. Also the students are recommended to toe work on their senior projects that utilize the knowledge of their respective specializations.</p>
+                    <p>Students who have completed Year 4 of this double-degree program will be awarded a
+                      BSc Honours degree in Software Engineering from the University of Glasgow and aB.Eng. degree in Software Engineering from KMITL.
+                      Students who maintain good academic records during their studies at the University of Glasgow will be eligible to transfer to a one-year Master program in Software Engineering at the end of Year 4 and graduate with the Master of Science degree in Software Engineering awarded by University of Glasgow at the end of Year 5.
+                    </p>
                 </div>
             </div>
             
             <div className={"small-header"}>
-                <h2>Year 3 and Year 4 (KMITL-Glasgow Double-Degree Program)</h2>
+                <h2>Tuition Fees</h2>
                 <div className={"container-program-body"}>
-                    <p>The students joining the KMITL-Glasgow Double-Degree Program will take courses in Years 3 and 4 in the Software Engineering program at the School of Computing Science, University of Glasgow.</p>
+                    <p>The tuition fee rates are as follows:*
+                          <li>2 years at KMITL, Tuition fee : THB 180,000 per year</li>
+                          <li>2 years at Glasgow, Tuition fee with scholarship : GBP 17,536 per year</li>
+                        * Rates as of Academic Year 2020. Every student joining the double-degree program is entitled to the KMITL - Glasgow Undergraduate Scholarship which provides 20% reduction from the full tuition-fee rate for international students at Glasgow University.
+                    </p>
                 </div>
-            </div>
-
-            <div className={"small-header"}>
-                <h2>Year 3 and Year 4 (KMITL-Queensland Double-Degree Program)</h2>
-                <div className={"container-program-body"}>
-                    <p>The students joining the KMITL-Queensland Double-Degree Program will take courses in Years 3 and 4 in Software Engineering Program at the Faculty of Engineering, Architecture and Information Technology, University of Queensland.</p>
-                </div>
-            </div>
-            
+            </div>  
         </div>
 
        <div className="container3">
@@ -162,4 +165,4 @@ const Program = () => {
   );
 };
         
-export default Program;
+export default Glasgow;

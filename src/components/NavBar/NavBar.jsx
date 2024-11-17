@@ -34,10 +34,11 @@ const Navbar = ({ handleLoginClick }) => {
               </a>
               {isDropdownOpen && (
                 <ul className="dropdown-menu">
-                  <li><a href="/program" className="dropdown-link">Software Engineering 2024</a></li>
+                  <li><a href="/program" className="dropdown-link">Software-Engineering-2024</a></li>
                   <li><a href="/glasgow" className="dropdown-link">KMITL-Glasgow</a></li>
                   <li><a href="/queensland" className="dropdown-link">KMITL-Queensland</a></li>
                   <li><a href="/exchange" className="dropdown-link">Exchange-Study-Abroad</a></li>
+                  <li><a href="/internships" className="dropdown-link">Internships</a></li>
 
                 </ul>
               )}
