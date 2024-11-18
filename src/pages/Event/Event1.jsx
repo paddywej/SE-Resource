@@ -3,6 +3,7 @@ import "./EventDetails.css";
 import "../../pages/HomePage/HomePage.css";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
+import Contact from "../../components/Contact/Contact";
 import bloodDonation from "../../assets/blood-donation.png";
 import itOpenHouse from "../../assets/it-open-house.png";
 import agriWorkshop from "../../assets/agritech-workshop.png";
@@ -86,9 +87,9 @@ const Event1 = () => {
             <p><strong>Safety: </strong>Team of doctors and nurses ready to serve safely.</p><br></br>
             <p><strong>Don't forget to: </strong>Grab lots of snacks and souvenirs!</p><br></br>
           </div>
-        </div>
-        
+        </div> 
       </div>
+      <Contact handleLoginClick={handleLoginClick} />
     </>
   );
 };

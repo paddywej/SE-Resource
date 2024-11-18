@@ -3,6 +3,7 @@ import "./EventDetails.css";
 import "../../pages/HomePage/HomePage.css";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
+import Contact from "../../components/Contact/Contact";
 import bloodDonation from "../../assets/blood-donation.png";
 import itOpenHouse from "../../assets/it-open-house.png";
 import agriWorkshop from "../../assets/agritech-workshop.png";
@@ -96,6 +97,7 @@ const Event5 = () => {
           </div>
         </div>
       </div>
+      <Contact handleLoginClick={handleLoginClick} />
     </>
   );
 };
