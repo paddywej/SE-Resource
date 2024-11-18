@@ -1,37 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
-
 .news-page {
     font-family: "Lexend Deca";
     margin: 0;
-}
-
-.news-page .column {
-    float: left;
-    width: 33.3%;
-    margin-bottom: 16px;
-    padding: 0 8px;
-}
-
-.news-page .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: 8px;
-    background-color: #ffffff;
 }
 
 .news-page .about-section {
     padding: 50px;
     text-align: center;
     background-color: hsl(230, 100%, 98%);
-}
-
-.news-page .container {
-    padding: 0 16px;
-}
-
-.news-page .container::after, .news-page .row::after {
-    content: "";
-    clear: both;
-    display: table;
 }
 
 .news-page .title {
@@ -42,21 +17,63 @@
     border: none;
     outline: 0;
     display: inline-block;
-    padding: 8px;
+    padding: 8px 16px; /* Adjusted padding for a better button look */
     color: white;
     background-color: #d58442;
     text-align: center;
     cursor: pointer;
     width: 100%;
+    transition: background-color 0.3s ease;
 }
 
 .news-page .button:hover {
     background-color: #555;
 }
 
-@media screen and (max-width: 650px) {
+.news-page .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0 auto; /* Center the row */
+}
+
+.news-page .column {
+    flex: 1;
+    min-width: 280px; /* Adjusted for better flexibility */
+    max-width: 32%; /* Slightly reduced to avoid overcrowding */
+    box-sizing: border-box;
+    padding: 0 8px;
+    display: flex;
+    justify-content: center; /* Ensures cards are centered within the column */
+}
+
+.news-page .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+    background-color: #ffffff;
+    border-radius: 8px; /* Optional, for rounded card corners */
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.news-page .card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional, for rounded image corners */
+}
+
+.news-page .container {
+    text-align: center;
+    padding: 10px 0;
+}
+
+@media screen and (max-width: 768px) {
     .news-page .column {
-        width: 100%;
-        display: block;
+        max-width: 100%;
     }
 }
