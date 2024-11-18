@@ -9,6 +9,12 @@ import event from "../../assets/events.png";
 import news from "../../assets/news.png";
 import archive from "../../assets/archive-2.PNG";
 
+import about2 from "../../assets/about-2.PNG";
+import admission2 from "../../assets/admission-2.PNG";
+import program2 from "../../assets/program-2.PNG";
+import event2 from "../../assets/events-2.PNG";
+import news2 from "../../assets/news-2.PNG";
+
 const HomepageMenu = () => {
   const { loggedIn } = useContext(UserContext); // Access loggedIn state from context
 
@@ -17,34 +23,54 @@ const HomepageMenu = () => {
       <ul className="list_menu">
         <li>
           <Link to="/about">
-            <img className="button_img" src={about} alt="About" />
+            <img
+              className="button_img"
+              src={loggedIn ? about2 : about} // Conditionally set the image source
+              alt="About"
+            />
           </Link>
         </li>
         <li>
           <Link to="/admission">
-            <img className="button_img" src={admission} alt="Admission" />
+            <img
+              className="button_img"
+              src={loggedIn ? admission2 : admission} // Conditionally set the image source
+              alt="Admission"
+            />
           </Link>
         </li>
         <li>
           <Link to="/news">
-            <img className="button_img" src={news} alt="News" />
+            <img
+              className="button_img"
+              src={loggedIn ? news2 : news} // Conditionally set the image source
+              alt="News"
+            />
           </Link>
         </li>
         <li>
           <Link to="/program">
-            <img className="button_img" src={program} alt="Program" />
+            <img
+              className="button_img"
+              src={loggedIn ? program2 : program} // Conditionally set the image source
+              alt="Program"
+            />
           </Link>
         </li>
         <li>
           <Link to="/event">
-            <img className="button_img" src={event} alt="Event" />
+            <img
+              className="button_img"
+              src={loggedIn ? event2 : event} // Conditionally set the image source
+              alt="Event"
+            />
           </Link>
         </li>
 
         {/* Conditionally render the Archive link if the user is logged in */}
         {loggedIn && (
           <li>
-            <Link to="/file">
+            <Link to="/file1">
               <img className="button_img" src={archive} alt="Archive" />
             </Link>
           </li>
