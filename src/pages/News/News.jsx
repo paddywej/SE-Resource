@@ -7,7 +7,7 @@ import news2 from "../../assets/news2.jpg"
 import news3 from "../../assets/news3.jpg"
 import news4 from "../../assets/news4.jpg"
 import news5 from "../../assets/news5.jpg"
-import news6 from "../../assets/news6.jpg"
+import Contact from "../../components/Contact/Contact";
 
 const News = () => {
     const [showLogin, setShowLogin] = useState(false);
@@ -15,6 +15,7 @@ const News = () => {
     const handleLoginClose = () => setShowLogin(false);
 
     return (
+        <>
         <div className="news-page">
             <Navbar handleLoginClick={handleLoginClick} />
             <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
@@ -105,6 +106,9 @@ const News = () => {
             </div>
 
         </div>
+
+        <Contact handleLoginClick={handleLoginClick} />
+        </>
     );
 };
 
