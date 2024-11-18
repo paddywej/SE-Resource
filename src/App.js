@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom"; // No BrowserRouter here
+import { UserProvider } from "./context/UserContext"; // Import UserProvider
 import About from "./pages/About/About"; 
-import HomePage from './pages/HomePage/HomePage';
+import HomePage from "./pages/HomePage/HomePage";
 import Program from "./pages/Program/Program";
 import Event from "./pages/Event/Event";
 import News from "./pages/News/News";
@@ -12,38 +13,37 @@ import File from "./pages/FileManagement/FileManagement";
 import Login from "./components/Login/Login";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);  
+  const [username, setUsername] = useState(""); 
   const [showLogin, setShowLogin] = useState(false);
-  const [showArchive, setShowArchive] = useState(false);
 
   const handleLoginClose = () => setShowLogin(false);
 
-  // Pass these props to HomePage and other components that need them
-  const loginProps = {
-    loggedIn,
-    setLoggedIn,
-    username,
-    setUsername,
-    showLogin,
-    setShowLogin,
-    showArchive,
-    setShowArchive,
-    handleLoginClose
-  };
-
   return (
-    <Routes>
-      <Route path="/" element={<HomePage {...loginProps} />} />
-      <Route path="/about" element={<About {...loginProps} />} />
-      <Route path="/program" element={<Program {...loginProps} />} />
-      <Route path="/event" element={<Event {...loginProps} />} />
-      <Route path="/news" element={<News {...loginProps} />} />
-      <Route path="/admission" element={<Admission {...loginProps} />} />
-      <Route path="/admission2" element={<Admission2 {...loginProps} />} />
-      <Route path="/register" element={<Register {...loginProps} />} />
-      <Route path="/file" element={<File {...loginProps} />} />
-    </Routes>
+    <UserProvider> {/* Wrap the entire app with UserProvider */}
+      <Routes>
+        <Route
+          path="/login"
+          element={
+            <Login
+              showLogin={showLogin}
+              handleLoginClose={handleLoginClose}
+              setLoggedIn={setLoggedIn}
+              setUsername={setUsername}
+            />
+          }
+        />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/program" element={<Program />} />
+        <Route path="/event" element={<Event />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/admission" element={<Admission />} />
+        <Route path="/admission2" element={<Admission2 />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/file" element={<File />} />
+      </Routes>
+    </UserProvider>
   );
 }
 

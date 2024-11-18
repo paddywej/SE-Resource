@@ -67,17 +67,12 @@ def login_user(request: LoginRequest, db: Session = Depends(get_db)):
     if not user:
         raise HTTPException(status_code=400, detail="User does not exist.")
 
+    # Check if the password is correct
     if not verify_password(request.password, user.password_hash):
         raise HTTPException(status_code=400, detail="Incorrect password.")
 
-    # Add logic to determine if user should see archive
-    show_archive = user.role in ["admin", "staff"]  # Adjust based on your user model
+    return {"message": "Login successful"}
 
-    return {
-        "message": "Login successful",
-        "username": user.id,  # or user.name if you have a name field
-        "showArchive": show_archive
-    }
 # ------------------- MAIN ------------------------
 if __name__ == "__main__":
     import uvicorn

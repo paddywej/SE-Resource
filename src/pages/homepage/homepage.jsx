@@ -34,23 +34,15 @@ const customMarker = new L.Icon({
   shadowSize: [41, 41] // size of the shadow
 });
 
-const HomePage = ({
-  loggedIn,
-  setLoggedIn,
-  username,
-  setUsername,
-  showLogin,
-  setShowLogin,
-  showArchive,
-  setShowArchive,
-  handleLoginClose
-}) => {
+const HomePage = () => {
+  const [showLogin, setShowLogin] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null); 
   const images = [homepagePic1, homepagePic2, homepagePic3, homepagePic4];
   const clonedImages = [images[images.length - 1], ...images, images[0]];
 
   const handleLoginClick = () => setShowLogin(true);
+  const handleLoginClose = () => setShowLogin(false);
   const sliderSettings = {
     dots: true, // Enables dots for navigation
     infinite: true, // Infinite scrolling
@@ -72,40 +64,11 @@ const HomePage = ({
         alert('Failed to copy to clipboard.');
       });
   };
-  useEffect(() => {
-    const savedUsername = localStorage.getItem("username");
-    const savedShowArchive = localStorage.getItem("showArchive") === "true";
-    if (savedUsername) {
-      setLoggedIn(true);
-      setUsername(savedUsername);
-      setShowArchive(savedShowArchive);
-    }
-  }, []);
-
-  const handleLogout = () => {
-    setLoggedIn(false);
-    setUsername('');
-    setShowArchive(false);
-    localStorage.removeItem("username");
-    localStorage.removeItem("showArchive");
-  };
 
   return (
     <>
-      <Navbar 
-        loggedIn={loggedIn}
-        username={username}
-        handleLoginClick={() => setShowLogin(true)}
-        handleLogout={handleLogout}
-        showArchive={showArchive}
-      />
-      <Login 
-        showLogin={showLogin} 
-        handleLoginClose={() => setShowLogin(false)}
-        setLoggedIn={setLoggedIn}
-        setUsername={setUsername}
-        setShowArchive={setShowArchive}  // Pass setShowArchive to Login
-      />
+      <Navbar handleLoginClick={handleLoginClick} />
+      <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
       
       {/*==================== SLIDER ====================*/}
       <div className="slider_container">
