@@ -10,6 +10,12 @@ import Queensland from "./pages/Program/Queensland";
 import Exchange from "./pages/Program/Exchange";
 import Internships from "./pages/Program/Internships";
 import Event from "./pages/Event/Event";
+import Event1 from "./pages/Event/Event1";
+import Event2 from "./pages/Event/Event2";
+import Event3 from "./pages/Event/Event3";
+import Event4 from "./pages/Event/Event4";
+import Event5 from "./pages/Event/Event5";
+import Event6 from "./pages/Event/Event6";
 import News from "./pages/News/News";
 import Admission from "./pages/Admission/Admission";
 import Admission2 from "./pages/Admission/Admission2";
@@ -47,11 +53,18 @@ function App() {
         <Route path="/queensland" element={<Queensland />} />
         <Route path="/exchange" element={<Exchange />} />
         <Route path="/internships" element={<Internships />} />
-        <Route path="/event" element={<Event {...loginProps} />} />
+        <Route path="/events" element={<Event {...loginProps} />} />
+        <Route path="/event1" element={<Event1 {...loginProps}/>} />
+        <Route path="/event2" element={<Event2 {...loginProps}/>} />
+        <Route path="/event3" element={<Event3 {...loginProps}/>} />
+        <Route path="/event4" element={<Event4 {...loginProps}/>} />
+        <Route path="/event5" element={<Event5 {...loginProps}/>} />
+        <Route path="/event6" element={<Event6 {...loginProps}/>} />
         <Route path="/news" element={<News {...loginProps} />} />
         <Route path="/admission" element={<Admission {...loginProps} />} />
         <Route path="/admission2" element={<Admission2 {...loginProps} />} />
         <Route path="/register" element={<Register {...loginProps} />} />
+        
         <Route path="/file" element={<File {...loginProps} />} />
       </Routes>
     </UserProvider>

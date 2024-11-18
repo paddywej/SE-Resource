@@ -1,26 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./Event.css";
+import "./EventDetails.css";
+import "../../pages/HomePage/HomePage.css";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
 import bloodDonation from "../../assets/blood-donation.png";
 import itOpenHouse from "../../assets/it-open-house.png";
 import agriWorkshop from "../../assets/agritech-workshop.png";
 import sciOpenHouse from "../../assets/science-open-house.png";
 import iaaiConference from "../../assets/iaai-conference.png";
 import xcerScience from "../../assets/xcer-science.png";
-// Custom marker icon
-const position = [13.7265341, 100.7748818];
-const customMarker = new L.Icon({
-  iconUrl: require("leaflet/dist/images/marker-icon.png"),
-  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
-});
 
 // Event data
 const events = [
@@ -57,12 +45,12 @@ const events = [
       image: iaaiConference,
     },
     {
-        id: 5,
-        title: "IT Open House 2024",
-        date: "Dec 13-14, 2024",
-        location: "IT Faculty Building, KMITL.",
-        details: "IT Ladkrabang Open House 2024: “Beyond the Star”",
-        image: itOpenHouse,
+      id: 5,
+      title: "IT Open House 2024",
+      date: "Dec 13-14, 2024",
+      location: "IT Faculty Building, KMITL",
+      details: "IT Ladkrabang Open House 2024: “Beyond the Star”",
+      image: itOpenHouse,
     },
     {
       id: 6,
@@ -73,54 +61,43 @@ const events = [
     },  
 ];
 
-const Event = () => {
+const Event5 = () => {
   const [showLogin, setShowLogin] = useState(false);
-  const navigate = useNavigate();
 
   const handleLoginClick = () => setShowLogin(true);
   const handleLoginClose = () => setShowLogin(false);
 
-  const handleEventClick = (id) => {
-    navigate(`/event${id}`); // Navigate to event-specific page
-  };
-
-  const copyToClipboard = (text) => {
-    navigator.clipboard
-      .writeText(text)
-      .then(() => alert(`${text} copied to clipboard!`))
-      .catch(() => alert("Failed to copy to clipboard."));
-  };
+  const event = events[4];  // Event5
 
   return (
     <>
       <Navbar handleLoginClick={handleLoginClick} />
       <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
 
-      <div className="events-container">
-        <h1>Upcoming Events</h1>
-        <div className="events-grid">
-          {events.map((event) => (
-            <div
-              key={event.id}
-              className="event-card"
-              onClick={() => handleEventClick(event.id)}
-              style={{ cursor: "pointer" }}
-            >
-              <img src={event.image} alt={event.title} className="event-image" />
-              <div className="event-details">
-                <h2>{event.title}</h2>
-                <p className="event-date">{event.date}</p>
-                {event.time && <p className="event-time">{event.time}</p>}
-                {event.location && <p className="event-location">{event.location}</p>}
-                {event.details && <p className="event-description">{event.details}</p>}
-              </div>
-            </div>
-          ))}
+      <div className="event-detail-container">
+        <h1>{event.title}</h1>
+        <div className="event-details">
+          <img src={event.image} alt={event.title} className="event-image" />
+          <div className="event-info">
+            <p><strong>Date:</strong> {event.date}</p><br></br>
+            {event.location && <p><strong>Location:</strong> {event.location}</p>}<br></br>
+            {event.details && <p><strong>Details: {event.details}</strong></p>}
+            <p>Join us for an immersive IT experience with a wide range of activities, including:</p>
+            <li>Compete and claim victory in IT competitions.</li>
+            <li>Exclusive workshops packed with valuable content.</li>
+            <li>Exhibitions showcasing innovative projects by students.</li>
+            <li>Special talks with guidance on IT education and career paths.</li>
+            <li>Fun and exciting activities from student clubs.</li>
+            <li>Faculty tours revealing every corner of the department.</li>
+            <p>...and so much more!</p><br></br>
+            <p>Doors open at 9:00 AM.</p>
+            <p>For more details, visit <a href="https://openhouse.it.kmitl.ac.th/">https://openhouse.it.kmitl.ac.th/</a></p>
+            <p>For inquiries, call 0 2723 4940 or 0 2723 4944.</p>
+          </div>
         </div>
       </div>
-
-      </>
+    </>
   );
 };
 
-export default Event;
+export default Event5;

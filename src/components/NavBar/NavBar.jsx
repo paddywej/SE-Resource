@@ -77,7 +77,7 @@ const Navbar = ({ handleLoginClick, handleLogout }) => {
             {loggedIn ? (
               <>
                 <li>
-                  <div className="forS">{username}</div> {/* Display username */}
+                  <div className="forS">{username}</div>
                 </li>
                 <li>
                   <a href="#" className="nav__link" onClick={logout}>Log Out</a>

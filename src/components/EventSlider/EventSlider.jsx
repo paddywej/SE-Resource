@@ -3,7 +3,12 @@ import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import event1 from '../../assets/events-2.PNG';
+import event1 from "../../assets/blood-donation.png";
+import event2 from "../../assets/agritech-workshop.png";
+import event3 from "../../assets/science-open-house.png";
+import event4 from "../../assets/iaai-conference.png";
+import event5 from "../../assets/it-open-house.png";
+import event6 from "../../assets/xcer-science.png";
 import leftArrow from '../../assets/button left.png';
 import rightArrow from '../../assets/button right.png';
 import "./EventSlider.css"; 
@@ -24,34 +29,40 @@ const EventSlider = () => {
 
   const data = [
     {
-      name: 'Event1',
+      name: 'Blood Donation',
       img: event1,
-      review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      nav : "/events"
+      review: 'Inviting students, staff and the general public. Join in doing good by donating blood.',
+      nav : "/event1"
     },
     {
       name: 'Event2',
-      img: event1,
+      img: event2,
       review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      nav : "/events"
+      nav : "/event2"
     },
     {
       name: 'Event3',
-      img: event1,
+      img: event3,
       review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      nav : "/events"
+      nav : "/event3"
     },
     {
       name: 'Event4',
-      img: event1,
+      img: event4,
       review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      nav : "/events"
+      nav : "/event4"
     },
     {
       name: 'Event5',
-      img: event1,
+      img: event5,
       review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      nav : "/events"
+      nav : "/event5"
+    },
+    {
+      name: 'Event6',
+      img: event6,
+      review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+      nav : "/event6"
     },
   ];
 
