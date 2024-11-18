@@ -40,6 +40,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage {...loginProps} />} />
+      <Route path="/homepage2" element={<HomePage2 {...loginProps} />} />
       <Route path="/about" element={<About {...loginProps} />} />
       <Route path="/program" element={<Program />} />
       <Route path="/glasgow" element={<Glasgow />} />
@@ -52,7 +53,6 @@ function App() {
       <Route path="/admission2" element={<Admission2 {...loginProps} />} />
       <Route path="/register" element={<Register {...loginProps} />} />
       <Route path="/file" element={<File {...loginProps} />} />
-      <Route path="/homepage2" element={<HomePage2 {...loginProps} />} />
     </Routes>
   );
 }
