@@ -52,13 +52,13 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: 8px;
     background-color: #ffffff;
-    border-radius: 8px; /* Optional, for rounded card corners */
-    padding: 12px; /* Reduced padding for a tighter layout */
+    border-radius: 8px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: auto; /* Removed fixed height for better flexibility */
+    align-items: flex-start; /* Aligns content to the top */
+    justify-content: flex-start; /* Ensures content starts from the top */
+    height: auto; /* Remove fixed height */
 }
 
 .news-page .card img {
