@@ -62,17 +62,18 @@ def register_user(request: PasswordCreate, db: Session = Depends(get_db)):
 # Login endpoint
 @app.post("/login/")
 def login_user(request: LoginRequest, db: Session = Depends(get_db)):
-    try:
-        user = db.query(User).filter(User.id == request.id).first()
+    # Fetch user by ID
+    user = db.query(User).filter(User.id == request.id).first()
 
-        if not user:
-            raise HTTPException(status_code=404, detail="User not found")
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
 
     # Check if the password is correct
     if not verify_password(request.password, user.password_hash):
         raise HTTPException(status_code=400, detail="Incorrect password.")
 
     return {"message": "Login successful"}
+
 
 if __name__ == "__main__":
     import uvicorn

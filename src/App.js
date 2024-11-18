@@ -22,6 +22,7 @@ function App() {
   const [showLogin, setShowLogin] = useState(false);
 
   const handleLoginClose = () => setShowLogin(false);
+  const loginProps = { loggedIn, username, setLoggedIn, setUsername };
 
   return (
     <UserProvider> {/* Wrap the entire app with UserProvider */}
