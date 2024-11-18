@@ -60,6 +60,7 @@ const Navbar = ({ handleLoginClick, handleLogout }) => {
                 <li><a href="/glasgow" className="dropdown-link">KMITL-Glasgow</a></li>
                 <li><a href="/queensland" className="dropdown-link">KMITL-Queensland</a></li>
                 <li><a href="/exchange" className="dropdown-link">Exchange-Study-Abroad</a></li>
+                <li><a href="/internships" className="dropdown-link">Internships</a></li>
               </ul>
             </li>
             <li className="dropdown">
