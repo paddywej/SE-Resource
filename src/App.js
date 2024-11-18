@@ -4,6 +4,10 @@ import { UserProvider } from "./context/UserContext"; // Import UserProvider
 import About from "./pages/About/About"; 
 import HomePage from "./pages/HomePage/HomePage";
 import Program from "./pages/Program/Program";
+import Glasgow from "./pages/Program/Glasgow";
+import Queensland from "./pages/Program/Queensland";
+import Exchange from "./pages/Program/Exchange";
+import Internships from "./pages/Program/Internships";
 import Event from "./pages/Event/Event";
 import News from "./pages/News/News";
 import Admission from "./pages/Admission/Admission";
@@ -33,15 +37,19 @@ function App() {
             />
           }
         />
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/" element={<HomePage {...loginProps} />} />
+        <Route path="/about" element={<About {...loginProps} />} />
         <Route path="/program" element={<Program />} />
-        <Route path="/event" element={<Event />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/admission" element={<Admission />} />
-        <Route path="/admission2" element={<Admission2 />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/file" element={<File />} />
+        <Route path="/glasgow" element={<Glasgow />} />
+        <Route path="/queensland" element={<Queensland />} />
+        <Route path="/exchange" element={<Exchange />} />
+        <Route path="/internships" element={<Internships />} />
+        <Route path="/event" element={<Event {...loginProps} />} />
+        <Route path="/news" element={<News {...loginProps} />} />
+        <Route path="/admission" element={<Admission {...loginProps} />} />
+        <Route path="/admission2" element={<Admission2 {...loginProps} />} />
+        <Route path="/register" element={<Register {...loginProps} />} />
+        <Route path="/file" element={<File {...loginProps} />} />
       </Routes>
     </UserProvider>
   );

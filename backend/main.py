@@ -62,10 +62,11 @@ def register_user(request: PasswordCreate, db: Session = Depends(get_db)):
 # Login endpoint
 @app.post("/login/")
 def login_user(request: LoginRequest, db: Session = Depends(get_db)):
-    user = db.query(User).filter(User.id == request.id).first()
+    try:
+        user = db.query(User).filter(User.id == request.id).first()
 
-    if not user:
-        raise HTTPException(status_code=400, detail="User does not exist.")
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
 
     # Check if the password is correct
     if not verify_password(request.password, user.password_hash):
@@ -73,7 +74,6 @@ def login_user(request: LoginRequest, db: Session = Depends(get_db)):
 
     return {"message": "Login successful"}
 
-# ------------------- MAIN ------------------------
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("backend.main:app", host="127.0.0.1", port=8000, reload=True)

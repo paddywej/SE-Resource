@@ -1,5 +1,6 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
 
 /*=============== VARIABLES CSS ===============*/
 :root {
@@ -503,13 +504,18 @@ hr {
     width: 65rem;  /* Keep width at 65rem for large screens */
     border-width: 3px; /* Default hr size */
   }
-  .quote h1 {
-    font-size: 1.5rem;  /* Default font size for large screens */
-    line-height: 2rem;
+  .quote p {
+    font-size: 1.3rem;  /* Default font size for large screens */
+    line-height: 2.5rem;
+    font-family: "Lexend Deca";
   }
-  .quote h2 {
-    font-size: 1.25rem;  /* Default font size for large screens */
-    line-height: 1.75rem; /* Default line height for large screens */
+
+  .quote strong {
+    font-size: 1.5rem;  /* Default font size for large screens */
+    line-height: 3rem;
+    font-weight: 2rem;
+    font-family: "Lexend Deca";
+    color: #5b65a4;
   }
 
   .login {

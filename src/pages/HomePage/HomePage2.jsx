@@ -3,11 +3,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./HomePage.css";
-import Navbar from "../../components/NavBar/NavBar";
+import Navbar from "../../components/NavBar/NavBar2";
 import Login from "../../components/Login/Login";
 import NewsSlider from "../../components/NewsSlider/NewsSlider";
 import EventSlider from "../../components/EventSlider/EventSlider";
-import HomepageMenu from "../../components/HomepageMenu/HomepageMenu";
+import HomepageMenu from "../../components/HomepageMenu/HomePageMenu2";
 import homepagePic1 from "../../assets/homepage-pic1.png";
 import homepagePic2 from "../../assets/homepage-pic2.png";
 import homepagePic3 from "../../assets/homepage-pic3.png";
@@ -35,15 +35,23 @@ const customMarker = new L.Icon({
   shadowSize: [41, 41] // size of the shadow
 });
 
-const HomePage = () => {
-  const [showLogin, setShowLogin] = useState(false);
+const HomePage2 = ({
+  loggedIn,
+  setLoggedIn,
+  username,
+  setUsername,
+  showLogin,
+  setShowLogin,
+  showArchive,
+  setShowArchive,
+  handleLoginClose
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null); 
   const images = [homepagePic1, homepagePic2, homepagePic3, homepagePic4];
   const clonedImages = [images[images.length - 1], ...images, images[0]];
 
   const handleLoginClick = () => setShowLogin(true);
-  const handleLoginClose = () => setShowLogin(false);
   const sliderSettings = {
     dots: true, // Enables dots for navigation
     infinite: true, // Infinite scrolling
@@ -65,11 +73,40 @@ const HomePage = () => {
         alert('Failed to copy to clipboard.');
       });
   };
+  useEffect(() => {
+    const savedUsername = localStorage.getItem("username");
+    const savedShowArchive = localStorage.getItem("showArchive") === "true";
+    if (savedUsername) {
+      setLoggedIn(true);
+      setUsername(savedUsername);
+      setShowArchive(savedShowArchive);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    setLoggedIn(false);
+    setUsername('');
+    setShowArchive(false);
+    localStorage.removeItem("username");
+    localStorage.removeItem("showArchive");
+  };
 
   return (
     <>
-      <Navbar handleLoginClick={handleLoginClick} />
-      <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
+      <Navbar 
+        loggedIn={loggedIn}
+        username={username}
+        handleLoginClick={() => setShowLogin(true)}
+        handleLogout={handleLogout}
+        showArchive={showArchive}
+      />
+      <Login 
+        showLogin={showLogin} 
+        handleLoginClose={() => setShowLogin(false)}
+        setLoggedIn={setLoggedIn}
+        setUsername={setUsername}
+        setShowArchive={setShowArchive}  // Pass setShowArchive to Login
+      />
       
       {/*==================== SLIDER ====================*/}
       <div className="slider_container">
@@ -173,5 +210,5 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default HomePage2;
 

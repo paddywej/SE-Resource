@@ -11,6 +11,7 @@ const Login = ({ showLogin, handleLoginClose }) => {
 
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
+
     e.preventDefault();
     setErrorMessage("");
     
@@ -54,7 +55,6 @@ const Login = ({ showLogin, handleLoginClose }) => {
     }
   };  
   
-
   return (
     showLogin && (
       <div className="login show-login" id="login">
