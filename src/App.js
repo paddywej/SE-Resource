@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom"; // No BrowserRouter here
 import { UserProvider } from "./context/UserContext"; // Import UserProvider
 import About from "./pages/About/About"; 
 import HomePage from "./pages/HomePage/HomePage";
+import HomePage2 from "./pages/HomePage/HomePage2";
 import Program from "./pages/Program/Program";
 import Glasgow from "./pages/Program/Glasgow";
 import Queensland from "./pages/Program/Queensland";
@@ -39,6 +40,7 @@ function App() {
           }
         />
         <Route path="/" element={<HomePage {...loginProps} />} />
+        <Route path="/homepage2" element={<HomePage2 {...loginProps} />} />
         <Route path="/about" element={<About {...loginProps} />} />
         <Route path="/program" element={<Program />} />
         <Route path="/glasgow" element={<Glasgow />} />
