@@ -53,19 +53,20 @@
     margin: 8px;
     background-color: #ffffff;
     border-radius: 8px; /* Optional, for rounded card corners */
-    padding: 16px;
+    padding: 12px; /* Reduced padding for a tighter layout */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 900px;
+    height: auto; /* Removed fixed height for better flexibility */
 }
 
 .news-page .card img {
     max-width: 100%;
     object-fit: cover;
-    height: 300px;
+    height: 200px; /* Reduced image height for better balance */
     border-radius: 8px; /* Optional, for rounded image corners */
+    margin-bottom: 10px; /* Reduced bottom margin to bring text closer */
 }
 
 .news-page .container {
