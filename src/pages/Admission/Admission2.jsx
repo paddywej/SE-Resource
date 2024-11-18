@@ -42,6 +42,7 @@ const Admission2 = () => {
         <>
             <Navbar handleLoginClick={handleLoginClick} />
             <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
+            <div className="background-container">
             <div className="admission-page">
                 <div className="wrapper">
                     <div className="center-line">
@@ -210,6 +211,7 @@ const Admission2 = () => {
                 </div>
             </div>
             </div>
+        </div>
         </div>
         </>
     );

@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
 
+.background-container {
+    background-color: #e2cfbc; /* Set your desired background color */
+    width: 100%;  /* Ensure it fills the whole width */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+  
 .admission-page * {
     margin: 0;
     padding: 0;
@@ -31,7 +38,7 @@
     position: absolute;
     height: 100%;
     width: 4px;
-    background: #d58442;
+    background: #ffffff;
     left: 50%;
     top: 20px;
     transform: translateX(-50%);
@@ -79,7 +86,7 @@
 .admission-page .row section .icon,
 .admission-page .center-line .scroll-icon {
     position: absolute;
-    background: hsl(230, 100%, 98%); /*circlie fill*/
+    background: #d1b295; /*circlie fill*/
     height: 40px;
     width: 40px;
     text-align: center;
@@ -87,7 +94,7 @@
     border-radius: 50%;
     color: #d58442;
     font-size: 17px;
-    box-shadow: 0 0 0 4px #d58442, inset 0 2px 0 rgba(0,0,0,0.08), 0 3px 0 4px rgba(0,0,0,0.05);
+    box-shadow: 0 0 0 4px #ffffff, inset 0 2px 0 rgba(0,0,0,0.08), 0 3px 0 4px rgba(0,0,0,0.05);
 }
 
 .admission-page .center-line .scroll-icon {

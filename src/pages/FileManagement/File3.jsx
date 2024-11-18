@@ -6,7 +6,7 @@ import { faFileAlt, faSpinner, faTrash, faDownload, faPlus, faCheck } from '@for
 import axios from 'axios';
 import './FileManagement.css';
 
-const FileManagement = () => {
+const File3 = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [files, setFiles] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null); // To store the selected file
@@ -137,4 +137,4 @@ const FileManagement = () => {
   );
 };
 
-export default FileManagement;
+export default File3;
