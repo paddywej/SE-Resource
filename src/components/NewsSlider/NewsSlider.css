@@ -44,6 +44,7 @@
     width: 100%; /* Make the image cover the full width */
     object-fit: cover; /* Ensure the image fills the space proportionally */
     border-radius: 0; /* Remove border-radius for a flat cover */
+    object-position: top;
 }
 
 /* Slide content section */
