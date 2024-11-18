@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import About from "./pages/About/About"; 
 import HomePage from './pages/HomePage/HomePage';
+import HomePage2 from './pages/HomePage/HomePage2';
 import Program from "./pages/Program/Program";
 import Glasgow from "./pages/Program/Glasgow";
 import Queensland from "./pages/Program/Queensland";
@@ -38,7 +39,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<HomePage {...loginProps} />} />
+      <Route path="/" element={<HomePage2 {...loginProps} />} />
       <Route path="/about" element={<About {...loginProps} />} />
       <Route path="/program" element={<Program />} />
       <Route path="/glasgow" element={<Glasgow />} />
@@ -51,6 +52,7 @@ function App() {
       <Route path="/admission2" element={<Admission2 {...loginProps} />} />
       <Route path="/register" element={<Register {...loginProps} />} />
       <Route path="/file" element={<File {...loginProps} />} />
+      {/* <Route path="/homepage2" element={<HomePage2 {...loginProps} />} /> */}
     </Routes>
   );
 }
