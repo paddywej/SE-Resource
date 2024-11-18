@@ -62,13 +62,20 @@ const Navbar = ({ handleLoginClick, handleLogout }) => {
                 <li><a href="/exchange" className="dropdown-link">Exchange-Study-Abroad</a></li>
               </ul>
             </li>
+            <li className="dropdown">
+              <a href="#" className="nav__link"> Admission ▼</a>
+              <ul className="dropdown-menu">
+                  <li><a href="/admission" className="dropdown-link">Direct Admission 1-1 (Early round) for Thai Students</a></li>
+                  <li><a href="/admission2" className="dropdown-link">Direct Admission 1-1 (Early round) for International Students</a></li>
+              </ul>
+            </li>
             <li><a href="/news" className="nav__link">News</a></li>
             <li><a href="/events" className="nav__link">Events</a></li>
 
-            {/* Conditionally render Archive link based on loggedIn state */}
-            {loggedIn && (
-              <li><a href="/file" className="nav__link">Archive</a></li>
-            )}
+            {/* Conditionally render Archive link based on loggedIn state
+            {loggedIn && ( */}
+              <li><a href="/file1" className="nav__link">Archive</a></li>
+            {/* )} */}
           </ul>
         </div>
 
