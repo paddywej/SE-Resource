@@ -64,9 +64,10 @@
 .news-page .card img {
     max-width: 100%;
     object-fit: cover;
-    height: 200px; /* Reduced image height for better balance */
+    height: 300px; /* Reduced image height for better balance */
     border-radius: 8px; /* Optional, for rounded image corners */
     margin-bottom: 10px; /* Reduced bottom margin to bring text closer */
+    object-position: top;
 }
 
 .news-page .container {
