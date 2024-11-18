@@ -81,7 +81,7 @@ const Navbar2 = ({ loggedIn, username, handleLoginClick, handleLogout }) => {
             </li>
             <li><a href="/news" className="nav__link">News</a></li>
             <li><a href="/events" className="nav__link">Events</a></li>
-            <li><a href="/file" className="nav__link">Archive</a></li>
+            <li><a href="/file" className="nav__link" style={{color: "rgb(222, 134, 27)"}}>Archive</a></li>
           </ul>
         </div>
 
