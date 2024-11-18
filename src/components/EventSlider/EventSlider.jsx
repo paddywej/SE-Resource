@@ -35,33 +35,33 @@ const EventSlider = () => {
       nav : "/event1"
     },
     {
-      name: 'Event2',
+      name: 'Agritech Workshop',
       img: event2,
-      review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+      review: 'We invite high school students of all levels to attend the Open House event for the Faculty of Agricultural',
       nav : "/event2"
     },
     {
-      name: 'Event3',
+      name: 'Science KMITL Open House',
       img: event3,
-      review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+      review: "Faculty of Science King Mongkut's Institute of Technology Ladkrabang has organized an open house for the Faculty of Science",
       nav : "/event3"
     },
     {
-      name: 'Event4',
+      name: 'IAAI International Conference – 2024',
       img: event4,
-      review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+      review: 'Aerospace and aviation symposium. ',
       nav : "/event4"
     },
     {
-      name: 'Event5',
+      name: 'IT Open House 2024',
       img: event5,
-      review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+      review: 'IT Ladkrabang Open House 2024: “Beyond the Star.” Join us for an immersive IT experience with a wide range of activities.',
       nav : "/event5"
     },
     {
-      name: 'Event6',
+      name: 'Xcer-SCIENCE KMITL',
       img: event6,
-      review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+      review: 'Science learning potential development camp.',
       nav : "/event6"
     },
   ];

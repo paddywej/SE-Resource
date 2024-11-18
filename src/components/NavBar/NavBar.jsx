@@ -73,10 +73,11 @@ const Navbar = ({ handleLoginClick, handleLogout }) => {
             <li><a href="/news" className="nav__link">News</a></li>
             <li><a href="/events" className="nav__link">Events</a></li>
 
-            {/* Conditionally render Archive link based on loggedIn state
-            {loggedIn && ( */}
-              <li><a href="/file1" className="nav__link">Archive</a></li>
-            {/* )} */}
+            
+            {loggedIn && (
+              <li><a href="/file" className="nav__link">Archive</a></li>
+            )}
+            
           </ul>
         </div>
 
