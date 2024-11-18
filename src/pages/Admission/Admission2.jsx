@@ -2,156 +2,217 @@ import React, { useState } from "react";
 import "./Admission.css";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
-import kmitlLogo from "../../assets/kmitl-logo.png";
+import phone from "../../assets/phone.PNG";
+import mail from "../../assets/mail.PNG";
+import location from "../../assets/location.PNG";
+import facebook from "../../assets/facebook.PNG";
+import L from 'leaflet';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 
+const position = [13.7265341, 100.7748818];
+
+const customMarker = new L.Icon({
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+  iconSize: [25, 41], // size of the icon
+  iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+  popupAnchor: [1, -34], // point from which the popup should open relative to the iconAnchor
+  shadowSize: [41, 41] // size of the shadow
+});
 
 const Admission2 = () => {
     const [showLogin, setShowLogin] = useState(false);
     const handleLoginClick = () => setShowLogin(true);
     const handleLoginClose = () => setShowLogin(false);
 
+    const copyToClipboard = (text) => {
+        navigator.clipboard.writeText(text)
+          .then(() => {
+            alert(`${text} copied to clipboard!`);
+          })
+          .catch(() => {
+            alert('Failed to copy to clipboard.');
+          });
+      };
+
     return (
         <>
-        <Navbar handleLoginClick={handleLoginClick} />
-        <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
-        <div className={"container-main"}></div>
-        <div class="zigzag-container">
-            <div class="row top-row">
-                <div class="box" align="center" >
-                    <strong>Now - November 11</strong>
-                    <p>Application filing and applicatiion fee payment period</p>
-                </div>
-                <div class="box" align="center">
-                    <strong>November 18, 2024</strong>
-                    <p>Interview Candidate Notification</p>
-                </div>
-                <div class="box" align="center">
-                    <strong>November 23, 2024</strong>
-                    <p>Candidate Interview Date</p>
-                </div>
-                <div class="box" align="center">
-                    <strong>November 29, 2024</strong>
-                    <p>Interview Result Announcement</p>
+            <Navbar handleLoginClick={handleLoginClick} />
+            <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
+            <div className="admission-page">
+                <div className="wrapper">
+                    <div className="center-line">
+                        <a href="#" className="scroll-icon"><i className="fas fa-caret-up"></i></a>
+                    </div>
+                    <div className="row row-2">
+                        <section>
+                            <i className="icon fas fa-star"></i>
+                            <div className="details">
+                                <span className="title" style={{color: "#d58442"}}>Announcement Direct Admissions 1-1 (Early Round)
+                                For International Students (non-Thai Passport Holders)</span>
+                            </div>
+                            <p>School of Engineering, King Mongkut's Institute of Technology Ladkrabang invites qualied applicants to apply for admissions to the School of Engineering in 4 years Bachelor's Degree Programs for Academic Year 2025 (beginning in August 2025)</p>
+                            <div className="bottom">
+                                <a href="https://reg.kmitl.ac.th/TCAS_old/news/files/2568_1_news1_3497_2024_09_16-20-27-22_894e8.pdf?fbclid=IwZXh0bgNhZW0CMTAAAR0H063RC2rVsPIy1bocuwESE33tLHgpa3UB5q9RQTmaSlsZ_Oy8A6M6OF0_aem_WomVlA40IIH88jDkskkSog" target="_blank">Read more</a>
+                            </div>
+                        </section>
+                    </div>
+                    <div className="row row-1">
+                        <section>
+                            <i className="icon fas fa-home"></i>
+                            <div className="details">
+                                <span className="title">11 November, 2024</span>
+                                <span>1st</span>
+                            </div>
+                            <p>Application filing and applicatiion fee payment period</p>
+                            <div className="bottom">
+                                <a href="https://new.reg.kmitl.ac.th/admission/" target="_blank">Apply Now</a>
+                            </div>
+                        </section>
+                    </div>
+                    <div className="row row-2">
+                        <section>
+                            <i className="icon fas fa-star"></i>
+                            <div className="details">
+                                <span className="title">18 November, 2024</span>
+                                <span>2nd</span>
+                            </div>
+                            <p>Interview Candidate Notification</p>
+                            <div className="bottom">
+                                <a href="https://new.reg.kmitl.ac.th/admission/" target="_blank">Read more</a>
+                            </div>
+                        </section>
+                    </div>
+                    <div className="row row-1">
+                        <section>
+                            <i className="icon fas fa-rocket"></i>
+                            <div className="details">
+                                <span className="title">23 November, 2024</span>
+                                <span>3rd</span>
+                            </div>
+                            <p>Candidate Interview Date</p>
+                        </section>
+                    </div>
+                    <div className="row row-2">
+                        <section>
+                            <i className="icon fas fa-globe"></i>
+                            <div className="details">
+                                <span className="title">29 November 2024</span>
+                                <span>4th</span>
+                            </div>
+                            <p>Interview Result Announcement</p>
+                            <div className="bottom">
+                                <a href="https://new.reg.kmitl.ac.th/admission/" target="_blank">Read more</a>
+                            </div>
+                        </section>
+                    </div>
+                    <div className="row row-1">
+                        <section>
+                            <i className="icon fas fa-paper-plane"></i>
+                            <div className="details">
+                                <span className="title">5 - 6 February, 2025</span>
+                                <span>5th</span>
+                            </div>
+                            <p>TCAS Clearing House (for Thai Nationality only)</p>
+                        </section>
+                    </div>
+                    <div className="row row-2">
+                        <section>
+                            <i className="icon fas fa-map-marker-alt"></i>
+                            <div className="details">
+                                <span className="title">13 February, 2025</span>
+                                <span>6th</span>
+                            </div>
+                            <p>KMITL has announced the list of qualified candidate to study at KMITL with the details of how to make anvanced payment of tuitition fee</p>
+                        </section>
+                    </div>
+                    <div className="row row-1">
+                        <section>
+                            <i className="icon fas fa-paper-plane"></i>
+                            <div className="details">
+                                <span className="title">18 - 24 February, 2025</span>
+                                <span>5th</span>
+                            </div>
+                            <p>Enrollment Confirmation and Tuitition Fee Payment</p>
+                            <div className="bottom">
+                                <a href="https://new.reg.kmitl.ac.th/admission/" target="_blank">Read more</a>
+                            </div>
+                        </section>
+                    </div>
                 </div>
             </div>
-            <div class="row bottom-row">
-                <div class="box" align="center">
-                        <strong>February 5-6, 2025</strong>
-                        <p>TCAS Clearing House</p>
-                        <p>(For Thai Nationality Only)</p>
+        <div className="container3">
+            <div className="child-container left-container">
+            <br />
+            <p className="contact-font">CONTACT US</p>
+            <hr className="custom-separator" />
+            <br />
+            
+            <div className="map-container">
+            <MapContainer
+                center={position}
+                zoom={13}
+                style={{ 
+                height: '300px', 
+                width: '100%', 
+                borderRadius: '15px'
+                }}
+            >
+                <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                />
+                <Marker position={position} icon={customMarker}>
+                <Popup>
+                    <strong>KMITL</strong> <br /> King Mongkut's Institute of Technology Ladkrabang
+                </Popup>
+                </Marker>
+            </MapContainer>
+            </div>
+            
+            <br />
+            <div className={'hover-link icon-text copy-button'} onClick={() => copyToClipboard('1 Chalong Krung 1 Alley, Lat Krabang, Khet Lat Krabang, Krung Thep Maha Nakhon 10520')} >
+                <img src={location} alt="Location Icon" className="icon"/>
+                <p>1 Chalong Krung 1 Alley, Lat Krabang, Khet Lat Krabang, Krung Thep Maha Nakhon 10520</p>
                 </div>
-                <div class="box" align="center">
-                        <strong>February 13, 2025</strong>
-                        <p>KMITL has announced the list of qualified candidate to study at KMITL with the details of how to make anvanced payment of tuitition fee</p>
-                </div>
-                <div class="box" align="center">
-                        <strong>February 18-24, 2025</strong>
-                        <p>Enrollment Confirmation and Tuitition Fee Payment</p>
-                </div>
-            </div>
-        </div>
-        <div className={"container-main-text"}>
-            <div className={"container-center"}>
-                <img className={"logo-size"} src={kmitlLogo} alt="kmitl logo"/>
-                <h3>Announcement Direct Admissions 1-1 (Early Round)</h3>
-                <h3>Bachelor of Engineering (International Programs) Academic Year 2025</h3>
-                <h3>School of Engineering, King Mongkut’s Institute of Technology Ladkrabang (KMITL)</h3>
-                <div className={"custom-separator"}></div>
-                <p style={{padding: "2vh 0"}}>School of Engineering, King Mongkut's Institute of Technology Ladkrabang invites qualified applicants to apply for admissions to the School of Engineering in 4 years Bachelor's Degree Programs for Academic Year 2025 (beginning in August 2025).This round of admissions is opened to all applicants with excellent academic backgrounds. Selection of qualified candidates is based on the applicant's academic records, standardized test scores, and English proficiency test results, along with a personal statement, letters of recommendation, past academic activities, the interview and other supplementary documents.</p>
-            </div>
-            <div className={"container-left"}>
-                <h4 style={{padding: "2vh 0"}}>1. Programs and Number of Acceptances</h4>
-                <p>You may apply up to a maximum of 3 programs choices as listed in the following table. Specify the ranking when considering the application.</p>
-            </div>
-            <div className={"container-center"}>
-                <br />
-                <table border="1">
-                    <thead align="center">
-                        <th>
-                            No.
-                        </th>
-                        <th>
-                            Programs
-                        </th>
-                        <th>
-                            Persons
-                        </th>
-                    </thead>
-                    <tbody align="center">
-                        <tr>
-                            <td>1</td>
-                            <td align="left">Biomedical Engineering</td>
-                            <td>40</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td align="left">Civil Engineering</td>
-                            <td>30</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td align="left">Computer Engineering</td>
-                            <td>30</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td align="left">Electrical Engineering</td>
-                            <td>30</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td align="left">Energy Engineering</td>
-                            <td>40</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td align="left">Financial Engineering</td>
-                            <td>40</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td align="left">Industrial Engineering and Logistics Management</td>
-                            <td>30</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td align="left">Mechanical Engineering</td>
-                            <td>30</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td align="left">Robotics and AI Engineering</td>
-                            <td>40</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td align="left">Software Engineering</td>
-                            <td>50</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <br />
-            </div>
-            <div className={"container-left"}>
-                <p><strong style={{marginRight :"1vw"}}>Remark:</strong> The number of accepted applicants may subject to change if candidates' qualification does not meet the programs' minimum requirements.</p>
-                <h4 style={{padding: "2vh 0"}}>2.Application Requirements</h4>
-                <p>The application process is conducted in accordance with KMITL's guidelines, and also rules and regulations.</p>
-                <br />
-                <b style={{padding: "0 2vh"}}>2.1 Educational background (Required)</b>
-                <p style={{padding: "0 8vh"}}>The applicant <b>must satisfy</b> at least one of the following requirements:</p>
-                <p style={{padding: "0 10vh"}}>1) Graduated from or currently studying in Matthayom 6 (Thailand's Education System).</p>
-                <p style={{padding: "0 10vh"}}>2) Graduated with qualifications equivalent to Matthayom 6, as recognized by the Ministry of Education.(Note that Applicants with this education background are requested to contact the SIIE office for further information.)</p>
-                <p style={{padding: "0 10vh"}}>3) Graduated from or currently enrolled in an accredited college or higher education institution in Thailand or abroad.</p>
-                <br />
-                <p><b style={{marginRight :"1vw"}}>Remark:</b> All applicants <b>must submit</b> an official final transcript, along with their official high school diploma and/or certificates of completion from their school, prior to the commencement of the Academic Year 2025.</p>
-                <br />
-                <b style={{padding: "0 2vh"}}>2.2 Academics Record (Optional)</b>
-                <p style={{padding: "0 8vh"}}> The applicant <b>should submit</b> at least one of the following standardized test results and obtain a score which meet the minimum requirements as specified below:</p>
             </div>
 
+            <div className="child-container right-container">
+            <div className="contact-info">
+                <div className={'hover-link icon-text copy-button'} onClick={() => copyToClipboard('02-329-8000')}>
+                <img src={phone} alt="Phone Icon" className="icon" />
+                <p>02-329-8000</p>
+                </div>
+                <div className={'hover-link icon-text copy-button'} onClick={() => copyToClipboard('02-329-8321')}>
+                <img src={phone} alt="Phone Icon2" className="icon" />
+                <p>02-329-8321</p>
+                </div>
+                <div className="icon-text">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=siie@kmitl.ac.th&su=Subject%20Here&body=Message%20body" target="_blank" className={'hover-link contact-links'}>
+                    <img src={mail} alt="Mail Icon" className="icon" />
+                    <p>siie@kmitl.ac.th</p>
+                </a>
+                </div>
+                <div className="icon-text">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wiboon.pr@kmitl.ac.th&su=Subject%20Here&body=Message%20body" target="_blank" className={'hover-link contact-links'}>
+                    <img src={mail} alt="Mail Icon2" className="icon" />
+                    <p>wiboon.pr@kmitl.ac.th</p>
+                </a>
+                </div>
+                <div className="icon-text">
+                <a href="https://www.facebook.com/sekmitl/?locale=th_TH" target="_blank" className={'hover-link contact-links'} >
+                    <img src={facebook} alt="Facebook Icon" className="icon" />
+                    <p>Software Engineering KMITL</p>
+                </a> 
+                </div>
+            </div>
+            </div>
         </div>
         </>
-    )
-}
+    );
+};
 
 export default Admission2;
