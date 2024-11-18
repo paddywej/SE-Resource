@@ -1,0 +1,88 @@
+/*design for contact*/
+.container3 {
+    margin-top: 10rem;
+    padding: 20px; /* Added padding to reduce edge-to-edge spacing */
+    background: linear-gradient(to bottom, #d58442, #a95c35);
+    display: flex;
+    flex-wrap: wrap; /* Allow child containers to wrap */
+    justify-content: center; /* Center the children */
+  }
+  
+  .child-container {
+    width: 48%; /* Keep for larger screens */
+    height: auto; /* Change height to auto for better responsiveness */
+    background: linear-gradient(to bottom, #d58442, #a95c35);
+    padding: 20px;
+    margin: 10px; /* Added margin for spacing between child containers */
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 70%;
+  }
+  
+  .icon-text {
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+  }
+  
+  .icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+  }
+  
+  .left-container {
+    width: 60%;
+    font-size: 18px;
+    font-family: Verdana, sans-serif;
+    color: white;
+    padding-top: 0px;
+  }
+  
+  .right-container {
+    width: 35%;
+    font-size: 18px;
+    font-family: Verdana, sans-serif;
+    color: white;
+    padding-top: 100px;
+  }
+  
+  .contact-font {
+    font-family: "Mitr";
+    font-weight: 420;
+    font-size: 25px;
+    color: white;
+  }
+  
+  .custom-separator {
+    width: 50%; 
+    height: 2px; 
+    background-color: white; 
+    border: none; 
+    margin: 10px 0; 
+  }
+  
+  .contact-links {
+    text-decoration: none;
+    color:white;
+    display: flex;
+    align-items: center;
+  }
+  
+  .copy-button {
+    cursor: pointer;
+  }
+  
+  .hover-link:hover {
+    color: rgb(59, 59, 59);
+    transition: color 0.3s ease;
+  }
+  
+  .map-container {
+    position: relative; /* Set relative positioning */
+    z-index: 1; /* Set lower z-index than navbar */
+  }
