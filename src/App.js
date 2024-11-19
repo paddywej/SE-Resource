@@ -29,6 +29,7 @@ import File7 from "./pages/FileManagement/File7";
 import File8 from "./pages/FileManagement/File8";
 import Login from "./components/Login/Login";
 import Archive from  "./pages/Archive/Archive"
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);  
@@ -40,6 +41,7 @@ function App() {
 
   return (
     <UserProvider> {/* Wrap the entire app with UserProvider */}
+      <ScrollToTop/>
       <Routes>
         <Route
           path="/login"
