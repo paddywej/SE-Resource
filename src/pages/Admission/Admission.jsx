@@ -9,16 +9,6 @@ const Admission = () => {
     const handleLoginClick = () => setShowLogin(true);
     const handleLoginClose = () => setShowLogin(false);
 
-    const copyToClipboard = (text) => {
-        navigator.clipboard.writeText(text)
-          .then(() => {
-            alert(`${text} copied to clipboard!`);
-          })
-          .catch(() => {
-            alert('Failed to copy to clipboard.');
-          });
-      };
-
     return (
         <>
             <Navbar handleLoginClick={handleLoginClick} />

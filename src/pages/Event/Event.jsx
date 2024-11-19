@@ -75,13 +75,6 @@ const Event = () => {
     navigate(`/event${id}`); // Navigate to event-specific page
   };
 
-  const copyToClipboard = (text) => {
-    navigator.clipboard
-      .writeText(text)
-      .then(() => alert(`${text} copied to clipboard!`))
-      .catch(() => alert("Failed to copy to clipboard."));
-  };
-
   return (
     <>
       <Navbar handleLoginClick={handleLoginClick} />

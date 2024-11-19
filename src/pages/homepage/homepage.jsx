@@ -37,16 +37,6 @@ const HomePage = () => {
     nextArrow: <img src={button_right} alt="Next" className="buttonPic" />, // Custom right arrow
   };
 
-  const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text)
-      .then(() => {
-        alert(`${text} copied to clipboard!`);
-      })
-      .catch(() => {
-        alert('Failed to copy to clipboard.');
-      });
-  };
-
   return (
     <>
       <Navbar handleLoginClick={handleLoginClick} />
