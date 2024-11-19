@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -21,6 +22,8 @@ const HomePage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null); 
   const images = [homepagePic1, homepagePic2, homepagePic3, homepagePic4];
+  const links = ["/about", "/glasgow", "/queensland", "/news"]; // Array of links corresponding to images
+
   const clonedImages = [images[images.length - 1], ...images, images[0]];
 
   const handleLoginClick = () => setShowLogin(true);
@@ -47,33 +50,35 @@ const HomePage = () => {
         <Slider {...sliderSettings}>
           {images.map((image, index) => (
             <div key={index}>
-              <img src={image} alt={`Slide ${index + 1}`} className="slider_img" />
+              {/* Use the link array to map each image to a specific link */}
+              <Link to={links[index]}>
+                <img src={image} alt={`Slide ${index + 1}`} className="slider_img" />
+              </Link>
             </div>
           ))}
         </Slider>
       </div>
       
       <div className="quote">
-        <hr></hr>
+        <hr />
         <p>Now it's moblie revolution , and the next will be AI revolution</p>
-        <br></br>
-        <p>These two revolutions are shaping the feture of software development <br></br>and research and this is the direction of our</p>
-        <br></br>
+        <br />
+        <p>These two revolutions are shaping the future of software development <br />and research and this is the direction of our</p>
+        <br />
         <strong> SOFTWARE ENGINEERING PROGRAM </strong>
-        <br></br>
-        <p>is taking and move forward</p>
-        <hr></hr>
+        <br />
+        <p>is taking and moving forward</p>
+        <hr />
       </div>
-      <HomepageMenu/>
-      <hr></hr>
-      <NewsSlider/>
-      <hr></hr>
-      <EventSlider/>
-      <hr></hr>
+      <HomepageMenu />
+      <hr />
+      <NewsSlider />
+      <hr />
+      <EventSlider />
+      <hr />
       <Contact handleLoginClick={handleLoginClick} />
     </>
   );
 };
 
 export default HomePage;
-
