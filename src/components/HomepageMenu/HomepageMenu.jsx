@@ -70,7 +70,7 @@ const HomepageMenu = () => {
         {/* Conditionally render the Archive link if the user is logged in */}
         {loggedIn && (
           <li>
-            <Link to="/archive1">
+            <Link to="/file1">
               <img className="button_img" src={archive} alt="Archive" />
             </Link>
           </li>
