@@ -75,8 +75,8 @@ const Navbar = ({ handleLoginClick, handleLogout }) => {
 
             
             {loggedIn && (
-              <li><a href="/file" className="nav__link">Archive</a></li>
-            )}
+              <li><a href="/archive" className="nav__link">Archive</a></li>
+            )} 
             
           </ul>
         </div>

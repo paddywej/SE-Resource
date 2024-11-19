@@ -1,23 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/NavBar/NavBar";
 import "./Archive.css";
 
-const Archive = ({
-  loggedIn,
-  username,
-  showArchive,
-  setShowArchive,
-  handleLoginClick,
-  handleLogout
-}) => {
+const Archive = () => {
+  const { loggedIn, username } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (!loggedIn) {
+      navigate('/');
+    }
+  }, [loggedIn, navigate]);
+
+  const handleLoginClick = () => {
+    navigate('/login');
+  };
+
   return (
     <>
-      <Navbar
-        loggedIn={loggedIn}
-        username={username}
+      <Navbar 
         handleLoginClick={handleLoginClick}
-        handleLogout={handleLogout}
-        showArchive={showArchive}
       />
       <div className="archive-container">
         <div className="archive-header">
@@ -30,16 +34,16 @@ const Archive = ({
         <section className="resources-section">
           <h2>Study Resources</h2>
           <div className="year-grid">
-            <div className="year-card" onClick={() => window.location.href="/archive/year1"}>
+            <div className="year-card" onClick={() => navigate("/archive/year1")}>
               <h3>Year 1</h3>
             </div>
-            <div className="year-card" onClick={() => window.location.href="/archive/year2"}>
+            <div className="year-card" onClick={() => navigate("/archive/year2")}>
               <h3>Year 2</h3>
             </div>
-            <div className="year-card" onClick={() => window.location.href="/archive/year3"}>
+            <div className="year-card" onClick={() => navigate("/archive/year3")}>
               <h3>Year 3</h3>
             </div>
-            <div className="year-card" onClick={() => window.location.href="/archive/year4"}>
+            <div className="year-card" onClick={() => navigate("/archive/year4")}>
               <h3>Year 4</h3>
             </div>
           </div>
@@ -48,16 +52,16 @@ const Archive = ({
         <section className="projects-section">
           <h2>Projects</h2>
           <div className="year-grid">
-            <div className="year-card" onClick={() => window.location.href="/projects/year1"}>
+            <div className="year-card" onClick={() => navigate("/projects/year1")}>
               <h3>Year 1</h3>
             </div>
-            <div className="year-card" onClick={() => window.location.href="/projects/year2"}>
+            <div className="year-card" onClick={() => navigate("/projects/year2")}>
               <h3>Year 2</h3>
             </div>
-            <div className="year-card" onClick={() => window.location.href="/projects/year3"}>
+            <div className="year-card" onClick={() => navigate("/projects/year3")}>
               <h3>Year 3</h3>
             </div>
-            <div className="year-card" onClick={() => window.location.href="/projects/year4"}>
+            <div className="year-card" onClick={() => navigate("/projects/year4")}>
               <h3>Year 4</h3>
             </div>
           </div>
