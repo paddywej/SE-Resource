@@ -52,7 +52,8 @@
     align-items: center;
     padding: 2rem;
     margin: 0 auto;
-    background: linear-gradient(to bottom, #f0fcff, #f5f7ff);    border-radius: 0.625rem; /* Optional: rounded corners for the container */
+    background: linear-gradient(to bottom, #f0fcff, #f5f7ff);    
+    border-radius: 0.625rem; /* Optional: rounded corners for the container */
 }
   
 .event-detail-container .button {
