@@ -6,6 +6,7 @@ import frankfurtLogo from "../../assets/frankfurt-logo.png";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
 import Contact from "../../components/Contact/Contact";
+import frankfurtCampus from "../../assets/frankfurt.png";
 
 const Exchange = () => {
     const [showLogin, setShowLogin] = useState(false);
@@ -17,8 +18,13 @@ const Exchange = () => {
         <Navbar handleLoginClick={handleLoginClick} />
         <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
 
+        <div className="header-image">
+            <img src={frankfurtCampus} alt="Frankfurt campus" className="header-img" />
+            <div className="text-overlay">
+                <h1>Exchange Study at Frankfurt University of Applied Sciences</h1>
+            </div>
+        </div>
         <div className={"container-program-head"}>
-            <h1>Exchange Study at Frankfurt University of Applied Sciences</h1>
             <div className={"container-program-body"}>
                 <p>Qualified students in the SE program have an opportunity to join an exchange study for one semester in Year 3 Semester 2 at Frankfurt University of Applied Sciences (FRA-UAS), our partner university in Germany. The students joining the exchange program will be taking courses in the Bachelor Program in Computer Science at FRA-UAS and the results and credits of the study be transferred back to their study in the SE program. This article provides an overview of the exchange program for the current SE students who wish to undertake an exchange study at FRA-UAS. About Frankfurt University of Applied Sciences.</p>
                 <br></br>

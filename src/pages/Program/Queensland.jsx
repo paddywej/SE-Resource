@@ -6,6 +6,7 @@ import queenslandLogo from "../../assets/queensland-logo.png";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
 import Contact from "../../components/Contact/Contact";
+import queenslandCampus from "../../assets/queensland.png";
 
 const Queensland = () => {
     const [showLogin, setShowLogin] = useState(false);
@@ -16,9 +17,13 @@ const Queensland = () => {
         <>
         <Navbar handleLoginClick={handleLoginClick} />
         <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
-
+        <div className="header-image">
+            <img src={queenslandCampus} alt="Queensland campus" className="header-img" />
+            <div className="text-overlay">
+                <h1>KMITL-Queensland Double-Degree Program in Software Engineering</h1>
+            </div>
+        </div>
         <div className={"container-program-head"}>
-            <h1>KMITL-Queensland Double-Degree Program in Software Engineering</h1>
             <div className={"container-program-body"}>
                 <p>The KMITL-Queensland Double-Degree Program in Software Engineering is a collaboration between KMITL and the University of Queensland (UQ), Australia. The program enables qualified students who have completed Year 2 in the Software Engineering program at KMITL to enter Years 3 and 4 of the Software Engineering program at the University of Queensland in Australia, and, upon completion, be awarded with software engineering degrees from both KMITL and UQ. The collaborative program aims to equip its students with advanced knowledge and skills of software engineering to prepare them for careers in the international software industry, as well as for research and postgraduate study in all computing-related fields.</p>
             </div>

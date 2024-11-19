@@ -18,7 +18,7 @@ const Internship = () => {
         <Navbar handleLoginClick={handleLoginClick} />
         <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
 
-        <div className={"container-program-head"}>
+        <div className={"container-program-head2"}>
             <h1>Software Industrial Internships</h1>
             <div className={"container-program-body"}>
                 <p>The Software Industrial Internship is a required component of the B.Eng. in Software Engineering program. The objectives are for the students to gain work experience in the software industry and to understand the role of a software engineer in business and the society. Every student is expected to undertake an internship position related to software development in a company in Thailand or abroad during the summer semester at the end of the second year of their study.</p>
