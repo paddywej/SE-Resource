@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./News.css";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
@@ -18,10 +19,6 @@ const News = () => {
         <div className="news-page">
             <Navbar handleLoginClick={handleLoginClick} />
             <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
-            
-            <div className="about-section">
-                <h3>News</h3>
-            </div>
 
             <h1 style={{ textAlign: "center", fontSize: "33px", color: "black"}}>Latest News</h1>
             <br></br>
@@ -35,7 +32,7 @@ const News = () => {
                             <br></br>
                             <p className="title">During 19-27 July 2024, King Mongkut’s Institute of Technology Ladkrabang (KMITL), the University of Queensland, Australia, and the National Innovation Agency (NIA) co-organized the 2024 AI Hackathon under the theme “Save the World with AI”. The aim of the hackathon is to encourage talented university students to create software innovations that utilize Artificial Intelligence (AI) to address current issues in our society and our environment.</p>
                             <br></br>
-                            <p><button className="button">Read More</button></p>
+                            <Link to="/news1"><p><button className="button" >Read More</button></p></Link>
                             <br></br>
                         </div>
                     </div>
@@ -51,7 +48,7 @@ const News = () => {
                             <p className="title">We are excited to announce that the Direct Admission 1-1 (Early Round) for the 2025 academic year is officially open! This is your opportunity to secure a place in your desired program early.
 Start your application today and get a head start on your academic journey for 2025. Don't miss this chance to join a dynamic and innovative community at KMITL!</p>
                             <br></br>
-                            <p><button className="button">Read More</button></p>
+                            <Link to="/news2"><p><button className="button" >Read More</button></p></Link>
                             <br></br>
                         </div>
                     </div>
@@ -66,7 +63,7 @@ Start your application today and get a head start on your academic journey for 2
                             <br></br>
                             <p className="title">Navigating the Future of Gaming in the UK and Thailand. Technologies that are currently gaining attention and playing a major role in the development and playing of games today. Why are VR, AR, and AI the key players? After this event, participants will have the opportunity to speak with representatives from top UK universities at the 𝗨𝗞 𝗨𝗻𝗶𝘃𝗲𝗿𝘀𝗶𝘁𝘆 𝗙𝗮𝗶𝗿 𝗯𝘆 𝗕𝗥𝗜𝗧 - 𝗘𝗱𝘂𝗰𝗮𝘁𝗶𝗼𝗻 𝗨𝗞 for more information about studying and applying for university.</p>
                             <br></br>
-                            <p><button className="button">Read More</button></p>
+                            <Link to="/news3"><p><button className="button" >Read More</button></p></Link>
                             <br></br>
                         </div>
                     </div>
@@ -83,7 +80,7 @@ Start your application today and get a head start on your academic journey for 2
                             <br></br>
                             <p className="title">We would like to invite students and parents interested in our Software Engineering program to attend a webinar hosted by Dr. Zaiqiao Meng (U. of Glasgow), introducing the application process and the curriculum of the Double Degree Software Engineering program, a collaboration between KMITL and the U. of Glasgow, UK.</p>
                             <br></br>
-                            <p><button className="button">Read More</button></p>
+                            <Link to="/news4"><p><button className="button" >Read More</button></p></Link>
                             <br></br>
                         </div>
                     </div>
@@ -98,7 +95,7 @@ Start your application today and get a head start on your academic journey for 2
                             <br></br>
                             <p className="title">The program enables qualified students entering the SE program from Academic Year 2024 onwards to earn both KMITL and UQ Software Engineering degrees. In this talk, representatives from UQ and KMITL will introduce this double-degree program and the application process and requirements. The talk is given in English, but the Q&A session is conducted using both Thai and English.</p>
                             <br></br>
-                            <p><button className="button">Read More</button></p>
+                            <Link to="/news5"><p><button className="button" >Read More</button></p></Link>
                             <br></br>
                         </div>
                     </div>
@@ -115,7 +112,7 @@ Start your application today and get a head start on your academic journey for 2
 A great opportunity for KMITL students!
 Whether you're interested in studying in #UK #USA #Australia #Canada, join us! We've invited top universities to provide information and course recommendations. For those who want to test their English proficiency, you can register for a FREE IELTS Mock Speaking test.</p>
                             <br></br>
-                            <p><button className="button">Read More</button></p>
+                            <Link to="/news6"><p><button className="button" >Read More</button></p></Link>
                             <br></br>
                         </div>
                     </div>

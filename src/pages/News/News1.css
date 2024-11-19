@@ -1,0 +1,298 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.news-page {
+  padding: 60px 20px;
+  margin-top: 2rem;
+}
+
+.about-us {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(to right, #4070f4, #92adf9);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.about {
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 30px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.pic {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.text {
+  flex: 1;
+  max-width: 700px;
+}
+
+.text h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.text h5 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.text h5 span {
+  color: #4070f4;
+}
+
+.text p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #666;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.data {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.hire {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 500;
+  background: #4070f4;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(64, 112, 244, 0.3);
+  transition: all 0.3s ease;
+}
+
+.hire:hover {
+  background: #333;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.team-awards {
+  margin-top: 30px;
+}
+
+.team-awards h3 {
+  font-size: 1.8rem;
+  color: #4070f4;
+  margin-bottom: 15px;
+}
+
+.team-awards ul {
+  list-style: none;
+  padding: 0;
+}
+
+.team-awards ul li {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.team-awards ul li span {
+  font-weight: bold;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+  }
+
+  .pic {
+    margin-bottom: 20px;
+  }
+}
+
+/* Yellow Cheese Color CSS for News2 */
+.news2-page .about-us {
+    background: linear-gradient(to right, #f0ba0f, #f8df90); /* Yellow cheese gradient */
+  }
+  
+  .news2-page .text h5 span {
+    color: #f0ba0f; /* Yellow cheese for span in h5 */
+  }
+  
+  .news2-page .hire {
+    background: #f0ba0f; /* Yellow cheese for buttons */
+    box-shadow: 0 4px 10px rgba(245, 197, 66, 0.3);
+  }
+  
+  .news2-page .hire:hover {
+    background: #333; /* Darker yellow for hover */
+  }
+  
+  .news2-page .team-awards h3 {
+    color: #f0ba0f; /* Yellow cheese for team award headers */
+  }
+  
+  /* Red Theme for News3 */
+.news3-page .about-us {
+    background: linear-gradient(to right, #ff4d4d, #ff9393); /* Red gradient */
+}
+
+.news3-page .text h5 span {
+    color: #ff4d4d; /* Red for span in h5 */
+}
+
+.news3-page .hire {
+    background: #ff4d4d; /* Red for buttons */
+    box-shadow: 0 4px 10px rgba(255, 77, 77, 0.3);
+}
+
+.news3-page .hire:hover {
+    background: #cc0000; /* Darker red for hover */
+}
+
+.news3-page .team-awards h3 {
+    color: #ff4d4d; /* Red for team award headers */
+}
+
+/* Emerald Green Theme for News4 */
+.news4-page .about-us {
+    background: linear-gradient(to right, #2a9d8f, #264653); /* Emerald green gradient */
+}
+
+.news4-page .text h5 span {
+    color: #2a9d8f; /* Emerald green for span in h5 */
+}
+
+.news4-page .hire {
+    background: #2a9d8f; /* Emerald green for buttons */
+    box-shadow: 0 4px 10px rgba(42, 157, 143, 0.3);
+}
+
+.news4-page .hire:hover {
+    background: #1f7d64; /* Darker emerald green for hover */
+}
+
+.news4-page .team-awards h3 {
+    color: #2a9d8f; /* Emerald green for team award headers */
+}
+
+/* Midnight Blue Theme for News5 */
+.news5-page .about-us {
+    background: linear-gradient(to right, #003366, #336699); /* Midnight Blue gradient */
+}
+
+.news5-page .text h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333; /* White text for headings */
+    margin-bottom: 15px;
+}
+
+.news5-page .text h5 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333; /* White for sub-headings */
+    margin-bottom: 20px;
+}
+
+.news5-page .text h5 span {
+    color: #333; /* White span for emphasis */
+}
+
+.news5-page .text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333; /* Light grey for body text */
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.news5-page .data {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.news5-page .hire {
+    background: #003366; /* Midnight blue for buttons */
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 51, 102, 0.3);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.news5-page .hire:hover {
+    background: #002244; /* Darker midnight blue for hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.news5-page .team-awards h3 {
+    font-size: 1.8rem;
+    color: #003366; /* Midnight blue for team award headers */
+}
+
+@media (max-width: 768px) {
+    .news5-page .about {
+        flex-direction: column;
+    }
+
+    .news5-page .pic {
+        margin-bottom: 20px;
+    }
+}
+
+/* news 6 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+/* Sky Blue Theme for News6 */
+.news6-page .about-us {
+    background: linear-gradient(to right, #87ceeb, #4682b4); /* Sky Blue gradient */
+}
+
+.news6-page .text h5 span {
+    color: #87ceeb; /* Sky Blue for span in h5 */
+}
+
+.news6-page .hire {
+    background: #87ceeb; /* Sky Blue for buttons */
+    box-shadow: 0 4px 10px rgba(135, 206, 235, 0.3);
+}
+
+.news6-page .hire:hover {
+    background: #4682b4; /* Darker Sky Blue for hover */
+}
+
+.news6-page .team-awards h3 {
+    color: #87ceeb; /* Sky Blue for team award headers */
+}

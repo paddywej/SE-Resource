@@ -16,6 +16,12 @@ import Event4 from "./pages/Event/Event4";
 import Event5 from "./pages/Event/Event5";
 import Event6 from "./pages/Event/Event6";
 import News from "./pages/News/News";
+import News1 from "./pages/News/News1";
+import News2 from "./pages/News/News2";
+import News3 from "./pages/News/News3";
+import News4 from "./pages/News/News4";
+import News5 from "./pages/News/News5";
+import News6 from "./pages/News/News6";
 import Admission from "./pages/Admission/Admission";
 import Admission2 from "./pages/Admission/Admission2";
 import Register from "./components/Register/Register";
@@ -69,6 +75,12 @@ function App() {
         <Route path="/event5" element={<Event5 {...loginProps}/>} />
         <Route path="/event6" element={<Event6 {...loginProps}/>} />
         <Route path="/news" element={<News {...loginProps} />} />
+        <Route path="/news1" element={<News1 {...loginProps} />} />
+        <Route path="/news2" element={<News2 {...loginProps} />} />
+        <Route path="/news3" element={<News3 {...loginProps} />} />
+        <Route path="/news4" element={<News4 {...loginProps} />} />
+        <Route path="/news5" element={<News5 {...loginProps} />} />
+        <Route path="/news6" element={<News6 {...loginProps} />} />
         <Route path="/admission" element={<Admission {...loginProps} />} />
         <Route path="/admission2" element={<Admission2 {...loginProps} />} />
         <Route path="/register" element={<Register {...loginProps} />} />

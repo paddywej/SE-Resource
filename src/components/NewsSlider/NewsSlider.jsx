@@ -32,37 +32,37 @@ const NewsSlider = () => {
       name: 'International AI Hackathon',
       img: news1,
       review: 'KMITL, the University of Queensland, and NIA co-organized the 2024 AI Hackathon.',
-      nav : "/news"
+      nav : "/news1"
     },
     {
       name: 'Direct Admission 2025',
       img: news2,
       review: 'The Direct Admission 1-1 (Early Round) for the 2025 academic year is officially open!',
-      nav : "/news"
+      nav : "/news2"
     },
     {
       name: 'Computer Game Talk',
       img: news3,
       review: 'Navigating the Future of Gaming in the UK and Thailand.',
-      nav : "/news"
+      nav : "/news3"
     },
     {
-      name: 'Double Degree U of Glasgow',
+      name: 'Double Degree at Glasgow',
       img: news4,
       review: 'The Double Degree collaboration between KMITL and the U. of Glasgow.',
-      nav : "/news"
+      nav : "/news4"
     },
     {
-      name: 'Double Degree U of Queensland',
+      name: 'Double Degree at Queensland',
       img: news5,
-      review: 'The program onwards to earn both KMITL and UQ Software Engineering degrees.',
-      nav : "/news"
+      review: 'The Double Degree collaboration between KMITL and the U. of Queensland.',
+      nav : "/news5"
     },
     {
       name: 'University Roadshow',
       img: news6,
       review: 'University Roadshow at K-Engineering International Education Fair 2024',
-      nav : "/news"
+      nav : "/news6"
     },
   ];
 
