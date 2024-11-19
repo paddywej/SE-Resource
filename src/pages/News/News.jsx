@@ -23,7 +23,7 @@ const News = () => {
                 <h3>News</h3>
             </div>
 
-            <h1 style={{ textAlign: "center"}}>LATEST NEWS</h1>
+            <h1 style={{ textAlign: "center", fontSize: "33px", color: "black"}}>Latest News</h1>
             <br></br>
             <div className="row">
                 <div className="column">
@@ -48,7 +48,8 @@ const News = () => {
                             <br></br>
                             <h2>Direct Admission 1-1 (Early Round) 2025 is now open</h2>
                             <br></br>
-                            <p className="title">Direct Admission 1-1 (Early Round) for 2025 is now open! Take the opportunity to secure your spot early and get personalized assistance with your application. Don't miss out on this exclusive chance to kickstart your academic journey!</p>
+                            <p className="title">We are excited to announce that the Direct Admission 1-1 (Early Round) for the 2025 academic year is officially open! This is your opportunity to secure a place in your desired program early.
+Start your application today and get a head start on your academic journey for 2025. Don't miss this chance to join a dynamic and innovative community at KMITL!</p>
                             <br></br>
                             <p><button className="button">Read More</button></p>
                             <br></br>
@@ -96,6 +97,23 @@ const News = () => {
                             <h2>Introducing KMITL - U. of Queensland Double-Degree Program in Software Engineering</h2>
                             <br></br>
                             <p className="title">The program enables qualified students entering the SE program from Academic Year 2024 onwards to earn both KMITL and UQ Software Engineering degrees. In this talk, representatives from UQ and KMITL will introduce this double-degree program and the application process and requirements. The talk is given in English, but the Q&A session is conducted using both Thai and English.</p>
+                            <br></br>
+                            <p><button className="button">Read More</button></p>
+                            <br></br>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="column">
+                    <div className="card">
+                        <img src={news6} alt="news6" style={{ width: "100%" }} />
+                        <div className="container">
+                            <br></br>
+                            <h2>University Roadshow in K-Engineering International Education Fair 2024</h2>
+                            <br></br>
+                            <p className="title">University Roadshow at K-Engineering International Education Fair 2024
+A great opportunity for KMITL students!
+Whether you're interested in studying in #UK #USA #Australia #Canada, join us! We've invited top universities to provide information and course recommendations. For those who want to test their English proficiency, you can register for a FREE IELTS Mock Speaking test.</p>
                             <br></br>
                             <p><button className="button">Read More</button></p>
                             <br></br>
