@@ -10,6 +10,7 @@ import agriWorkshop from "../../assets/agritech-workshop.png";
 import sciOpenHouse from "../../assets/science-open-house.png";
 import iaaiConference from "../../assets/iaai-conference.png";
 import xcerScience from "../../assets/xcer-science.png";
+import { Link } from "react-router-dom";
 
 // Event data
 const events = [
@@ -76,7 +77,7 @@ const Event4 = () => {
       <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
 
       <div className="event-detail-container">
-        <h1>{event.title}</h1>
+        <h1 className={"header1-class"}>{event.title}</h1>
         <div className="event-details">
           <img src={event.image} alt={event.title} className="event-image" />
           <div className="event-info">
@@ -85,6 +86,9 @@ const Event4 = () => {
             {event.details && <p><strong>Details: {event.details}</strong></p>}
             <p>International Academy of Aviation Industry, King Mongkut's Institute of Technology Ladkrabang, invites you to join and submit academic papers for presentation at the IAAI International Conference – 2024 (Innovation Aviation & Aerospace Industry - International Conference 2024 Aerospace and Aviation Symposium). </p>
           </div>
+        </div>
+        <div>
+          <Link to="/events"><a href="#" className="button">Back</a></Link>
         </div>
       </div>
       <Contact handleLoginClick={handleLoginClick} />

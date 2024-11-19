@@ -10,6 +10,7 @@ import agriWorkshop from "../../assets/agritech-workshop.png";
 import sciOpenHouse from "../../assets/science-open-house.png";
 import iaaiConference from "../../assets/iaai-conference.png";
 import xcerScience from "../../assets/xcer-science.png";
+import { Link } from "react-router-dom";
 
 // Event data
 const events = [
@@ -76,7 +77,7 @@ const Event5 = () => {
       <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
 
       <div className="event-detail-container">
-        <h1>{event.title}</h1>
+        <h1 className={"header1-class"}>{event.title}</h1>
         <div className="event-details">
           <img src={event.image} alt={event.title} className="event-image" />
           <div className="event-info">
@@ -95,6 +96,9 @@ const Event5 = () => {
             <p>For more details, visit <a href="https://openhouse.it.kmitl.ac.th/">https://openhouse.it.kmitl.ac.th/</a></p>
             <p>For inquiries, call 0 2723 4940 or 0 2723 4944.</p>
           </div>
+        </div>
+        <div>
+          <Link to="/events"><a href="#" className="button">Back</a></Link>
         </div>
       </div>
       <Contact handleLoginClick={handleLoginClick} />
