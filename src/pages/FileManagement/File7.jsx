@@ -69,69 +69,72 @@ const File7 = () => {
     <>
       <Navbar handleLoginClick={handleLoginClick} />
       <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
-      <div className="file-management">
-        <div className="file-upload">
-          <div className="file-inputs">
-            <input
-              type="file"
-              onChange={selectFileHandler}
-              accept="*/*" // Accept all file types
-            />
-            <button>
-              <FontAwesomeIcon icon={faPlus} className="icon-plus" />
-              Select File
-            </button>
+      <div className="archive-details-container">
+        <h1 className="archive-details-header">Projects: Year 3</h1>
+        <div className="file-management">
+          <div className="file-upload">
+            <div className="file-inputs">
+              <input
+                type="file"
+                onChange={selectFileHandler}
+                accept="*/*" // Accept all file types
+              />
+              <button>
+                <FontAwesomeIcon icon={faPlus} className="icon-plus" />
+                Select File
+              </button>
+            </div>
+            <p className="info-text">Supported formats: All file types</p>
           </div>
-          <p className="info-text">Supported formats: All file types</p>
+
+          {selectedFile && (
+            <div className="file-preview">
+              <p>Selected File: {selectedFile.name}</p>
+              <br></br>
+              <button className="confirm-upload-btn" onClick={confirmUploadHandler}>
+                <FontAwesomeIcon icon={faCheck} />
+                OK
+              </button>
+            </div>
+          )}
+
+          {files.length > 0 ? (
+            <ul className="file-list">
+              {files.map((file) => (
+                <li className="file-item" key={file.name}>
+                  <FontAwesomeIcon icon={faFileAlt} className="file-icon" />
+                  <p
+                    className="file-name"
+                    onClick={() => file.url && window.open(file.url, '_blank')}
+                    title="Click to preview"
+                  >
+                    {file.name}
+                  </p>
+                  <div className="file-actions">
+                    {file.isUploading ? (
+                      <FontAwesomeIcon icon={faSpinner} className="spinner-icon fa-spin" />
+                    ) : (
+                      <>
+                        <FontAwesomeIcon
+                          icon={faDownload}
+                          className="download-icon"
+                          onClick={() => downloadFileHandler(file.url)}
+                        />
+                        <FontAwesomeIcon
+                          icon={faTrash}
+                          className="trash-icon"
+                          onClick={() => deleteFileHandler(file.name)}
+                        />
+                      </>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="empty-message">No files uploaded yet. Start uploading now!</p>
+          )}
         </div>
-
-        {selectedFile && (
-          <div className="file-preview">
-            <p>Selected File: {selectedFile.name}</p>
-            <br></br>
-            <button className="confirm-upload-btn" onClick={confirmUploadHandler}>
-              <FontAwesomeIcon icon={faCheck} />
-              OK
-            </button>
-          </div>
-        )}
-
-        {files.length > 0 ? (
-          <ul className="file-list">
-            {files.map((file) => (
-              <li className="file-item" key={file.name}>
-                <FontAwesomeIcon icon={faFileAlt} className="file-icon" />
-                <p
-                  className="file-name"
-                  onClick={() => file.url && window.open(file.url, '_blank')}
-                  title="Click to preview"
-                >
-                  {file.name}
-                </p>
-                <div className="file-actions">
-                  {file.isUploading ? (
-                    <FontAwesomeIcon icon={faSpinner} className="spinner-icon fa-spin" />
-                  ) : (
-                    <>
-                      <FontAwesomeIcon
-                        icon={faDownload}
-                        className="download-icon"
-                        onClick={() => downloadFileHandler(file.url)}
-                      />
-                      <FontAwesomeIcon
-                        icon={faTrash}
-                        className="trash-icon"
-                        onClick={() => deleteFileHandler(file.name)}
-                      />
-                    </>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="empty-message">No files uploaded yet. Start uploading now!</p>
-        )}
       </div>
     </>
   );

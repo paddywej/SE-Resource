@@ -74,10 +74,11 @@ const Navbar = ({ handleLoginClick, handleLogout }) => {
             <li><a href="/events" className="nav__link">Events</a></li>
 
             
-            {/* {loggedIn && ( 
+            
+            {loggedIn && (
               <li><a href="/archive" className="nav__link">Archive</a></li>
-              ) }  */}
-
+            )}
+  
           </ul>
         </div>
 
