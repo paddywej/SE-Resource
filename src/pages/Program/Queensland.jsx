@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Queensland.css";
+import "./Program.css";
 import "../../pages/HomePage/HomePage.css";
 import seLogo from "../../assets/se-logo.png";
 import queenslandLogo from "../../assets/queensland-logo.png";

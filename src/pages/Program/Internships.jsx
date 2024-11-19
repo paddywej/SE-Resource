@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Internships.css";
+import "./Program.css";
 import "../../pages/HomePage/HomePage.css";
 import seLogo from "../../assets/se-logo.png";
 import glasgowLogo from "../../assets/glasgow-logo.png";
