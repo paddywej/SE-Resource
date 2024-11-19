@@ -1,0 +1,81 @@
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 7rem; /* Margin in rem */
+}
+
+.button {
+    display: inline-block;
+    position: relative;
+    width: 12.5rem; /* Adjust width in rem */
+    height: 6.25rem; /* Adjust height in rem */
+    margin: 0.625rem; /* Margin in rem */
+}
+
+.button-container h1 {
+    margin-bottom: 1rem; /* Margin in rem */
+    text-align: left; /* Aligns text to the left */
+    align-self: flex-start; /* Ensures the h1 aligns to the container's left */
+    width: 100%; /* Allows full-width alignment */
+}
+
+.button-text {
+    position: absolute;
+    bottom: 0; /* Position the text at the very bottom of the button */
+    left: 50%; /* Horizontally center the text within the button */
+    transform: translateX(-50%); /* Account for half of the button's width to center text */
+    text-align: center;
+    color: white; /* Text color */
+    font-size: 1.125rem; /* Font size in rem */
+    font-weight: bold;
+    z-index: 1; /* Ensure text is above the button image */
+}
+
+.button-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1.5rem; /* Spacing between buttons in rem */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.button-list li {
+    flex: 1 1 calc(25% - 1.5rem); /* 4 buttons per row */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 7rem; /* Margin in rem */
+}
+
+.button-img {
+    width: 100%;
+    max-width: 15rem; /* Max width in rem */
+    min-width: 4rem; /* Minimum width in rem */
+    height: auto;
+    border-radius: 1rem; /* Border radius in rem */
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.button-img:hover {
+    box-shadow: 0 0.5rem 2rem hsla(230, 75%, 15%, 0.2); /* Hover effect */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+@media screen and (max-width: 59.9rem) { /* Breakpoint for medium screens */
+    .button-list li {
+        flex: 1 1 calc(50% - 1.5rem); /* 2 buttons per row */
+    }
+}
+
+@media screen and (max-width: 39.9rem) { /* Breakpoint for small screens */
+    .button-list li {
+        flex: 1 1 100%; /* 1 button per row */
+    }
+
+    .button-img {
+        max-width: 10rem; /* Smaller size for narrow screens */
+    }
+}

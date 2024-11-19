@@ -19,6 +19,7 @@ import News from "./pages/News/News";
 import Admission from "./pages/Admission/Admission";
 import Admission2 from "./pages/Admission/Admission2";
 import Register from "./components/Register/Register";
+import Archive from "./pages/FileManagement/Archive"
 import File1 from "./pages/FileManagement/File1";
 import File2 from "./pages/FileManagement/File2";
 import File3 from "./pages/FileManagement/File3";
@@ -69,6 +70,7 @@ function App() {
         <Route path="/admission" element={<Admission {...loginProps} />} />
         <Route path="/admission2" element={<Admission2 {...loginProps} />} />
         <Route path="/register" element={<Register {...loginProps} />} />
+        <Route path="/archive" element={<Archive {...loginProps} />} />
         <Route path="/file1" element={<File1 {...loginProps} />} />
         <Route path="/file2" element={<File2 {...loginProps} />} />
         <Route path="/file3" element={<File3 {...loginProps} />} />

@@ -31,31 +31,31 @@ const EventSlider = () => {
     {
       name: 'Blood Donation',
       img: event1,
-      review: 'Inviting students, staff and the general public. Join in doing good by donating blood.',
+      review: 'Inviting everyone to join in doing good by donating blood.',
       nav : "/event1"
     },
     {
       name: 'Agritech Workshop',
       img: event2,
-      review: 'We invite high school students of all levels to attend the Open House event for the Faculty of Agricultural',
+      review: 'Inviting students to attend the Faculty of Agriculture Open House.',
       nav : "/event2"
     },
     {
       name: 'Science KMITL Open House',
       img: event3,
-      review: "Faculty of Science King Mongkut's Institute of Technology Ladkrabang has organized an open house for the Faculty of Science",
+      review: "Inviting students to attend the Faculty of Science Open House.",
       nav : "/event3"
     },
     {
       name: 'IAAI International Conference – 2024',
       img: event4,
-      review: 'Aerospace and aviation symposium. ',
+      review: 'Aerospace & aviation symposium.',
       nav : "/event4"
     },
     {
       name: 'IT Open House 2024',
       img: event5,
-      review: 'IT Ladkrabang Open House 2024: “Beyond the Star.” Join us for an immersive IT experience with a wide range of activities.',
+      review: 'IT Ladkrabang Open House 2024: “Beyond the Star.”',
       nav : "/event5"
     },
     {
