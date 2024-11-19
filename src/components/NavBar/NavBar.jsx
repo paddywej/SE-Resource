@@ -72,7 +72,6 @@ const Navbar = ({ handleLoginClick, handleLogout }) => {
             </li>
             <li><a href="/news" className="nav__link">News</a></li>
             <li><a href="/events" className="nav__link">Events</a></li>
-            <li><a href="/archive" className="nav__link">Archive</a></li>
 
             
             {/* {loggedIn && ( 
