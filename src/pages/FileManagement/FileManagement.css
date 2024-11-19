@@ -2,7 +2,7 @@
 
 .file-management {
   max-width: 600px;
-  margin: 9rem auto;
+  margin: 2rem auto;
   padding: 2rem;
   background: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -144,4 +144,23 @@
 
 .confirm-upload-btn:hover {
   background-color: #a86025;
+}
+
+.archive-details-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 80px auto 0;
+}
+
+.archive-details-header {
+  display: flex;
+  justify-content: center; /* Align the header content to the center */
+  align-items: center; /* Vertically align items */
+  text-align: center; /* Center the text */
+  color: #333;
+}
+
+.archive-details-header h1 {
+  color: #333;
+  font-size: 2rem;
 }
