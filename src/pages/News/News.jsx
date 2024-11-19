@@ -19,7 +19,7 @@ const News = () => {
         <div className="news-page">
             <Navbar handleLoginClick={handleLoginClick} />
             <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
-
+            <br></br>
             <h1 style={{ textAlign: "center", fontSize: "33px", color: "black"}}>Latest News</h1>
             <br></br>
             <div className="row">
