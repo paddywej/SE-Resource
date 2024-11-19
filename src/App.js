@@ -28,6 +28,7 @@ import File6 from "./pages/FileManagement/File6";
 import File7 from "./pages/FileManagement/File7";
 import File8 from "./pages/FileManagement/File8";
 import Login from "./components/Login/Login";
+import Archive from  "./pages/Archive/Archive"
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);  
@@ -77,6 +78,7 @@ function App() {
         <Route path="/file6" element={<File6 {...loginProps} />} />
         <Route path="/file7" element={<File7 {...loginProps} />} />
         <Route path="/file8" element={<File8 {...loginProps} />} />
+        <Route path="/archive" element={<Archive {...loginProps} />} />
       </Routes>
     </UserProvider>
   );
