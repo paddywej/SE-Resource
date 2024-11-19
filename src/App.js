@@ -70,15 +70,15 @@ function App() {
         <Route path="/admission" element={<Admission {...loginProps} />} />
         <Route path="/admission2" element={<Admission2 {...loginProps} />} />
         <Route path="/register" element={<Register {...loginProps} />} />
-        <Route path="/file1" element={<File1 {...loginProps} />} />
-        <Route path="/file2" element={<File2 {...loginProps} />} />
-        <Route path="/file3" element={<File3 {...loginProps} />} />
-        <Route path="/file4" element={<File4 {...loginProps} />} />
-        <Route path="/file5" element={<File5 {...loginProps} />} />
-        <Route path="/file6" element={<File6 {...loginProps} />} />
-        <Route path="/file7" element={<File7 {...loginProps} />} />
-        <Route path="/file8" element={<File8 {...loginProps} />} />
         <Route path="/archive" element={<Archive {...loginProps} />} />
+        <Route path="/resources/year1" element={<File1 {...loginProps} />} />
+        <Route path="/resources/year2" element={<File2 {...loginProps} />} />
+        <Route path="/resources/year3" element={<File3 {...loginProps} />} />
+        <Route path="/resources/year4" element={<File4 {...loginProps} />} />
+        <Route path="/projects/year1" element={<File5 {...loginProps} />} />
+        <Route path="/projects/year2" element={<File6 {...loginProps} />} />
+        <Route path="/projects/year3" element={<File7 {...loginProps} />} />
+        <Route path="/projects/year4" element={<File8 {...loginProps} />} />
       </Routes>
     </UserProvider>
   );
