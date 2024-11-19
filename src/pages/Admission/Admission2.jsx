@@ -47,7 +47,7 @@ const Admission2 = () => {
                     </div>
                     <div className="row row-2">
                         <section>
-                            <i className="icon fas fa-star"></i>
+                            <i className="icon fas fa-star" style={{backgroundColor:"#be5647"}}></i>
                             <div className="details">
                                 <span className="title">18 November, 2024</span>
                                 <span>2nd</span>
