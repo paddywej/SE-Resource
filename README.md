@@ -1,70 +1,24 @@
 # SE-Resource
 
-SE-Resource is a reimagined version of se.kmitl.ac.th, the official Software Engineering website of KMITL, designed to meet the evolving needs of students, faculty, and alumni. Our website retains the essential features of the original website, such as news, events, and course information, while introducing an 'Archive'  that allows users to share academic and professional resources, including projects, study notes, files, and other valuable materials.
+SE-Resource is a reimagined version of se.kmitl.ac.th, the official Software Engineering website of KMITL, designed to meet the evolving needs of students, faculty, and alumni. Our website retains the essential features of the original website, such as news, events, and course information, while introducing an 'Archive' that allows users to share academic and professional resources, including projects, study notes, files, and other valuable materials.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Homepage: Shows details about our program and its curriculum.
+- About Us: Briefly introduces Software Engineering of KMITL.
+- Program: Gives details about the different programs and curriculum overview.
+- Admission: Shows a timeline of the admission and briefly explains it.
+- News: Displays the department's news blogs.
+- Event: Displays the department's upcoming events.
+- Login/Register: User must register and login before accessing the archive.
+- Archive: A digital archive where software engineering students and alumni can store and share their projects and study notes.
+- Public Files/Private Files: Users can choose to make the files they upload either public or private.
 
-### `npm start`
+### Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Developed using ReactJS, FastAPI, and PostgreSQL.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `How to run`
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In the backend directory, run '''bash uvicorn backend.main:app --reload'''.
+Go to the frontend directory, then run '''bash npm start'''.
