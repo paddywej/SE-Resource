@@ -1,28 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileAlt, faSpinner, faTrash, faDownload, faPlus, faCheck } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import './FileManagement.css';
+import { UserContext } from "../../context/UserContext";
 
-const File2 = () => {
+const File1 = () => {
+  const { loggedIn, username } = useContext(UserContext);
   const [showLogin, setShowLogin] = useState(false);
   const [files, setFiles] = useState([]);
-  const [selectedFile, setSelectedFile] = useState(null); // To store the selected file
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  useEffect(() => {
+    if (loggedIn && username) {
+      axios
+        .get(`http://localhost:8000/file1/files/${username}`)
+        .then((response) => {
+          setFiles(response.data.files);
+        })
+        .catch((error) => {
+          console.error("Error fetching files:", error);
+        });
+    }
+  }, [loggedIn, username]);
 
   const handleLoginClick = () => setShowLogin(true);
   const handleLoginClose = () => setShowLogin(false);
 
   const selectFileHandler = (event) => {
     const file = event.target.files[0];
-    setSelectedFile(file); // Store the selected file
+    setSelectedFile(file);
   };
 
   const confirmUploadHandler = () => {
     if (!selectedFile) return;
 
-    // Prepare a new file object to track its state
     const newFile = {
       name: selectedFile.name,
       isUploading: true,
@@ -31,36 +45,60 @@ const File2 = () => {
     setFiles((prevFiles) => [...prevFiles, newFile]);
 
     const formData = new FormData();
-    formData.append('newFile', selectedFile, selectedFile.name);
+    formData.append('file', selectedFile);
+    formData.append('visibility', true);
+    formData.append('user_id', username);
 
     axios
-      .post('http://localhost:8080/upload', formData)
+      .post(`http://localhost:8000/file2/upload/`, formData)
       .then(() => {
         setFiles((prevFiles) =>
           prevFiles.map((f) =>
-            f.name === selectedFile.name ? { ...f, isUploading: false, url: `http://localhost:8080/files/${selectedFile.name}` } : f
+            f.name === selectedFile.name
+              ? { ...f, isUploading: false, url: `http://localhost:8000/uploads/file2/${selectedFile.name}` }
+              : f
           )
         );
-        setSelectedFile(null); // Clear the selected file after upload
+        setSelectedFile(null);
+        window.location.reload();
       })
       .catch((error) => {
-        console.error('Upload failed:', error);
+        console.error('Upload failed:', error.response.data);
         removeFile(selectedFile.name);
-        setSelectedFile(null); // Clear the selected file
+        setSelectedFile(null);
       });
   };
 
   const deleteFileHandler = (name) => {
     axios
-      .delete(`http://localhost:8080/upload?name=${name}`)
-      .then(() => removeFile(name))
-      .catch((error) => console.error('Deletion failed:', error));
+      .delete(`http://localhost:8000/file1/upload/?page_name=file1&file_name=${name}`)
+      .then(() => {
+        removeFile(name);
+      })
+      .catch((error) => {
+        console.error("Deletion failed:", error);
+      });
   };
 
-  const downloadFileHandler = (url) => {
-    window.location.href = url; // Trigger the download
-  };
-
+  const downloadFileHandler = (url, filename) => {
+    axios({
+      url: `http://localhost:8000/download/${url.split('/static/')[1]}`, 
+      method: 'GET',
+      responseType: 'blob', // Important for handling file downloads
+    }).then((response) => {
+      const href = URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement('a');
+      link.href = href;
+      link.setAttribute('download', filename);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(href);
+    }).catch((error) => {
+      console.error("Download failed:", error);
+    });
+  };  
+  
   const removeFile = (name) => {
     setFiles((prevFiles) => prevFiles.filter((file) => file.name !== name));
   };
@@ -75,7 +113,7 @@ const File2 = () => {
             <input
               type="file"
               onChange={selectFileHandler}
-              accept="*/*" // Accept all file types
+              accept="*/*"
             />
             <button>
               <FontAwesomeIcon icon={faPlus} className="icon-plus" />
@@ -88,7 +126,6 @@ const File2 = () => {
         {selectedFile && (
           <div className="file-preview">
             <p>Selected File: {selectedFile.name}</p>
-            <br></br>
             <button className="confirm-upload-btn" onClick={confirmUploadHandler}>
               <FontAwesomeIcon icon={faCheck} />
               OK
@@ -101,13 +138,7 @@ const File2 = () => {
             {files.map((file) => (
               <li className="file-item" key={file.name}>
                 <FontAwesomeIcon icon={faFileAlt} className="file-icon" />
-                <p
-                  className="file-name"
-                  onClick={() => file.url && window.open(file.url, '_blank')}
-                  title="Click to preview"
-                >
-                  {file.name}
-                </p>
+                <p className="file-name">{file.name}</p>
                 <div className="file-actions">
                   {file.isUploading ? (
                     <FontAwesomeIcon icon={faSpinner} className="spinner-icon fa-spin" />
@@ -116,7 +147,7 @@ const File2 = () => {
                       <FontAwesomeIcon
                         icon={faDownload}
                         className="download-icon"
-                        onClick={() => downloadFileHandler(file.url)}
+                        onClick={() => downloadFileHandler(file.url, file.name)} // Pass file name for proper naming
                       />
                       <FontAwesomeIcon
                         icon={faTrash}
@@ -137,4 +168,4 @@ const File2 = () => {
   );
 };
 
-export default File2;
+export default File1;

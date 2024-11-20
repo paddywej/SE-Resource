@@ -1,29 +1,35 @@
-from sqlalchemy import Column, String, Text, Date, ForeignKey, Boolean, Integer  # Add Integer here
+# models.py
+from sqlalchemy import Column, String, Text, DateTime, ForeignKey, Boolean, Integer, LargeBinary
 from sqlalchemy.orm import relationship
-from .database import Base
+from datetime import datetime
+from .database import Base  # Assuming you have your Base class in the database module
 
+# User model
 class User(Base):
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, index=True)  # Primary key
     username = Column(String(100), unique=True, index=True)
-    password_hash = Column(String, nullable=True)  # Add this to store the hashed password
+    password_hash = Column(String, nullable=True)  # For storing hashed passwords
 
-    # Relationship to achievements (One-to-Many relationship)
-    public_achievements = relationship("Achievement", back_populates="user", overlaps="private_achievements")
-    private_achievements = relationship("Achievement", back_populates="user", overlaps="public_achievements")
+    # Relationships with File model
+    public_files = relationship("File", back_populates="user", overlaps="private_files")
+    # Private files relationship (overlapping with public_files)
+    private_files = relationship("File", back_populates="user_private", overlaps="public_files")
 
 
-class Achievement(Base):
-    __tablename__ = "achievements"
 
-    id = Column(Integer, primary_key=True, index=True)  # Define primary key as Integer
-    user_username = Column(String(100), ForeignKey("users.username"), nullable=False)  # Foreign key to User table
-    title = Column(String(100), nullable=False)
-    description = Column(Text)
-    file_url = Column(String(255))
-    visibility = Column(Boolean, default=True)  # True for public, False for private
-    date_awarded = Column(Date)
+# File model
+class File(Base):
+    __tablename__ = 'files'
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"))
+    title = Column(String)
+    file_url = Column(String(500), nullable=False)  # Path to the file
+    category = Column(String)
+    year = Column(String)
+    visibility = Column(Boolean)
 
-    # Relationship back to user (Many-to-One relationship)
-    user = relationship("User", back_populates="public_achievements")
+    # Relationships with User model (using string references to avoid circular imports)
+    user = relationship("User", back_populates="public_files", overlaps="private_files")
+    user_private = relationship("User", back_populates="private_files", overlaps="public_files")
