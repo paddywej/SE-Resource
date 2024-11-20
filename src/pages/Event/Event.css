@@ -2,6 +2,7 @@
 .events-container {
     padding: 7rem;
     font-family: "Lexend Deca";
+    background: linear-gradient(hsl(230, 100%, 98%), #cbcfe6);
 }
 
 .header1-class {

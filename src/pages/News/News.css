@@ -1,6 +1,7 @@
 .news-page {
     font-family: "Lexend Deca";
     margin: 0;
+    background: linear-gradient(hsl(230, 100%, 98%), #cbcfe6);
 }
 
 .news-page .about-section {
@@ -25,10 +26,6 @@
     width: 100%;
     transition: background-color 0.3s ease;
     border-radius: 0.5rem;
-}
-
-.news-page .button:hover {
-    background-color: #555;
 }
 
 .news-page .row {
@@ -80,4 +77,14 @@
     .news-page .column {
         max-width: 100%;
     }
+}
+
+.news-page .button:hover {
+    background-color: hsl(25, 80%, 40%);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.news-page .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }

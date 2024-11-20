@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Event.css";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
-import Contact from "../../components/Contact/Contact";
+// import Contact from "../../components/Contact/Contact";
 import "leaflet/dist/leaflet.css";
 import bloodDonation from "../../assets/blood-donation.png";
 import itOpenHouse from "../../assets/it-open-house.png";
@@ -110,7 +110,7 @@ const Event = () => {
           ))}
         </div>
       </div>
-      <Contact handleLoginClick={handleLoginClick} />
+      {/* <Contact handleLoginClick={handleLoginClick} /> */}
     </>
   );
 };
