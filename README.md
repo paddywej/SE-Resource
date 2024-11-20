@@ -1,6 +1,6 @@
 # SE-Resource
 
-SE-Resource is a reimagined version of se.kmitl.ac.th, the official Software Engineering website of KMITL, designed to meet the evolving needs of students, faculty, and alumni. Our website retains the essential features of the original website, such as news, events, and course information, while introducing an 'Archive' that allows users to share academic and professional resources, including projects, study notes, files, and other valuable materials.
+SE-Resource is a reimagined version of se.kmitl.ac.th, the official Software Engineering website of KMITL, designed to meet the evolving needs of students, faculty, and alumni. Our website retains the essential features of the original website, such as news, events, and course information, while introducing an "Archive" that allows users to share academic and professional resources, including projects, study notes, files, and other valuable materials.
 
 ## Features
 
@@ -20,5 +20,5 @@ Developed using ReactJS, FastAPI, and PostgreSQL.
 
 ### How to run
 
-In the backend directory, run ###' uvicorn backend.main:app --reload'.
-Go to the frontend directory, then run ###' npm start'.
+In the backend directory, run 'uvicorn backend.main:app --reload'.
+Go to the frontend directory, then run 'npm start'.
