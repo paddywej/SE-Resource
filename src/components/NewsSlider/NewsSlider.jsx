@@ -3,10 +3,15 @@ import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import new1 from '../../assets/news-2.PNG';
 import leftArrow from '../../assets/button left.png';
 import rightArrow from '../../assets/button right.png';
 import "./NewsSlider.css"; 
+import news1 from "../../assets/news1.jpg"
+import news2 from "../../assets/news1-2.png"
+import news3 from "../../assets/news3.jpg"
+import news4 from "../../assets/news4.jpg"
+import news5 from "../../assets/news5.jpg"
+import news6 from "../../assets/news6.jpg"
 
 const NewsSlider = () => {
   const navigate = useNavigate();
@@ -24,34 +29,40 @@ const NewsSlider = () => {
 
   const data = [
     {
-      name: 'News1',
-      img: new1,
-      review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      nav : "/news"
+      name: 'International AI Hackathon',
+      img: news1,
+      review: 'KMITL, the University of Queensland, and NIA co-organized the 2024 AI Hackathon.',
+      nav : "/news1"
     },
     {
-      name: 'News2',
-      img: new1,
-      review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      nav : "/news"
+      name: 'Direct Admission 2025',
+      img: news2,
+      review: 'The Direct Admission 1-1 (Early Round) for the 2025 academic year is officially open!',
+      nav : "/news2"
     },
     {
-      name: 'News3',
-      img: new1,
-      review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      nav : "/news"
+      name: 'Computer Game Talk',
+      img: news3,
+      review: 'Navigating the Future of Gaming in the UK and Thailand.',
+      nav : "/news3"
     },
     {
-      name: 'News4',
-      img: new1,
-      review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      nav : "/news"
+      name: 'Double Degree at Glasgow',
+      img: news4,
+      review: 'The Double Degree collaboration between KMITL and the U. of Glasgow.',
+      nav : "/news4"
     },
     {
-      name: 'News5',
-      img: new1,
-      review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-      nav : "/news"
+      name: 'Double Degree at Queensland',
+      img: news5,
+      review: 'The Double Degree collaboration between KMITL and the U. of Queensland.',
+      nav : "/news5"
+    },
+    {
+      name: 'University Roadshow',
+      img: news6,
+      review: 'University Roadshow at K-Engineering International Education Fair 2024',
+      nav : "/news6"
     },
   ];
 

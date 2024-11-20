@@ -58,7 +58,7 @@ const HomepageMenu = () => {
           </Link>
         </li>
         <li>
-          <Link to="/event">
+          <Link to="/events">
             <img
               className="button_img"
               src={loggedIn ? event2 : event} // Conditionally set the image source

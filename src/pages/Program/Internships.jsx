@@ -1,52 +1,24 @@
 import React, { useState } from "react";
-import "./Internships.css";
+import "./Program.css";
 import "../../pages/HomePage/HomePage.css";
 import seLogo from "../../assets/se-logo.png";
 import glasgowLogo from "../../assets/glasgow-logo.png";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
-import phone from "../../assets/phone.PNG";
-import mail from "../../assets/mail.PNG";
-import location from "../../assets/location.PNG";
-import facebook from "../../assets/facebook.PNG";
-import L from 'leaflet';
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
+import Contact from "../../components/Contact/Contact";
 
-const position = [13.7265341, 100.7748818];
-
-const customMarker = new L.Icon({
-  iconUrl: markerIcon,
-  shadowUrl: markerShadow,
-  iconSize: [25, 41], // size of the icon
-  iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
-  popupAnchor: [1, -34], // point from which the popup should open relative to the iconAnchor
-  shadowSize: [41, 41] // size of the shadow
-});
 
 const Internship = () => {
     const [showLogin, setShowLogin] = useState(false);
     const handleLoginClick = () => setShowLogin(true);
     const handleLoginClose = () => setShowLogin(false);
 
-    const copyToClipboard = (text) => {
-        navigator.clipboard.writeText(text)
-          .then(() => {
-            alert(`${text} copied to clipboard!`);
-          })
-          .catch(() => {
-            alert('Failed to copy to clipboard.');
-          });
-      };
-    
     return (
         <>
         <Navbar handleLoginClick={handleLoginClick} />
         <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
 
-        <div className={"container-program-head"}>
+        <div className={"container-program-head2"}>
             <h1>Software Industrial Internships</h1>
             <div className={"container-program-body"}>
                 <p>The Software Industrial Internship is a required component of the B.Eng. in Software Engineering program. The objectives are for the students to gain work experience in the software industry and to understand the role of a software engineer in business and the society. Every student is expected to undertake an internship position related to software development in a company in Thailand or abroad during the summer semester at the end of the second year of their study.</p>
@@ -143,72 +115,7 @@ const Internship = () => {
                 </div>
             </div>   
         </div>
-
-       <div className="container3">
-        <div className="child-container left-container">
-          <br />
-          <p className="contact-font">CONTACT US</p>
-          <hr className="custom-separator" />
-          <br />
-
-          <MapContainer
-            center={position}
-            zoom={13}
-            style={{ 
-              height: '300px', 
-              width: '100%', 
-              borderRadius: '15px'
-            }}
-          >
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            />
-            <Marker position={position} icon={customMarker}>
-              <Popup>
-                <strong>KMITL</strong> <br /> King Mongkut's Institute of Technology Ladkrabang
-              </Popup>
-            </Marker>
-          </MapContainer>
-          
-          <br />
-          <div className={'hover-link icon-text copy-button'} onClick={() => copyToClipboard('1 Chalong Krung 1 Alley, Lat Krabang, Khet Lat Krabang, Krung Thep Maha Nakhon 10520')} >
-              <img src={location} alt="Location Icon" className="icon"/>
-              <p>1 Chalong Krung 1 Alley, Lat Krabang, Khet Lat Krabang, Krung Thep Maha Nakhon 10520</p>
-            </div>
-        </div>
-
-        <div className="child-container right-container">
-          <div className="contact-info">
-            <div className={'hover-link icon-text copy-button'} onClick={() => copyToClipboard('02-329-8000')}>
-              <img src={phone} alt="Phone Icon" className="icon" />
-              <p>02-329-8000</p>
-            </div>
-            <div className={'hover-link icon-text copy-button'} onClick={() => copyToClipboard('02-329-8321')}>
-              <img src={phone} alt="Phone Icon2" className="icon" />
-              <p>02-329-8321</p>
-            </div>
-            <div className={"icon-text"}>
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=siie@kmitl.ac.th&su=Subject%20Here&body=Message%20body" target="_blank" className={'hover-link contact-links'}>
-                <img src={mail} alt="Mail Icon" className="icon" />
-                <p>siie@kmitl.ac.th</p>
-              </a>
-            </div>
-            <div className="icon-text">
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wiboon.pr@kmitl.ac.th&su=Subject%20Here&body=Message%20body" target="_blank" className={'hover-link contact-links'}>
-                <img src={mail} alt="Mail Icon2" className="icon" />
-                <p>wiboon.pr@kmitl.ac.th</p>
-              </a>
-            </div>
-            <div className="icon-text">
-              <a href="https://www.facebook.com/sekmitl/?locale=th_TH" target="_blank" className={'hover-link contact-links'} >
-                <img src={facebook} alt="Facebook Icon" className="icon" />
-                <p>Software Engineering KMITL</p>
-              </a> 
-            </div>
-          </div>
-        </div>
-      </div>
+        <Contact handleLoginClick={handleLoginClick} />
     </>
   );
 };

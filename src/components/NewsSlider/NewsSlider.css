@@ -29,18 +29,22 @@
 /* Header section with image */
 .slide-header {
     height: 224px;
-    background-color: rgb(222, 134, 27);
+    background-color: rgb(222, 222, 222);
     display: flex;
     justify-content: center;
     align-items: center;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+    overflow: hidden; /* Ensure the image doesn't exceed the container */
+    padding: 0; /* Remove any default padding */
 }
 
 .slide-image {
-    height: 176px;
-    width: 176px;
-    border-radius: 50%;
+    height: 100%; /* Make the image cover the full height */
+    width: 100%; /* Make the image cover the full width */
+    object-fit: cover; /* Ensure the image fills the space proportionally */
+    border-radius: 0; /* Remove border-radius for a flat cover */
+    object-position: top;
 }
 
 /* Slide content section */

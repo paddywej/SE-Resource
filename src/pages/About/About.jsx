@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./About.css";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
+import Contact from "../../components/Contact/Contact";
 import aboutMainPic from "../../assets/about-main-pic.png";
 
 const About = () => {
@@ -38,6 +39,7 @@ const About = () => {
                     <li>Software entrepreneurs with strong foundation in computer science, mathematics, and software engineering principles, graduates of the SE program may continue their studies at postgraduate level in various software engineering or computing related fields in universities worldwide.</li>
                 </div>
             </div>
+            <Contact handleLoginClick={handleLoginClick}/>
         </>
     );
 }

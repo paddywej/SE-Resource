@@ -16,7 +16,7 @@ const File1 = () => {
   useEffect(() => {
     if (loggedIn && username) {
       axios
-        .get(`http://localhost:8000/file1/files/${username}`)
+        .get(`http://localhost:8000/file2/files/${username}`)
         .then((response) => {
           setFiles(response.data.files);
         })
@@ -71,7 +71,7 @@ const File1 = () => {
 
   const deleteFileHandler = (name) => {
     axios
-      .delete(`http://localhost:8000/file1/upload/?page_name=file1&file_name=${name}`)
+      .delete(`http://localhost:8000/file2/upload/?page_name=file2&file_name=${name}`)
       .then(() => {
         removeFile(name);
       })
@@ -120,7 +120,55 @@ const File1 = () => {
               Select File
             </button>
           </div>
-          <p className="info-text">Supported formats: All file types</p>
+
+          {selectedFile && (
+            <div className="file-preview">
+              <p>Selected File: {selectedFile.name}</p>
+              <br></br>
+              <button className="confirm-upload-btn" onClick={confirmUploadHandler}>
+                <FontAwesomeIcon icon={faCheck} />
+                OK
+              </button>
+            </div>
+          )}
+
+          {files.length > 0 ? (
+            <ul className="file-list">
+              {files.map((file) => (
+                <li className="file-item" key={file.name}>
+                  <FontAwesomeIcon icon={faFileAlt} className="file-icon" />
+                  <p
+                    className="file-name"
+                    onClick={() => file.url && window.open(file.url, '_blank')}
+                    title="Click to preview"
+                  >
+                    {file.name}
+                  </p>
+                  <div className="file-actions">
+                    {file.isUploading ? (
+                      <FontAwesomeIcon icon={faSpinner} className="spinner-icon fa-spin" />
+                    ) : (
+                      <>
+                        <FontAwesomeIcon
+                          icon={faDownload}
+                          className="download-icon"
+                          onClick={() => downloadFileHandler(file.url)}
+                        />
+                        <FontAwesomeIcon
+                          icon={faTrash}
+                          className="trash-icon"
+                          onClick={() => deleteFileHandler(file.name)}
+                        />
+                      </>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="empty-message">No files uploaded yet. Start uploading now!</p>
+          )}
+        </div>
         </div>
 
         {selectedFile && (

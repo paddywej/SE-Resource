@@ -60,6 +60,7 @@ const Navbar = ({ handleLoginClick, handleLogout }) => {
                 <li><a href="/glasgow" className="dropdown-link">KMITL-Glasgow</a></li>
                 <li><a href="/queensland" className="dropdown-link">KMITL-Queensland</a></li>
                 <li><a href="/exchange" className="dropdown-link">Exchange-Study-Abroad</a></li>
+                <li><a href="/internships" className="dropdown-link">Internships</a></li>
               </ul>
             </li>
             <li className="dropdown">
@@ -72,10 +73,10 @@ const Navbar = ({ handleLoginClick, handleLogout }) => {
             <li><a href="/news" className="nav__link">News</a></li>
             <li><a href="/events" className="nav__link">Events</a></li>
 
-            {/* Conditionally render Archive link based on loggedIn state */}
             {loggedIn && (
-              <li><a href="/file1" className="nav__link">Archive</a></li>
+              <li><a href="/archive" className="nav__link">Archive</a></li>
             )}
+            
           </ul>
         </div>
 
@@ -84,7 +85,7 @@ const Navbar = ({ handleLoginClick, handleLogout }) => {
             {loggedIn ? (
               <>
                 <li>
-                  <div className="forS">{username}</div> {/* Display username */}
+                  <div className="forS">{username}</div>
                 </li>
                 <li>
                   <a href="#" className="nav__link" onClick={logout}>Log Out</a>
