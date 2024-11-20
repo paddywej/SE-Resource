@@ -68,8 +68,6 @@
   transform: translateY(0);
 }
 
-
-/*=============== LOGIN ===============*/
 .login__form, 
 .login__group {
   display: grid;
@@ -129,5 +127,3 @@
 .login__button:hover {
   box-shadow: 0 4px 24px hsla(230, 75%, 40%, .4);
 }
-
-  

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../context/UserContext"; // Adjust path as needed
+import { UserContext } from "../../context/UserContext";
 import close_symbol from "../../assets/close_symbol.png";
 
 const Login = ({ showLogin, handleLoginClose }) => {

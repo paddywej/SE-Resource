@@ -1,6 +1,6 @@
 import React, { useState, useEffect , useContext} from "react";
 import { UserContext } from "../../context/UserContext";
-import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
+import { useNavigate } from "react-router-dom";
 import seLogo from "../../assets/se_logo.png";
 import menu_icon from "../../assets/menu_icon.png";
 import close_icon from "../../assets/close_symbol.png";
@@ -10,7 +10,7 @@ const Navbar = ({ handleLoginClick, handleLogout }) => {
   const { loggedIn, username, setLoggedIn, setUsername } = useContext(UserContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navigate = useNavigate();  // Initialize the navigate function
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Debugging the username value from context
@@ -25,7 +25,7 @@ const Navbar = ({ handleLoginClick, handleLogout }) => {
     setLoggedIn(false);  // Reset loggedIn state
     setUsername("");  // Clear username
     localStorage.removeItem("username");  // Remove username from localStorage
-    navigate("/"); // Navigate to the homepage
+    navigate("/");
     window.location.reload(); // Reload the page to reset everything
   };
   

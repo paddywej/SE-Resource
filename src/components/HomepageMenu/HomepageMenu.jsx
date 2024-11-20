@@ -34,7 +34,7 @@ const HomepageMenu = () => {
           <Link to="/admission">
             <img
               className="button_img"
-              src={loggedIn ? admission2 : admission} // Conditionally set the image source
+              src={loggedIn ? admission2 : admission}
               alt="Admission"
             />
           </Link>
@@ -43,7 +43,7 @@ const HomepageMenu = () => {
           <Link to="/news">
             <img
               className="button_img"
-              src={loggedIn ? news2 : news} // Conditionally set the image source
+              src={loggedIn ? news2 : news}
               alt="News"
             />
           </Link>
@@ -52,7 +52,7 @@ const HomepageMenu = () => {
           <Link to="/program">
             <img
               className="button_img"
-              src={loggedIn ? program2 : program} // Conditionally set the image source
+              src={loggedIn ? program2 : program}
               alt="Program"
             />
           </Link>
@@ -61,7 +61,7 @@ const HomepageMenu = () => {
           <Link to="/events">
             <img
               className="button_img"
-              src={loggedIn ? event2 : event} // Conditionally set the image source
+              src={loggedIn ? event2 : event}
               alt="Event"
             />
           </Link>

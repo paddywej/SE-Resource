@@ -1,19 +1,19 @@
 /*design for contact*/
 .container3 {
     margin-top: 10rem;
-    padding: 20px; /* Added padding to reduce edge-to-edge spacing */
+    padding: 20px;
     background: linear-gradient(to bottom, #d58442, #a95c35);
     display: flex;
-    flex-wrap: wrap; /* Allow child containers to wrap */
-    justify-content: center; /* Center the children */
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   .child-container {
-    width: 48%; /* Keep for larger screens */
-    height: auto; /* Change height to auto for better responsiveness */
+    width: 48%;
+    height: auto;
     background: linear-gradient(to bottom, #d58442, #a95c35);
     padding: 20px;
-    margin: 10px; /* Added margin for spacing between child containers */
+    margin: 10px;
   }
   
   .contact-info {
@@ -83,6 +83,6 @@
   }
   
   .map-container {
-    position: relative; /* Set relative positioning */
-    z-index: 1; /* Set lower z-index than navbar */
+    position: relative;
+    z-index: 1;
   }
