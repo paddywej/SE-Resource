@@ -1,8 +1,7 @@
-# models.py
 from sqlalchemy import Column, String, Text, DateTime, ForeignKey, Boolean, Integer, LargeBinary
 from sqlalchemy.orm import relationship
 from datetime import datetime
-from .database import Base  # Assuming you have your Base class in the database module
+from .database import Base
 
 # User model
 class User(Base):
