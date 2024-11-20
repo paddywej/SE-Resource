@@ -26,7 +26,7 @@ const Glasgow = () => {
             <div className="container-program-head">
             <div>
                 <br></br>
-                <h2>About University of Glasgow</h2>
+                <h2 style= {{color: "#5b65a4"}}>About University of Glasgow</h2>
                 <div className="container-program-body">
                     <p>Founded in 1451, the University of Glasgow (Glasgow, United Kingdom) is one of the oldest universities in the world, and has been ranked as one of the world's top 100 universities. With its long history in advanced research, the University of Glasgow has been home to six Nobel-prize winners. The University's School of Computing Science has consistently been ranked in the UK's top 10 in computing. Glasgow's Software Engineering program is one of the first programs in the world that specializes in software engineering and is highly respected by the software industry.</p>
                 </div>
@@ -39,7 +39,7 @@ const Glasgow = () => {
             <br />
 
             <div className="small-header">
-                <h2>Admission</h2>
+                <h2 style= {{color: "#5b65a4"}}>Admission</h2>
                 <div className="container-program-body">
                     <p>Requirements for students who wish to join this double-degree program:
                         <li>Completed Year 2 of the B.Eng. in Software Engineering program with GPA of 3.0 or more</li>
@@ -49,14 +49,14 @@ const Glasgow = () => {
             </div>
 
             <div className="small-header">
-                <h2>Degrees</h2>
+                <h2 style= {{color: "#5b65a4"}}>Degrees</h2>
                 <div className="container-program-body">
                     <p>Students who have completed Year 4 of this double-degree program will be awarded a BSc Honours degree in Software Engineering from the University of Glasgow and a B.Eng. degree in Software Engineering from KMITL. Students who maintain good academic records during their studies at the University of Glasgow will be eligible to transfer to a one-year Master's program in Software Engineering at the end of Year 4 and graduate with the Master of Science degree in Software Engineering awarded by the University of Glasgow at the end of Year 5.</p>
                 </div>
             </div>
 
             <div className="small-header">
-                <h2>Tuition Fees</h2>
+                <h2 style= {{color: "#5b65a4"}}>Tuition Fees</h2>
                 <div className="container-program-body">
                     <p>The tuition fee rates are as follows:*
                           <li>2 years at KMITL, Tuition fee: THB 180,000 per year</li>

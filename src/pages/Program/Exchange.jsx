@@ -36,7 +36,7 @@ const Exchange = () => {
             </div>
 
             <div className={"small-header"}>
-                <h2>About Frankfurt University of Applied Sciences</h2>
+                <h2 style= {{color: "#5b65a4"}}>About Frankfurt University of Applied Sciences</h2>
                 <div className={"container-program-body"}>
                     <p>Frankfurt University of Applied Sciences (abbreviated as FRA-UAS) is a large practice-oriented higher-education institute specializing in science and technology. The University is located near the center of Frankfurt am Main, a city which is considered a multicultural city and the largest financial center in Continental Europe. It has a highly international student body, with over 10,000 students from more than 100 countries. The University has more than 650 academic staff and 220 administrative staff. 
                         There are four faculties:
@@ -107,7 +107,7 @@ const Exchange = () => {
             </div>
             <br></br>
             <div className={"small-header"}>
-                <h2>Cost</h2>
+                <h2 style= {{color: "#5b65a4"}}>Cost</h2>
                 <div className={"container-program-body"}>
                     <p>In accordance with the university's regulation, you are required to pay the normal tuition fee for Year 3 Semester 1 to KMITL as usual. FRA-UAS does not collect additional tuition fee for your study there. You are still required to prepare for other expenses during your period of study at Frankfurt. The following table provides a rough estimate of the essential expenses (not including leisure activities, souvenirs and other unnecessary items):</p>
                     <table className={"table-class"}>
@@ -151,7 +151,7 @@ const Exchange = () => {
             </div>
 
             <div className={"small-header"}>
-                <h2>Requirements</h2>
+                <h2 style= {{color: "#5b65a4"}}>Requirements</h2>
                 <div className={"container-program-body"}>
                     <p>The following is the minimum requirement for joining the exchange program at FRA-UAS.</p>
                     <li>Studying in Year 3 Semester 1 of the SE program.</li>
@@ -162,7 +162,7 @@ const Exchange = () => {
             </div>
             
             <div className={"small-header"}>
-                <h2>Application</h2>
+                <h2 style= {{color: "#5b65a4"}}>Application</h2>
                 <div className={"container-program-body"}>
                     <p>The application procedure is as follows:</p>
                     <li>The candidate fills in the International College study abroad application form: <a href="https://goo.gl/HPqTbB" rel="alternate noopener noreferrer" target="_blank" className={"link-class"}>Application Form</a></li>
@@ -175,7 +175,7 @@ const Exchange = () => {
             </div>            
 
             <div className={"small-header"}>
-                <h2>Contact</h2>
+                <h2 style= {{color: "#5b65a4"}}>Contact</h2>
                 <div className={"container-program-body"}>
                     <p>For all enquiries regarding the exchange study at FRA-UAS, contact:</p>   
                     <li>Dr. Jochen Amrehn</li>

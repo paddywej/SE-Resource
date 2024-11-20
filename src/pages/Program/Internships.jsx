@@ -19,21 +19,20 @@ const Internship = () => {
         <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
 
         <div className={"container-program-head2"}>
-            <h1>Software Industrial Internships</h1>
+            <h1 style= {{color: "#5b65a4"}}>Software Industrial Internships</h1>
             <div className={"container-program-body"}>
                 <p>The Software Industrial Internship is a required component of the B.Eng. in Software Engineering program. The objectives are for the students to gain work experience in the software industry and to understand the role of a software engineer in business and the society. Every student is expected to undertake an internship position related to software development in a company in Thailand or abroad during the summer semester at the end of the second year of their study.</p>
             </div>
 
             <div>
-                <h2>Information for Students</h2>               
+                <h2 style= {{color: "#5b65a4"}}>Information for Students</h2>               
                 <div className={"container-program-body"}>
-                  <h3>Requirements:</h3>
-                  <h3>
+                  <h3 style= {{color: "#5b65a4"}}>
                     <li>Duration and Timing</li>
                   </h3>
                   <p>The internship takes place in the summer semester of Year 2 of the program (late May - late July). The internship must consist of at least 7 weeks of full-time work. It may be longer if you wish.</p>
 
-                  <h3>
+                  <h3 style= {{color: "#5b65a4"}}>
                     <li>Type of Work</li>
                   </h3>
 
@@ -65,11 +64,11 @@ const Internship = () => {
                   <li>At the one end of the spectrum, a student working for a large company undertakes small clearly-defined pieces of work within a large project. The student must first make a significant effort to understand the existing framework, before going on to implementation of software components that will fit into that framework.</li>
                   <li>At the other end of the spectrum, a student working for a small company develops a complete software package. The student first identifies the requirements, including a user interface design, and continues development through to a prototype implementation.</li>
                 
-                  <h3>
+                  <h3 style= {{color: "#5b65a4"}}>
                     <li>Supervision</li>
                   </h3>
                   <p>Normally, the host company of your internship will assign a member of the company to be your supervisor. The supervisor will oversee the progress of your work and give you advice. The International College will also nominate one or more lecturers to be your internship advisors who will be available for consultation to both you and the company.</p>
-                  <h3>
+                  <h3 style= {{color: "#5b65a4"}}>
                     <li>Assessment</li>
                   </h3>
                     <p>The internship is an assessed component of your study. During the internship, the company will monitor your performance and then submit their assessment to the International College. The company's assessment will cover various aspects of your internship, including:</p>
@@ -79,7 +78,7 @@ const Internship = () => {
                       <li>Other attributes a good software engineer should possess, such as punctuality, responsibility, human relations, creativity, etc.</li>
                     </p>
                     <p>After your internship, you are required to submit an internship report and give a presentation of your work and your internship experience to the internship assessment committee. The committee will then evaluate your internship and give you either grade S (Satisfactory) or U (Unsatisfactory).</p>
-                  <h3>
+                  <h3 style= {{color: "#5b65a4"}}>
                     <li>Internship Report</li>
                   </h3>
                   <p>An internship report is a short report (1,500 words or more) detailing:</p>
@@ -98,16 +97,16 @@ const Internship = () => {
                   <li>What knowledge and experience will you take forward as the most important lessons from your internship?</li>
                   <p>Both the content of the report and the quality of writing will be taken into account.</p>
                   
-                  <h3>
+                  <h3 style= {{color: "#5b65a4"}}>
                     <li>Presentation</li>
                   </h3>
                   <p>After your internship, you are required to present your work and your experience during the internship to the assessment committee and your colleagues. You should plan for a 20-minute presentation, which will be followed by a 10-minute QA session.</p>
                   
-                  <h3>
+                  <h3 style= {{color: "#5b65a4"}}>
                     <li>Absence during internship</li>
                   </h3>
                   <p>If, for any reason, you need to take a leave during the internship, you must ask for permission from the company. You must also submit a document supporting the request for your leave to your supervisor in the company (or a person who makes a record of your attendance). Absence without notice will result in failing the internship.</p>
-                  <h3>
+                  <h3 style= {{color: "#5b65a4"}}>
                     <li>Contact</li>
                   </h3>
                   <p>Should you have any problem or question, please contact:</p>
