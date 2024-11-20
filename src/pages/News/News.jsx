@@ -16,7 +16,7 @@ const News = () => {
     const handleLoginClose = () => setShowLogin(false);
 
     return (
-        <div className="news-page">
+        <div className="news0-page">
             <Navbar handleLoginClick={handleLoginClick} />
             <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
             <br></br>

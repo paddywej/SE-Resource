@@ -5,14 +5,18 @@
     flex-direction: column;
     align-items: center; 
     justify-content: center; 
+    background-color: #f9f9f9; /* Light background for better readability */
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease-in-out; /* Smooth shadow animation */
 }
 
 .event-details {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 1.5rem; /* Increased gap for breathing space */
     max-width: 500px; 
+    animation: fadeIn 1s ease-in-out; /* Animation when content loads */
 }
 
 .event-image {
@@ -20,6 +24,7 @@
     max-width: 500px; 
     height: auto;
     border-radius: 10px;
+    transition: transform 0.3s ease-in-out; /* Image zoom on hover */
 }
 
 .event-info {
@@ -27,4 +32,41 @@
     text-align: left; 
     margin-top: 1rem; 
     padding-left: 0.5rem; 
+    background-color: #fff; /* Light background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05); /* Soft shadow for elevation */
+    padding: 1rem; /* Additional padding for readability */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth shadow animation */
+}
+
+.event-info p {
+    margin: 0;
+    line-height: 1.5; /* Improved text readability */
+    color: #333; /* Dark text color for better contrast */
+}
+
+.button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out; /* Button hover animation */
+}
+
+.button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

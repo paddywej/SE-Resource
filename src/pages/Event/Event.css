@@ -8,7 +8,7 @@
     text-align: center;
     font-family: "Lexend Deca";
     margin-bottom: 1.5rem;
-    color: #333;
+    color: #122445;
 }
 
 .events-grid {
@@ -52,7 +52,7 @@
     align-items: center;
     padding: 2rem;
     margin: 0 auto;
-    background: linear-gradient(to bottom, #f0fcff, #f5f7ff);    
+    background: linear-gradient(to bottom, #cae2f5, hsl(230, 100%, 98%));    
 }
   
 .event-detail-container .button {
