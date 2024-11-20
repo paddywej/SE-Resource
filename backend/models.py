@@ -17,8 +17,6 @@ class User(Base):
     # Private files relationship (overlapping with public_files)
     private_files = relationship("File", back_populates="user_private", overlaps="public_files")
 
-
-
 # File model
 class File(Base):
     __tablename__ = 'files'

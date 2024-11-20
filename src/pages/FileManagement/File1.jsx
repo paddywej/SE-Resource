@@ -10,21 +10,50 @@ import { UserContext } from "../../context/UserContext";
 const File1 = () => {
   const { loggedIn, username } = useContext(UserContext);
   const [showLogin, setShowLogin] = useState(false);
-  const [files, setFiles] = useState([]);
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [files, setFiles] = useState({ public: [], private: [] });
+  const [selectedFile, setSelectedFile] = useState(null); // To store the selected file
+  const [visibility, setVisibility] = useState(true); // Default visibility is true (public)
 
   useEffect(() => {
     if (loggedIn && username) {
       axios
-        .get(`http://localhost:8000/file1/files/${username}`)
+        .get(`http://localhost:8000/files/file1/${username}`)
         .then((response) => {
-          setFiles(response.data.files);
+          console.log('Response data:', response.data);  // Log response to verify
+  
+          // Classify files based on visibility
+          const publicFiles = [];
+          const privateFiles = [];
+  
+          response.data.files.forEach((file) => {
+            // If the file visibility is true, it's public; otherwise, it's private
+            if (file.visibility === true) {
+              publicFiles.push(file);
+            } else if (file.visibility === false) {
+              privateFiles.push(file);
+            }
+          });
+  
+          setFiles({
+            public: publicFiles,
+            private: privateFiles,
+          });
         })
         .catch((error) => {
           console.error("Error fetching files:", error);
         });
     }
   }, [loggedIn, username]);
+  
+  useEffect(() => {
+    // Check if there are files in public or private
+    if (files.public.length === 0 && files.private.length === 0) {
+      console.log('No files uploaded yet.');
+    } else {
+      console.log('Files are available.');
+    }
+  }, [files]);
+  
 
   const handleLoginClick = () => setShowLogin(true);
   const handleLoginClose = () => setShowLogin(false);
@@ -41,21 +70,27 @@ const File1 = () => {
       name: selectedFile.name,
       isUploading: true,
       url: null,
+      visibility: visibility,
     };
-    setFiles((prevFiles) => [...prevFiles, newFile]);
+    
+    setFiles((prevFiles) => ({
+      ...prevFiles,
+      [visibility ? 'public' : 'private']: [...prevFiles[visibility ? 'public' : 'private'], newFile],
+    }));
 
     const formData = new FormData();
     formData.append('file', selectedFile);
-    formData.append('visibility', true);
+    formData.append('visibility', visibility);
     formData.append('user_id', username);
 
     axios
       .post(`http://localhost:8000/file1/upload/`, formData)
-      .then(() => {
+      .then((response) => {
+        const fileUrl = `http://localhost:8000/uploads/file1/${selectedFile.name}`;
         setFiles((prevFiles) =>
-          prevFiles.map((f) =>
+          prevFiles[visibility ? 'public' : 'private'].map((f) =>
             f.name === selectedFile.name
-              ? { ...f, isUploading: false, url: `http://localhost:8000/uploads/file1/${selectedFile.name}` }
+              ? { ...f, isUploading: false, url: fileUrl }
               : f
           )
         );
@@ -69,11 +104,11 @@ const File1 = () => {
       });
   };
 
-  const deleteFileHandler = (name) => {
+  const deleteFileHandler = (name, visibility) => {
     axios
       .delete(`http://localhost:8000/file1/upload/?page_name=file1&file_name=${name}`)
       .then(() => {
-        removeFile(name);
+        removeFile(name, visibility);
       })
       .catch((error) => {
         console.error("Deletion failed:", error);
@@ -97,34 +132,48 @@ const File1 = () => {
     }).catch((error) => {
       console.error("Download failed:", error);
     });
-  };  
-  
-  const removeFile = (name) => {
-    setFiles((prevFiles) => prevFiles.filter((file) => file.name !== name));
+  };
+
+  const removeFile = (name, visibility) => {
+    setFiles((prevFiles) => ({
+      ...prevFiles,
+      [visibility ? 'public' : 'private']: prevFiles[visibility ? 'public' : 'private'].filter((file) => file.name !== name),
+    }));
   };
 
   return (
     <>
       <Navbar handleLoginClick={handleLoginClick} />
       <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
-      <div className="file-management">
-        <div className="file-upload">
-          <div className="file-inputs">
-            <input
-              type="file"
-              onChange={selectFileHandler}
-              accept="*/*"
-            />
-            <button>
-              <FontAwesomeIcon icon={faPlus} className="icon-plus" />
-              Select File
-            </button>
+      <div className="archive-details-container">
+        <h1 className="archive-details-header">Study Resources: Year 1</h1>
+        <div className="file-management">
+          <div className="file-upload">
+            <div className="file-inputs">
+              <input
+                type="file"
+                onChange={selectFileHandler}
+                accept="*/*" // Accept all file types
+              />
+              <button>
+                <FontAwesomeIcon icon={faPlus} className="icon-plus" />
+                Select File
+              </button>
+            </div>
+            <p className="info-text">Supported formats: All file types</p>
           </div>
 
           {selectedFile && (
             <div className="file-preview">
               <p>Selected File: {selectedFile.name}</p>
-              <br></br>
+              <br />
+              <select
+                onChange={(e) => setVisibility(e.target.value === 'public')}
+                value={visibility ? 'public' : 'private'}
+              >
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+              </select>
               <button className="confirm-upload-btn" onClick={confirmUploadHandler}>
                 <FontAwesomeIcon icon={faCheck} />
                 OK
@@ -132,33 +181,20 @@ const File1 = () => {
             </div>
           )}
 
-          {files.length > 0 ? (
+          <h2>Public Files</h2>
+          {files.public.length > 0 ? (
             <ul className="file-list">
-              {files.map((file) => (
+              {files.public.map((file) => (
                 <li className="file-item" key={file.name}>
                   <FontAwesomeIcon icon={faFileAlt} className="file-icon" />
-                  <p
-                    className="file-name"
-                    onClick={() => file.url && window.open(file.url, '_blank')}
-                    title="Click to preview"
-                  >
-                    {file.name}
-                  </p>
+                  <p className="file-name">{file.name}</p>
                   <div className="file-actions">
                     {file.isUploading ? (
                       <FontAwesomeIcon icon={faSpinner} className="spinner-icon fa-spin" />
                     ) : (
                       <>
-                        <FontAwesomeIcon
-                          icon={faDownload}
-                          className="download-icon"
-                          onClick={() => downloadFileHandler(file.url)}
-                        />
-                        <FontAwesomeIcon
-                          icon={faTrash}
-                          className="trash-icon"
-                          onClick={() => deleteFileHandler(file.name)}
-                        />
+                        <FontAwesomeIcon icon={faDownload} className="download-icon" onClick={() => downloadFileHandler(file.url, file.name)} />
+                        <FontAwesomeIcon icon={faTrash} className="trash-icon" onClick={() => deleteFileHandler(file.name, true)} />
                       </>
                     )}
                   </div>
@@ -166,52 +202,35 @@ const File1 = () => {
               ))}
             </ul>
           ) : (
-            <p className="empty-message">No files uploaded yet. Start uploading now!</p>
+            <p className="empty-message">No public files uploaded yet. Start uploading now!</p>
           )}
+
+          <h2>Private Files</h2>
+          {files.private.length > 0 ? (
+            <ul className="file-list">
+              {files.private.map((file) => (
+                <li className="file-item" key={file.name}>
+                  <FontAwesomeIcon icon={faFileAlt} className="file-icon" />
+                  <p className="file-name">{file.name}</p>
+                  <div className="file-actions">
+                    {file.isUploading ? (
+                      <FontAwesomeIcon icon={faSpinner} className="spinner-icon fa-spin" />
+                    ) : (
+                      <>
+                        <FontAwesomeIcon icon={faDownload} className="download-icon" onClick={() => downloadFileHandler(file.url, file.name)} />
+                        <FontAwesomeIcon icon={faTrash} className="trash-icon" onClick={() => deleteFileHandler(file.name, false)} />
+                      </>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="empty-message">No private files uploaded yet. Start uploading now!</p>
+          )}
+
         </div>
-
-        {selectedFile && (
-          <div className="file-preview">
-            <p>Selected File: {selectedFile.name}</p>
-            <button className="confirm-upload-btn" onClick={confirmUploadHandler}>
-              <FontAwesomeIcon icon={faCheck} />
-              OK
-            </button>
-          </div>
-        )}
-
-        {files.length > 0 ? (
-          <ul className="file-list">
-            {files.map((file) => (
-              <li className="file-item" key={file.name}>
-                <FontAwesomeIcon icon={faFileAlt} className="file-icon" />
-                <p className="file-name">{file.name}</p>
-                <div className="file-actions">
-                  {file.isUploading ? (
-                    <FontAwesomeIcon icon={faSpinner} className="spinner-icon fa-spin" />
-                  ) : (
-                    <>
-                      <FontAwesomeIcon
-                        icon={faDownload}
-                        className="download-icon"
-                        onClick={() => downloadFileHandler(file.url, file.name)} // Pass file name for proper naming
-                      />
-                      <FontAwesomeIcon
-                        icon={faTrash}
-                        className="trash-icon"
-                        onClick={() => deleteFileHandler(file.name)}
-                      />
-                    </>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="empty-message">No files uploaded yet. Start uploading now!</p>
-        )}
       </div>
-      
     </>
   );
 };

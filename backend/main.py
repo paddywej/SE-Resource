@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File as FastAPIFile, UploadFile, Form, HTTPException, Depends
+from fastapi import FastAPI, File as FastAPIFile, UploadFile, Form,Query, HTTPException, Depends
 from fastapi.responses import JSONResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
@@ -9,6 +9,9 @@ from .database import SessionLocal
 from fastapi.staticfiles import StaticFiles
 import os
 import logging
+from typing import List
+from sqlalchemy import or_
+from sqlalchemy import and_
 
 # Initialize logging
 logging.basicConfig(level=logging.INFO)
@@ -136,11 +139,37 @@ async def upload_file(
 
     return {"message": "File uploaded successfully", "category": category, "year": year, "file_url": file_url}
 
-@app.get("/{page_name}/files/{user_id}")
-def get_user_files(page_name: str, user_id: str, db: Session = Depends(get_db)):
-    files = db.query(File).filter(File.user_id == user_id).all()
-    file_list = [{"name": file.title, "url": file.file_url} for file in files]
-    return {"files": file_list}
+@app.get("/files/{page_name}/{user_id}")
+def get_files_by_page_name(
+    page_name: str,
+    user_id: str,
+    db: Session = Depends(get_db)
+):
+    valid_pages = ["file1", "file2", "file3", "file4", "file5", "file6", "file7", "file8"]
+    if page_name not in valid_pages:
+        raise HTTPException(status_code=400, detail="Invalid page name")
+
+    if page_name in ["file1", "file2", "file3", "file4"]:
+        category = "Study Resource"
+        year = str(valid_pages.index(page_name) + 1)
+    else:
+        category = "Project"
+        year = str(valid_pages.index(page_name) - 3)
+
+    # Corrected filter logic using `or_` for public or private (only for the specific user)
+    files = db.query(File).filter(
+        File.category == category,
+        File.year == year,
+        or_(
+            File.visibility == True,  # Public files
+            and_(File.visibility == False, File.user_id == user_id)  # Private files (visible only to the user)
+        )
+    ).all()
+
+    # Convert SQLAlchemy objects to dictionaries
+    file_list = [{"name": file.title, "url": file.file_url, "visibility": file.visibility} for file in files]
+
+    return {"category": category, "year": year, "files": file_list}
 
 @app.delete("/{page_name}/upload/")
 async def delete_file(
