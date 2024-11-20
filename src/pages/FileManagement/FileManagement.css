@@ -161,9 +161,9 @@
 
 .archive-details-header {
   display: flex;
-  justify-content: center; /* Align the header content to the center */
-  align-items: center; /* Vertically align items */
-  text-align: center; /* Center the text */
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
   color: #333;
 }
 

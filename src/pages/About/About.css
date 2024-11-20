@@ -4,7 +4,7 @@
 .about-container .container-about-body {
     padding: 50px 30px;
     display: flex;
-    justify-content: space-between; /* Slight background opacity */
+    justify-content: space-between; 
     border-radius: 8px;
 
 }
@@ -18,9 +18,9 @@
     font-weight: 300;
     line-height: 1.8;
     font-size: 18px;
-    color: #333; /* Slightly darker for better readability */
+    color: #333; 
     margin-left: 50px;
-    margin-right: 50px; /* Lighter background for text container */
+    margin-right: 50px; 
     padding: 20px;
     border-radius: 8px;
 }
@@ -55,7 +55,7 @@
 }
 /* List Styling */
 .about-container ul {
-    list-style-type: none; /* Remove default list bullets */
+    list-style-type: none; 
     padding-left: 20px;
 }
 
@@ -67,12 +67,11 @@
     color: #333;
     position: relative;
     padding-left: 25px;
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+    transition: transform 0.3s ease, opacity 0.3s ease; 
 }
 
-/* Custom Check Mark */
 .about-container li::before {
-    content: "✔"; /* Unicode check mark */
+    content: "✔"; 
     color: #5b65a4;
     font-size: 20px;
     position: absolute;
@@ -80,8 +79,7 @@
     top: 0;
 }
 
-/* Hover Effect */
 .about-container li:hover {
-    transform: translateX(8px) scale(1.05); /* Subtle movement */
-    opacity: 0.8; /* Slight fade effect */
+    transform: translateX(8px) scale(1.05); 
+    opacity: 0.8;
 }

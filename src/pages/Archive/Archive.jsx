@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 import { UserContext } from "../../context/UserContext";
 import Navbar from "../../components/NavBar/NavBar";
 import Contact from "../../components/Contact/Contact";
@@ -15,13 +15,7 @@ import year4projects from "../../assets/projects.png";
 
 const Archive = () => {
   const { loggedIn, username } = useContext(UserContext);
-  const navigate = useNavigate(); // Initialize useNavigate
-
-  // useEffect(() => {
-  //   if (!loggedIn) {
-  //     navigate("/"); // Redirect to home if not logged in
-  //   }
-  // }, [loggedIn, navigate]);
+  const navigate = useNavigate(); 
 
   const handleLoginClick = () => {
     navigate("/login");

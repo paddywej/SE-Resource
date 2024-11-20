@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "./Event.css";
 import Navbar from "../../components/NavBar/NavBar";
 import Login from "../../components/Login/Login";
-// import Contact from "../../components/Contact/Contact";
 import "leaflet/dist/leaflet.css";
 import bloodDonation from "../../assets/blood-donation.png";
 import itOpenHouse from "../../assets/it-open-house.png";
@@ -12,7 +11,6 @@ import sciOpenHouse from "../../assets/science-open-house.png";
 import iaaiConference from "../../assets/iaai-conference.png";
 import xcerScience from "../../assets/xcer-science.png";
 
-// Event data
 const events = [
   {
     id: 1,
@@ -110,7 +108,6 @@ const Event = () => {
           ))}
         </div>
       </div>
-      {/* <Contact handleLoginClick={handleLoginClick} /> */}
     </>
   );
 };

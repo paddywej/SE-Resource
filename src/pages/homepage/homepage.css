@@ -1,13 +1,10 @@
-/*=============== GOOGLE FONTS ===============*/
 @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
 
-/*=============== VARIABLES CSS ===============*/
+/* VARIABLES CSS */
 :root {
   --header-height: 3.5rem;
 
-  /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
   --first-color: rgb(222, 134, 27);
   --title-color: hsl(0, 0%, 0%);
   --text-color: hsl(230, 12%, 40%);
@@ -15,23 +12,19 @@
   --container-color: hsl(230, 100%, 97%);
   --border-color: hsl(230, 25%, 80%);
 
-  /*========== Font and typography ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Mitr", sans-serif;
   --h2-font-size: 1.25rem;
   --normal-font-size: .938rem;
 
-  /*========== Font weight ==========*/
   --font-regular: 300;
   --font-medium: 400;
   --font-semi-bold: 500;
 
-  /*========== z index ==========*/
+  /* z index */
   --z-fixed: 100;
   --z-modal: 1000;
 }
 
-/*========== Responsive typography ==========*/
 @media screen and (min-width: 1023px) {
   :root {
     --h2-font-size: 1.5rem;
@@ -39,7 +32,7 @@
   }
 }
 
-/*=============== BASE ===============*/
+/* BASE */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -82,7 +75,7 @@ img {
   height: auto;
 }
 
-/*=============== REUSABLE CSS CLASSES ===============*/
+/* REUSABLE CSS CLASSES */
 .container {
   max-width: 1650px;
   margin-inline: 25px;
@@ -117,7 +110,7 @@ img {
   cursor: pointer;
 }
 
-/*=============== HEADER & NAV ===============*/
+/* HEADER & NAV */
 .header {
   position: fixed;
   top: 0;
@@ -131,7 +124,6 @@ img {
 .nav {
   height: var(--header-height);
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
 }
 
@@ -154,7 +146,6 @@ img {
   row-gap: 2.5rem;
   text-align: center;
   column-gap: 20rem;
-  /* margin-right: 10rem; */
 }
 
 .nav__list2{
@@ -182,7 +173,7 @@ img {
   top: 0;
 }
 
-/*=============== PICTURE ===============*/
+/* PICTURE */
   .homepage_manu {
     margin: 100rem;
   }
@@ -222,7 +213,6 @@ img {
 .slider_img {
   width: 100%;
   height: auto;
-  /* border-radius: 10px; */
 }
 
 .buttonPic {
@@ -256,15 +246,15 @@ img {
 }
 
 .slick-dots li.slick-active button:before {
-  color: rgb(222, 134, 27); /* Custom dot color for active state */
+  color: rgb(222, 134, 27); 
 }
 
 hr {
   border: 3px solid rgb(222, 134, 27);
   border-radius: 10px;
-  width: 100%;  /* Use 100% width for flexibility */
-  max-width: 65rem;  /* Ensure maximum width for larger screens */
-  margin: 4rem auto;  /* Center the hr using auto margin */
+  width: 100%;
+  max-width: 65rem; 
+  margin: 4rem auto; 
 }
 
 .quote {
@@ -272,22 +262,22 @@ hr {
   margin-top: 10rem;
 }
 
-/*design for contact*/
+/*CONTACT*/
 .container3 {
   margin-top: 10rem;
-  padding: 20px; /* Added padding to reduce edge-to-edge spacing */
+  padding: 20px; 
   background: linear-gradient(to bottom, #d58442, #a95c35);
   display: flex;
-  flex-wrap: wrap; /* Allow child containers to wrap */
-  justify-content: center; /* Center the children */
+  flex-wrap: wrap;
+  justify-content: center; 
 }
 
 .child-container {
-  width: 48%; /* Keep for larger screens */
-  height: auto; /* Change height to auto for better responsiveness */
+  width: 48%; 
+  height: auto; 
   background: linear-gradient(to bottom, #d58442, #a95c35);
   padding: 20px;
-  margin: 10px; /* Added margin for spacing between child containers */
+  margin: 10px; 
 }
 
 .contact-info {
@@ -357,12 +347,12 @@ hr {
 }
 
 .map-container {
-  position: relative; /* Set relative positioning */
-  z-index: 1; /* Set lower z-index than navbar */
+  position: relative; 
+  z-index: 1; 
 }
 
 
-/*=============== BREAKPOINTS ===============*/
+/* BREAKPOINTS */
 
 /* for mobile devices */
 @media screen and (max-width: 639px)  {  
@@ -439,7 +429,7 @@ hr {
 @media screen and (min-width: 640px) and (max-width: 1023px)  {
 
   body {
-    overflow-x: auto; /* Add horizontal scrolling if necessary */
+    overflow-x: auto; 
   }
   
   .login {
@@ -469,7 +459,7 @@ hr {
     line-height: 1.5rem; 
   }
   .child-container {
-    width: 48%; /* Two columns for medium screens */
+    width: 48%; 
   }
 }
 
@@ -501,17 +491,17 @@ hr {
   }
 
   hr {
-    width: 65rem;  /* Keep width at 65rem for large screens */
-    border-width: 3px; /* Default hr size */
+    width: 65rem; 
+    border-width: 3px; 
   }
   .quote p {
-    font-size: 1.3rem;  /* Default font size for large screens */
+    font-size: 1.3rem;  
     line-height: 2.5rem;
     font-family: "Lexend Deca";
   }
 
   .quote strong {
-    font-size: 1.5rem;  /* Default font size for large screens */
+    font-size: 1.5rem; 
     line-height: 3rem;
     font-weight: 2rem;
     font-family: "Lexend Deca";

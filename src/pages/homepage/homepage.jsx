@@ -22,7 +22,7 @@ const HomePage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null); 
   const images = [homepagePic1, homepagePic2, homepagePic3, homepagePic4];
-  const links = ["/about", "/glasgow", "/queensland", "/news"]; // Array of links corresponding to images
+  const links = ["/about", "/glasgow", "/queensland", "/news"]; 
 
   const clonedImages = [images[images.length - 1], ...images, images[0]];
 
@@ -31,13 +31,13 @@ const HomePage = () => {
   const sliderSettings = {
     dots: true, // Enables dots for navigation
     infinite: true, // Infinite scrolling
-    speed: 500, // Transition speed
-    slidesToShow: 1, // Number of slides to show at once
-    slidesToScroll: 1, // Number of slides to scroll
-    autoplay: true, // Auto-slide
-    autoplaySpeed: 5000, // Time between slides (in ms)
-    prevArrow: <img src={button_left} alt="Previous" className="buttonPic" />, // Custom left arrow
-    nextArrow: <img src={button_right} alt="Next" className="buttonPic" />, // Custom right arrow
+    speed: 500, 
+    slidesToShow: 1, 
+    slidesToScroll: 1, 
+    autoplay: true,
+    autoplaySpeed: 5000, 
+    prevArrow: <img src={button_left} alt="Previous" className="buttonPic" />, 
+    nextArrow: <img src={button_right} alt="Next" className="buttonPic" />, 
   };
 
   return (
@@ -45,12 +45,11 @@ const HomePage = () => {
       <Navbar handleLoginClick={handleLoginClick} />
       <Login showLogin={showLogin} handleLoginClose={handleLoginClose} />
       
-      {/*==================== SLIDER ====================*/}
+      {/* SLIDER */}
       <div className="slider_container">
         <Slider {...sliderSettings}>
           {images.map((image, index) => (
             <div key={index}>
-              {/* Use the link array to map each image to a specific link */}
               <Link to={links[index]}>
                 <img src={image} alt={`Slide ${index + 1}`} className="slider_img" />
               </Link>
