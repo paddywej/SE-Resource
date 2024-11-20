@@ -44,16 +44,6 @@ const File8 = () => {
         });
     }
   }, [loggedIn, username]);
-  
-  useEffect(() => {
-    // Check if there are files in public or private
-    if (files.public.length === 0 && files.private.length === 0) {
-      console.log('No files uploaded yet.');
-    } else {
-      console.log('Files are available.');
-    }
-  }, [files]);
-  
 
   const handleLoginClick = () => setShowLogin(true);
   const handleLoginClose = () => setShowLogin(false);
@@ -105,8 +95,11 @@ const File8 = () => {
   };
 
   const deleteFileHandler = (name, visibility) => {
+    const encodedFileName = encodeURIComponent(name);
+    const encodedPageName = "file8"; 
+  
     axios
-      .delete(`http://localhost:8000/file8/upload/?page_name=file8&file_name=${name}`)
+      .delete(`http://localhost:8000/file8/upload/?page_name=${encodedPageName}&file_name=${encodedFileName}&user_id=${username}`)
       .then(() => {
         removeFile(name, visibility);
       })
@@ -114,12 +107,13 @@ const File8 = () => {
         console.error("Deletion failed:", error);
       });
   };
+  
 
   const downloadFileHandler = (url, filename) => {
     axios({
       url: `http://localhost:8000/download/${url.split('/static/')[1]}`, 
       method: 'GET',
-      responseType: 'blob', // Important for handling file downloads
+      responseType: 'blob',
     }).then((response) => {
       const href = URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement('a');
@@ -188,13 +182,16 @@ const File8 = () => {
                 <li className="file-item" key={file.name}>
                   <FontAwesomeIcon icon={faFileAlt} className="file-icon" />
                   <p className="file-name">{file.name}</p>
+                  <p className="file-uploader">Uploaded by: {file.user_id}</p>
                   <div className="file-actions">
                     {file.isUploading ? (
                       <FontAwesomeIcon icon={faSpinner} className="spinner-icon fa-spin" />
                     ) : (
                       <>
                         <FontAwesomeIcon icon={faDownload} className="download-icon" onClick={() => downloadFileHandler(file.url, file.name)} />
-                        <FontAwesomeIcon icon={faTrash} className="trash-icon" onClick={() => deleteFileHandler(file.name, true)} />
+                        {(file.user_id === username || username === "Admin") && (  // Admin can delete any public file
+                          <FontAwesomeIcon icon={faTrash} className="trash-icon" onClick={() => deleteFileHandler(file.name, true)} />
+                        )}
                       </>
                     )}
                   </div>
@@ -218,7 +215,9 @@ const File8 = () => {
                     ) : (
                       <>
                         <FontAwesomeIcon icon={faDownload} className="download-icon" onClick={() => downloadFileHandler(file.url, file.name)} />
-                        <FontAwesomeIcon icon={faTrash} className="trash-icon" onClick={() => deleteFileHandler(file.name, false)} />
+                        {file.user_id === username && (
+                          <FontAwesomeIcon icon={faTrash} className="trash-icon" onClick={() => deleteFileHandler(file.name, false)} />
+                        )}
                       </>
                     )}
                   </div>
@@ -228,7 +227,6 @@ const File8 = () => {
           ) : (
             <p className="empty-message">No private files uploaded yet. Start uploading now!</p>
           )}
-
         </div>
       </div>
     </>

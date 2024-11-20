@@ -156,7 +156,7 @@ def get_files_by_page_name(
         category = "Project"
         year = str(valid_pages.index(page_name) - 3)
 
-    # Corrected filter logic using `or_` for public or private (only for the specific user)
+    # Corrected filter logic using or_ for public or private (only for the specific user)
     files = db.query(File).filter(
         File.category == category,
         File.year == year,
@@ -166,25 +166,32 @@ def get_files_by_page_name(
         )
     ).all()
 
-    # Convert SQLAlchemy objects to dictionaries
-    file_list = [{"name": file.title, "url": file.file_url, "visibility": file.visibility} for file in files]
+    # Fetch user_id instead of username
+    file_list = [{"name": file.title, "url": file.file_url, "visibility": file.visibility, "user_id": file.user_id} for file in files]
 
     return {"category": category, "year": year, "files": file_list}
+
 
 @app.delete("/{page_name}/upload/")
 async def delete_file(
     page_name: str,
-    file_name: str,
+    file_name: str = Query(...),  # Use Query to capture the query parameter
     db: Session = Depends(get_db)
 ):
     valid_pages = ["file1", "file2", "file3", "file4", "file5", "file6", "file7", "file8"]
+    
     if page_name not in valid_pages:
         raise HTTPException(status_code=400, detail="Invalid page name")
 
+    # Fetch file to delete from the database
     file_to_delete = db.query(File).filter(File.title == file_name).first()
     if not file_to_delete:
         raise HTTPException(status_code=404, detail="File not found")
 
+    # Log information for debugging
+    logging.info(f"Attempting to delete file '{file_name}' with visibility {file_to_delete.visibility}.")
+
+    # Proceed with deleting the file from the database (no check for user ownership)
     try:
         db.delete(file_to_delete)
         db.commit()
@@ -193,6 +200,7 @@ async def delete_file(
         logging.error(f"Error deleting file from database: {e}")
         raise HTTPException(status_code=500, detail="Error deleting file from database")
 
+    # Remove the actual file from the filesystem
     file_path = os.path.join("uploads", page_name, file_name)
     if os.path.exists(file_path):
         os.remove(file_path)
