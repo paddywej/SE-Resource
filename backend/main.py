@@ -63,7 +63,7 @@ def register_user(request: PasswordCreate, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.id == request.id).first()
 
     if not user:
-        raise HTTPException(status_code=400, detail="User does not exist.")
+        raise HTTPException(status_code=400, detail="ID does not exist.")
     if user.password_hash is not None:
         raise HTTPException(status_code=400, detail="User already has a password.")
 
@@ -175,7 +175,7 @@ def get_files_by_page_name(
 @app.delete("/{page_name}/upload/")
 async def delete_file(
     page_name: str,
-    file_name: str = Query(...),  # Use Query to capture the query parameter
+    file_name: str = Query(...),
     db: Session = Depends(get_db)
 ):
     valid_pages = ["file1", "file2", "file3", "file4", "file5", "file6", "file7", "file8"]
@@ -209,7 +209,6 @@ async def delete_file(
 
 @app.get("/download/{file_path:path}")
 async def download_file(file_path: str):
-    # Ensure you handle the path correctly
     file_full_path = os.path.join("uploads", file_path)
 
     if os.path.exists(file_full_path):
