@@ -31,7 +31,7 @@
 .admission-page .wrapper {
     max-width: 1080px;
     margin: 50px auto;
-    padding: 5rem 20px 0; /* Added padding-top to create space for the navbar */
+    padding: 5rem 20px 0;
     position: relative;
 }
 
