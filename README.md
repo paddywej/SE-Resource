@@ -20,5 +20,5 @@ Developed using ReactJS, FastAPI, and PostgreSQL.
 
 ### How to run
 
-In the backend directory, run 'uvicorn backend.main:app --reload'.
-Go to the frontend directory, then run 'npm start'.
+In the backend directory, run ###'uvicorn backend.main:app --reload'.
+Go to the frontend directory, then run ###'npm start'.
