@@ -16,7 +16,6 @@
     align-items: flex-start;
     gap: 1.5rem; /* Increased gap for breathing space */
     max-width: 500px; 
-    animation: fadeIn 1s ease-in-out; /* Animation when content loads */
 }
 
 .event-image {
