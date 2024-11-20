@@ -46,15 +46,14 @@
 
 .button {
     display: inline-block;
-    background-color: #007bff;
+    background-color: #d58442;;
     color: #fff;
     padding: 0.5rem 1.5rem;
     border-radius: 5px;
-    text-transform: uppercase;
     text-decoration: none;
     transition: background-color 0.3s ease-in-out; /* Button hover animation */
 }
 
 .button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: rgba(0, 0, 0, 0.2);; /* Darker blue on hover */
 }
