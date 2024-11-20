@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# SE-Resource
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SE-Resource is a reimagined version of se.kmitl.ac.th, the official Software Engineering website of KMITL, designed to meet the evolving needs of students, faculty, and alumni. Our website retains the essential features of the original website, such as news, events, and course information, while introducing an 'Archive'  that allows users to share academic and professional resources, including projects, study notes, files, and other valuable materials.
 
 ## Available Scripts
 
