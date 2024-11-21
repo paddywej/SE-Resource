@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./HomepageMenu.css";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../context/UserContext"; // Import UserContext
+import { UserContext } from "../../context/UserContext"; 
 import about from "../../assets/about.png";
 import admission from "../../assets/admission.png";
 import program from "../../assets/program.png";
@@ -70,7 +70,7 @@ const HomepageMenu = () => {
         {/* Conditionally render the Archive link if the user is logged in */}
         {loggedIn && (
           <li>
-            <Link to="/file1">
+            <Link to="/archive">
               <img className="button_img" src={archive} alt="Archive" />
             </Link>
           </li>
